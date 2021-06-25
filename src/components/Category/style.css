@@ -1,0 +1,30 @@
+.category {
+    /* padding: 0 24px 20px 24px; */
+    padding-bottom: 24px;
+}
+.header-user-info img {
+    width: 40px;
+}
+.menu img {
+    width: 15px;
+}
+.list {
+    top: 53px;
+}
+
+.showCategory {
+    transition: 0.5s;
+    opacity: 1;
+}
+
+@layer components {
+    .active-menu {
+        @apply text-white bg-blue;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .list {
+        top: 0!important;
+    }
+}

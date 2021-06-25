@@ -2,29 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* @layer components {
   .btn {
     @apply px-4 py-2 bg-blue-600 text-white rounded;
   }
 } */
 
+.container {
+    padding: 0 30px;
+}
+
 /* custom font-sizes */
 .ctext-xs {
-  font-size: 14px;
+    font-size: 14px;
 }
 .ctext-sm {
-  font-size: 15px;
+    font-size: 15px;
 }
 .ctext-base {
-  font-size: 16px;
+    font-size: 16px;
 }
 .ctext-lg {
-  font-size: 18px;
+    font-size: 18px;
 }
 .ctext-xl {
-  font-size: 24px;
+    font-size: 24px;
 }
 .ctext-2xl {
-  font-size: 28px;
+    font-size: 28px;
+}
+
+@media (max-width: 992px) {
+    .container {
+        padding: 0 15px;
+    }
+    .ctext-xs {
+        font-size: 12px;
+    }
+    .ctext-sm {
+        font-size: 13px;
+    }
+    .ctext-base {
+        font-size: 14px;
+    }
+    .ctext-lg {
+        font-size: 16px;
+    }
+    .ctext-xl {
+        font-size: 22px;
+    }
+    .ctext-2xl {
+        font-size: 26px;
+    }
 }

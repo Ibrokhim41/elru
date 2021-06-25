@@ -4,17 +4,24 @@ module.exports = {
     darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {},
+        screens: {
+            "sm": "576px",
+            "md": "769px",
+            "lg": "1024px",
+            "xl": "1200px"
+        },
         container: {
             screens: {
                 sm: "100%",
-                // 576px
-                md: "768px",
-                lg: "992px",
-                xl: "1200px",
-                "2xl": "1440px",
+                md: "992px",
+                lg: "1200px",
+                xl: "1440px",
             },
         },
         colors: {
+            white: {
+                DEFAULT: "#fff"
+            },
             blue: {
                 DEFAULT: "#01BEDE",
                 dark: "#445268",
@@ -25,6 +32,7 @@ module.exports = {
                 dark: "#616D75",
             },
             black: {
+                black: "#000",
                 DEFAULT: "#3E4549",
                 dark: "#242424",
             },
