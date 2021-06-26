@@ -52,7 +52,7 @@ const Header = () => {
             {/* header */}
             <div className="hidden sm:block bg-grey-light">
                 <div className="relative container mx-auto flex items-center justify-between">
-                    <div className={`absolute w-full lg:w-11/12 top-full left-0 ${catalog ? 'block showCategory' : 'hidden'}`}>
+                    <div className={`absolute w-full lg:w-11/12 top-full left-0 z-20 ${catalog ? 'block showCategory' : 'hidden'}`}>
                         <Category />
                     </div>
                     <button

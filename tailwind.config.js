@@ -5,10 +5,10 @@ module.exports = {
     theme: {
         extend: {},
         screens: {
-            "sm": "576px",
-            "md": "769px",
-            "lg": "1024px",
-            "xl": "1200px"
+            sm: "576px",
+            md: "769px",
+            lg: "1024px",
+            xl: "1200px",
         },
         container: {
             screens: {
@@ -20,7 +20,7 @@ module.exports = {
         },
         colors: {
             white: {
-                DEFAULT: "#fff"
+                DEFAULT: "#fff",
             },
             blue: {
                 DEFAULT: "#01BEDE",
@@ -40,6 +40,9 @@ module.exports = {
                 DEFAULT: "#EA3B3B",
                 light: "#F13636",
                 dark: "#D64C4C",
+            },
+            green: {
+                DEFAULT: "#219653",
             },
         },
     },

@@ -1,4 +1,35 @@
+.cart-container {
+    width: 205px;
+}
 .cart {
     width: 205px;
     height: 280px;
+}
+
+.text-doted {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 1200px) {
+    .cart-container {
+        width: 165px;
+    }
+    .cart {
+        width: 165px;
+        height: 226px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .cart-container {
+        width: 160px;
+    }
+    .cart {
+        width: 160px;
+        height: 226px;
+    }
 }
