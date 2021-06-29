@@ -4,9 +4,7 @@
 }
 .slick-prev:before,
 .slick-next:before {
-    font-size: 30px !important;
-    margin: 0;
-    padding: 0;
+    display: none;
 }
 .slick-dots li {
     border-radius: 50%;

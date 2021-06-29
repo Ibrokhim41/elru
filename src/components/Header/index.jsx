@@ -5,7 +5,6 @@ import icon_search from "assets/images/icon-search.svg"
 import icon_chat from "assets/images/icon-chat.svg"
 import icon_order from "assets/images/icon-order.svg"
 import icon_basket from "assets/images/icon-basket.svg"
-import user_photo from "assets/images/user_avatar 94.png"
 import mob_icon_home from "assets/images/mob-icon-home.svg"
 import mob_icon_basket from "assets/images/mob-icon-basket.svg"
 import mob_icon_user from "assets/images/mob-icon-user.svg"
@@ -106,7 +105,7 @@ const Header = () => {
                     <img src={mob_icon_search} alt="search-icon" />
                 </button>
             </div>
-            <div className="mob-bottom absolute bottom-0 left-0 w-full sm:hidden flex justify-around text-grey-dark ctext-xs bg-grey-light border-t border-grey">
+            <div className="mob-bottom z-30 fixed bottom-0 left-0 w-full sm:hidden flex justify-around text-grey-dark ctext-xs bg-grey-light border-t border-grey">
                 <div className="flex flex-col items-center cursor-pointer">
                     <img src={mob_icon_home} alt="home-icon" />
                     Магазин

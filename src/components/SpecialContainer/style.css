@@ -1,0 +1,17 @@
+.specialContainer .slick-prev:before,
+.specialContainer .slick-next:before {
+    display: none;
+}
+.specialContainer .slick-slide {
+    padding: 0 10px;
+}
+.specialContainer .slick-list {
+    /* margin: 0 -5px; */
+}
+
+@media screen and (max-width: 576px) {
+    .specialContainer .slick-prev, 
+    .specialContainer .slick-next {
+        display: none!important;
+    } 
+}

@@ -1,0 +1,4 @@
+.book-slider .slick-prev:before,
+.book-slider .slick-next:before {
+    display: none;
+}

@@ -1,0 +1,38 @@
+.month {
+    height: 360px;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    background-position: center!important;
+}
+.month-right {
+    margin: 0 auto;
+    width: 90%;
+    height: 280px;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    background-position: center!important;
+}
+
+@media screen and (max-width: 992px) {
+    .month {
+        height: 340px;
+    }
+}
+
+@media screen and (max-width: 776px) {
+    .month {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .month {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .month {
+        height: 120px;
+    }
+}

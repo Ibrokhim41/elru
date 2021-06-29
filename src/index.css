@@ -60,3 +60,27 @@ body {
         font-size: 26px;
     }
 }
+
+@media (max-width: 769px) {
+    .container {
+        padding: 0 15px;
+    }
+    .ctext-xs {
+        font-size: 12px;
+    }
+    .ctext-sm {
+        font-size: 13px;
+    }
+    .ctext-base {
+        font-size: 14px;
+    }
+    .ctext-lg {
+        font-size: 14px;
+    }
+    .ctext-xl {
+        font-size: 20px;
+    }
+    .ctext-2xl {
+        font-size: 22px;
+    }
+}

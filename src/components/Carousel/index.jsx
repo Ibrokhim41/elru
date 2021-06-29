@@ -1,4 +1,5 @@
 import "./style.css";
+import icon_chevron from "assets/images/chevron.svg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -7,14 +8,49 @@ import icon_arrow from 'assets/images/arrow.svg';
 
 const Carousel = () => {
 
+    // const SampleNextArrow = (props) => {
+    //     const { className, style, onClick } = props;
+    //     return (
+    //         <div
+    //             className={className}
+    //             style={{ ...style, display: "flex", height: "100%", width: "30px", fontSize: "35px", zIndex: "5", right: "0", top: "0", flexDirection: "column", justifyContent: "center", transform: "none" }}
+    //             onClick={onClick}
+    //         />
+    //     )
+    // }
+    // const SamplePrevArrow = (props) => {
+    //     const { className, style, onClick } = props;
+    //     return (
+    //         <div
+    //             className={className}
+    //             style={{ ...style, display: "flex", height: "100%", width: "30px", fontSize: "35px", zIndex: "5", left: "0", top: "0", flexDirection: "column", justifyContent: "center", transform: "none" }}
+    //             onClick={onClick}
+    //         />
+    //     )
+    // }
+
     const SampleNextArrow = (props) => {
         const { className, style, onClick } = props;
         return (
             <div
                 className={className}
-                style={{ ...style, display: "flex", height: "100%", width: "30px", fontSize: "35px", zIndex: "5", right: "0", top: "0", flexDirection: "column", justifyContent: "center", transform: "none" }}
+                style={{
+                    ...style,
+                    display: "flex",
+                    justifyContent: "center",
+                    background: "#fff",
+                    height: "40px",
+                    width: "40px",
+                    borderRadius: "50%",
+                    zIndex: "5",
+                    right: "0",
+                    top: "50%",
+                    boxShadow: "4px 4px 4px -1px rgba(0, 0, 0, 0.04)"
+                }}
                 onClick={onClick}
-            />
+            >
+                <img src={icon_chevron} alt="chevron-icon" className="w-3" />
+            </div>
         )
     }
     const SamplePrevArrow = (props) => {
@@ -22,9 +58,23 @@ const Carousel = () => {
         return (
             <div
                 className={className}
-                style={{ ...style, display: "flex", height: "100%", width: "30px", fontSize: "35px", zIndex: "5", left: "0", top: "0", flexDirection: "column", justifyContent: "center", transform: "none" }}
+                style={{
+                    ...style,
+                    display: "flex",
+                    background: "#fff",
+                    borderRadius: "50%",
+                    height: "40px",
+                    width: "40px",
+                    zIndex: "5",
+                    left: "0",
+                    top: "50%",
+                    justifyContent: "center",
+                    boxShadow: "4px 4px 4px 1px rgba(0, 0, 0, 0.04)"
+                }}
                 onClick={onClick}
-            />
+            >
+                <img src={icon_chevron} alt="chevron-icon" className="w-3 transform rotate-180" />
+            </div>
         )
     }
 
@@ -38,7 +88,7 @@ const Carousel = () => {
     };
 
     return (
-        <div className="container mx-auto w-full hidden sm:flex flex-col lg:flex-row justify-between gap-2 md:gap-4">
+        <div className="container mx-auto w-full hidden sm:flex flex-col lg:flex-row justify-between gap-2 md:gap-4 my-4">
             {/* left */}
             <div className="w-full lg:w-8/12">
                 <Slider {...settings}>
@@ -66,7 +116,7 @@ const Carousel = () => {
                 </Slider>
             </div>
             {/* right */}
-            <div className="w-full lg:w-4/12 flex lg:flex-col lg:justify-between gap-4 mt-6 lg:mt-4">
+            <div className="w-full lg:w-4/12 flex lg:flex-col lg:justify-between items-center gap-4 mt-6 md:mt-4 lg:mt-0">
                 <div 
                     style={{ backgroundImage: `url('https://cdn.slidesharecdn.com/ss_thumbnails/amazoncreatespacehorrorebookcoverdesign2-190315015045-thumbnail-4.jpg?cb=1552614805')` }}
                     className="w-full h-36 md:h-40 lg:h-1/2 cursor-pointer rounded-md bg-center bg-cover bg-no-repeat"></div>

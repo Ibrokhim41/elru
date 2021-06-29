@@ -13,7 +13,8 @@ module.exports = {
         container: {
             screens: {
                 sm: "100%",
-                md: "992px",
+                // md: "992px",
+                md: "100%",
                 lg: "1200px",
                 xl: "1440px",
             },
@@ -47,7 +48,9 @@ module.exports = {
         },
     },
     variants: {
-        extend: {},
+        extend: {
+            translate: ["group-hover"],
+        },
     },
     plugins: [],
 };

@@ -32,17 +32,11 @@ const Category = () => {
             <div className="header-search flex md:hidden justify-center my-4 mb-8 px-4">
                 <input type="text" placeholder="Введите книгу, автора..." className="h-full w-full rounded border border-grey focus:outline-none px-3 text-grey-dark" />
                 <button className="h-full bg-blue rounded px-3 -ml-1 focus:outline-none"><img src={icon_search} alt="search-icon" /></button>
-            </div><div className="hidden xl:flex items-center header-user-login">
-                <div className="flex justify-center items-center w-10 h-10 rounded-full bg-white border border-grey">
-                    <img src={mob_icon_user} alt="user-avatar" className="object-cover" />
-                </div>
-                <div className="ctext-sm text-grey-dark font-medium mx-2 cursor-pointer hover:text-blue">Войти</div>
-                <img src={arrow_black} alt="arrow-icon" width="15px" />
             </div>
             {/* menu */}
             <div className="menu relative w-screen lg:w-full h-screen lg:h-full overflow-hidden">
                 <div className="absolute w-full bg-grey-light block lg:hidden text-grey-dark font-bold">
-                    <div 
+                    <div
                         onClick={() => setShowCatalog(!showCatalog)}
                         className="flex p-4 active-menu">
                         {showCatalog ? "Назад" : "Категории"}
