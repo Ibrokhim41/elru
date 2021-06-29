@@ -7,6 +7,7 @@ import { useState } from 'react';
 import icon_chevron from 'assets/images/chevron.svg';
 import animateScrollTo from "animated-scroll-to";
 import {useWindowDimensions} from "hooks/ScreenWidth"
+import { useEffect } from 'react';
 
 const CartSliderContainer = () => {
 
@@ -14,6 +15,10 @@ const CartSliderContainer = () => {
 
     const [books, setBooks] = useState(JsonData)
     const [pageNumber, setPageNumber] = useState(0)
+
+    useEffect(() => {
+        setBooks(JsonData)
+    }, [])
 
     const booksPerPage = width > 1440 ? 24 : width > 1200 ? 20 : width > 1060 ? 24 : width > 862 ? 20 : width > 693 ? 16 : 12
     const pagesVisited = pageNumber * booksPerPage

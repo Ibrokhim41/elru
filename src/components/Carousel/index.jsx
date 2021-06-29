@@ -3,7 +3,6 @@ import icon_chevron from "assets/images/chevron.svg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import icon_arrow from 'assets/images/arrow.svg';
 
 
 const Carousel = () => {
