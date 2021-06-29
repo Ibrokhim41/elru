@@ -6,7 +6,7 @@ import Discounts from "pages/Discounts";
 
 function App() {
     return (
-        <div className="App">
+        <div className="App mb-20 sm:mb-0">
             <Header />
             <Discounts />
             <Footer />
