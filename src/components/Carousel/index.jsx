@@ -8,27 +8,6 @@ import icon_arrow from 'assets/images/arrow.svg';
 
 const Carousel = () => {
 
-    // const SampleNextArrow = (props) => {
-    //     const { className, style, onClick } = props;
-    //     return (
-    //         <div
-    //             className={className}
-    //             style={{ ...style, display: "flex", height: "100%", width: "30px", fontSize: "35px", zIndex: "5", right: "0", top: "0", flexDirection: "column", justifyContent: "center", transform: "none" }}
-    //             onClick={onClick}
-    //         />
-    //     )
-    // }
-    // const SamplePrevArrow = (props) => {
-    //     const { className, style, onClick } = props;
-    //     return (
-    //         <div
-    //             className={className}
-    //             style={{ ...style, display: "flex", height: "100%", width: "30px", fontSize: "35px", zIndex: "5", left: "0", top: "0", flexDirection: "column", justifyContent: "center", transform: "none" }}
-    //             onClick={onClick}
-    //         />
-    //     )
-    // }
-
     const SampleNextArrow = (props) => {
         const { className, style, onClick } = props;
         return (
@@ -116,13 +95,13 @@ const Carousel = () => {
                 </Slider>
             </div>
             {/* right */}
-            <div className="w-full lg:w-4/12 flex lg:flex-col lg:justify-between items-center gap-4 mt-6 md:mt-4 lg:mt-0">
+            <div className="w-full lg:w-4/12 flex lg:flex-col lg:justify-between items-center mt-6 md:mt-4 lg:mt-0">
                 <div 
                     style={{ backgroundImage: `url('https://cdn.slidesharecdn.com/ss_thumbnails/amazoncreatespacehorrorebookcoverdesign2-190315015045-thumbnail-4.jpg?cb=1552614805')` }}
-                    className="w-full h-36 md:h-40 lg:h-1/2 cursor-pointer rounded-md bg-center bg-cover bg-no-repeat"></div>
+                    className="w-full h-36 mr-2 lg:mr-0 lg:mb-2 md:h-40 lg:h-1/2 cursor-pointer rounded-md bg-center bg-cover bg-no-repeat"></div>
                 <div 
                     style={{ backgroundImage: `url('https://i.ytimg.com/vi/TwsZmALRq5w/maxresdefault.jpg')` }}
-                    className="w-full h-36 md:h-40 lg:h-1/2 cursor-pointer rounded-md bg-center bg-cover bg-no-repeat"></div>
+                    className="w-full h-36 ml-2 lg:ml-0 lg:mt-2 md:h-40 lg:h-1/2 cursor-pointer rounded-md bg-center bg-cover bg-no-repeat"></div>
             </div>
         </div>
     )

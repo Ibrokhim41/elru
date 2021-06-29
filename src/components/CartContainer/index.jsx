@@ -41,7 +41,7 @@ const CartSliderContainer = () => {
 
     return (
         <>
-            <div className="container mx-auto flex flex-wrap my-10 gap-y-6 gap-x-2">
+            <div className="container mx-auto flex flex-wrap my-4 md:my-8 gap-x-2">
                 {displayBooks}
                 <ReactPaginate 
                     previousLabel={prev}

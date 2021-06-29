@@ -4,7 +4,7 @@ const Cart = ({ img = "https://i.pinimg.com/736x/3a/b7/af/3ab7af70652b87ba70afd1
 
     return (
         // <div className="container mx-auto flex flex-wrap justify-between">
-            <div className="cart-container mx-auto">
+            <div className="cart-container mx-auto mt-4">
                 <div
                     style={{ backgroundImage: `url('${img}')` }}
                     className="cart relative bg-center bg-cover bg-no-repeat cursor-pointer"
