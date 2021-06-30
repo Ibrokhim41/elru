@@ -1,0 +1,12 @@
+.news-img {
+    width: 100%;
+    height: 200px;
+}
+
+.top-books .slick-prev:before,
+.top-books .slick-next:before {
+    display: none;
+}
+.news .slick-arrow {
+    display: none!important;
+}

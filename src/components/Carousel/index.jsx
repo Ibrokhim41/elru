@@ -94,7 +94,7 @@ const Carousel = () => {
                 </Slider>
             </div>
             {/* right */}
-            <div className="w-full lg:w-4/12 flex lg:flex-col lg:justify-between items-center mt-6 md:mt-4 lg:mt-0">
+            <div className="w-full lg:w-4/12 flex lg:flex-col lg:justify-between items-center mt-8 md:mt-4 lg:mt-0">
                 <div 
                     style={{ backgroundImage: `url('https://cdn.slidesharecdn.com/ss_thumbnails/amazoncreatespacehorrorebookcoverdesign2-190315015045-thumbnail-4.jpg?cb=1552614805')` }}
                     className="w-full h-36 mr-2 lg:mr-0 lg:mb-2 md:h-40 lg:h-1/2 cursor-pointer rounded-md bg-center bg-cover bg-no-repeat"></div>
