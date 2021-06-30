@@ -24,12 +24,12 @@
     }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 576px) {
     .cart-container {
-        width: 160px;
+        width: 140px!important;
     }
     .cart {
-        width: 160px;
-        height: 226px;
+        width: 140px!important;
+        height: 210px;
     }
 }

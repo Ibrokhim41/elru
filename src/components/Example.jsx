@@ -1,10 +1,10 @@
-const { default: NewsContainer } = require("./NewsContainer")
+import Home from "pages/Home";
 
 
 const Example = () => {
     return (
         <>
-            <NewsContainer />
+            <Home />
         </>
     )
 }
