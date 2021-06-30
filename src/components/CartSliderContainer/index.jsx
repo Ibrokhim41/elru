@@ -64,7 +64,7 @@ const CartSliderContainer = ({title, linkText}) => {
         autoplay: true,
         infinite: true,
         speed: 500,
-        slidesToShow: width > "1440" ? 6 : width > "992" ? 5 : width > "769" ? 4 : width > "530" ? 3 : width > "380" ? 2 : 1,
+        slidesToShow: width > "1440" ? 6 : width > "992" ? 5 : width > "769" ? 4 : width > "530" ? 3 : width > "380" ? 2 : 2,
         slidesToScroll: 2,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />

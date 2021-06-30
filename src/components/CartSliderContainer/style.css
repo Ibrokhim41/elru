@@ -2,3 +2,9 @@
 .book-slider .slick-next:before {
     display: none;
 }
+
+@media screen and (max-width: 530px) {
+    .slick-arrow {
+        display: none!important;
+    }
+}
