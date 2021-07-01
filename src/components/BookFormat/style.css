@@ -1,0 +1,7 @@
+.discount-line::after {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 1px;
+    background-color: #EA3B3B;
+}

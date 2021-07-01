@@ -9,6 +9,7 @@ module.exports = {
             md: "769px",
             lg: "1024px",
             xl: "1200px",
+            "2xl": "1440px",
         },
         container: {
             screens: {
@@ -31,6 +32,7 @@ module.exports = {
                 DEFAULT: "#C0C0C0",
                 light: "#F3F6F9",
                 dark: "#616D75",
+                border: "#DEDEDE",
             },
             black: {
                 black: "#000",
