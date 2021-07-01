@@ -1,10 +1,11 @@
-import Home from "pages/Home";
+const { default: Book } = require("pages/Book")
+
 
 
 const Example = () => {
     return (
         <>
-            <Home />
+            <Book />
         </>
     )
 }
