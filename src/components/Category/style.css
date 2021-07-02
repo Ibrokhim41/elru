@@ -12,10 +12,7 @@
     top: 53px;
 }
 
-.showCategory {
-    transition: 0.5s;
-    opacity: 1;
-}
+
 
 @layer components {
     .active-menu {

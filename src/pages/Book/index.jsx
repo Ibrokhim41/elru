@@ -1,8 +1,10 @@
-const { default: BookFormat } = require("components/BookFormat")
-const { default: BookGallery } = require("components/BookGallery")
-const { default: BookInfo } = require("components/BookInfo")
+import Comment from "components/Comment"
+import BookFormat   from "components/BookFormat";
+import BookGallery   from "components/BookGallery";
+import BookInfo   from "components/BookInfo";
+import BookSmillar   from "components/BookSmillar";
 
-const Book = () => {
+const Book = () => {    
 
     return (
         <div className="container mx-auto grid grid-cols-12 my-10">
@@ -14,6 +16,12 @@ const Book = () => {
             </div>
             <div className="col-span-12 xl:col-span-4">
                 <BookFormat />
+            </div>
+            <div className="col-span-12 my-8">
+                <BookSmillar />
+            </div>
+            <div className="col-span-12 mt-10">
+                <Comment />
             </div>
         </div>
     )
