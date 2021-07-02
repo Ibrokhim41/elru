@@ -76,10 +76,10 @@ const BookInfo = () => {
             {/* titile */}
             <div className="text-blue-dark ctext-xl font-bold">Уродина, в поисках пути к счастью и процветанию</div>
             {/* discount */}
-            <div className="flex gap-2 mt-4">
-                <div className="py-1 px-2 text-white rounded-md font-bold ctext-base bg-red-dark">Бестселлер</div>
-                <div className="py-1 px-2 text-white rounded-md font-bold ctext-base bg-green">Новинка</div>
-                <div className="py-1 px-2 text-white rounded-md font-bold ctext-base bg-blue">-90%</div>
+            <div className="flex mt-4">
+                <div className="py-1 px-2 mx-1 text-white rounded-md font-bold ctext-base bg-red-dark">Бестселлер</div>
+                <div className="py-1 px-2 mx-1 text-white rounded-md font-bold ctext-base bg-green">Новинка</div>
+                <div className="py-1 px-2 mx-1 text-white rounded-md font-bold ctext-base bg-blue">-90%</div>
             </div>
             {/* category author */}
             <div className="text-grey-dark ctext-base font-medium mt-2 mb-4">2020</div>

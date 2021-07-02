@@ -49,7 +49,7 @@ const Category = () => {
                     <div className="p-4">Обратная связь </div>
                 </div>
                 {/* list */}
-                <div className={`list absolute lg:relative shadow-md transition-all duration-500 ${showCatalog ? 'right-0' : 'right-full'} lg:left-0 flex lg:flex-row flex-wrap bg-grey-light lg:bg-white`}>
+                <div className={`list absolute lg:relative border-r border-blue transition-all duration-1000 ${showCatalog ? 'right-0' : 'right-full'} lg:left-0 flex lg:flex-row flex-wrap bg-grey-light lg:bg-white`}>
                     <div className="w-full lg:w-1/4 mt-6 p-3">
                         <div className="inline-block border-b-2 border-grey-light lg:border-white hover:border-blue hover:text-blue cursor-pointer">
                             Детективы

@@ -1,0 +1,16 @@
+.book-smillar-slider .slick-prev:before,
+.book-smillar-slider .slick-next:before {
+    display: none;
+}
+
+.book-smillar {
+    min-width: 100px;
+    height: 135px;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    background-position: center!important;
+}
+
+.book-smillar-container {
+    padding: 0;
+}
