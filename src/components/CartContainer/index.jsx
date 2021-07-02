@@ -41,7 +41,7 @@ const CartSliderContainer = () => {
 
     useEffect(() => {
         setBooks(JsonData)
-    })
+    },[])
 
     return (
         <>
