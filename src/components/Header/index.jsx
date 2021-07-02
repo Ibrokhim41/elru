@@ -12,10 +12,11 @@ import mob_icon_search from "assets/images/mob-icon-search.svg"
 import arrow_black from "assets/images/arrow-black.svg"
 import Category from "components/Category"
 import { useState } from "react"
-
+import { useHistory } from "react-router-dom"
 
 const Header = () => {
 
+    const route = useHistory()
     const [catalog, setCatalog] = useState(false)
 
     return (
@@ -24,15 +25,23 @@ const Header = () => {
             <div className="header-top container mx-auto hidden sm:flex items-center text-grey-dark font-bold">
                 {/* logo */}
                 <div className="flex-auto">
-                    <div className="cursor-pointer">
+                    <div 
+                        onClick={() => route.push('/')}
+                        className="cursor-pointer">
                         <img src={elru_logo} alt="elru.uz_logo" />
                     </div>
                 </div>
                 {/* nav-top */}
                 <div className="nav-top hidden xl:flex flex-auto justify-around ctext-xs">
-                    <div className="hover:text-blue cursor-pointer">Акции и скидки</div>
-                    <div className="hover:text-blue cursor-pointer">Топ - книги</div>
-                    <div className="hover:text-blue cursor-pointer">Новости</div>
+                    <div 
+                        onClick={() => route.push('/discounts')}
+                        className="hover:text-blue cursor-pointer">Акции и скидки</div>
+                    <div 
+                        onClick={() => route.push('/tops')}
+                        className="hover:text-blue cursor-pointer">Топ - книги</div>
+                    <div
+                        onClick={() => route.push('/news')} 
+                        className="hover:text-blue cursor-pointer">Новости</div>
                     <div className="hover:text-blue cursor-pointer">Оплата</div>
                     <div className="hover:text-blue cursor-pointer">Обратная связь</div>
                 </div>

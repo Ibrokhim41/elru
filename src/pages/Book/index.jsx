@@ -3,8 +3,14 @@ import BookFormat   from "components/BookFormat";
 import BookGallery   from "components/BookGallery";
 import BookInfo   from "components/BookInfo";
 import BookSmillar   from "components/BookSmillar";
+import animateScrollTo from "animated-scroll-to";
+import { useEffect } from 'react';
 
 const Book = () => {    
+
+    useEffect(() => {
+        animateScrollTo(0)
+    }, [])
 
     return (
         <div className="container mx-auto grid grid-cols-12 my-10">

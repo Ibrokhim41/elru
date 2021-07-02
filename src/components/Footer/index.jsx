@@ -4,19 +4,31 @@ import { RiInstagramFill } from "react-icons/ri"
 import { FaFacebookSquare } from "react-icons/fa"
 import google_play from "assets/images/google_play.png"
 import app_store from "assets/images/app_store.png"
+import { useHistory } from 'react-router-dom';
+
 
 const Footer = () => {
+
+    const route = useHistory()
 
     return (
         <div className="footer bg-blue-dark hidden sm:block">
             {/* footer-top */}
             <div className="container mx-auto flex flex-col xl:flex-row justify-between flex-wrap mb-10">
                 <div className="w-3/5 md:w-5/6 xl:w-4/6 flex mx-auto flex-wrap ctext-base text-white font-bold">
-                    <div className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Акции и скидки</div>
-                    <div className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Новинки</div>
-                    <div className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Новости</div>
+                    <div
+                        onClick={() => route.push('/discounts')} 
+                        className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Акции и скидки</div>
+                    <div 
+                        
+                        className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Новинки</div>
+                    <div 
+                        onClick={() => route.push('/news')}
+                        className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Новости</div>
                     <div className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Обратная связь</div>
-                    <div className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Топ - книги</div>
+                    <div 
+                        onClick={() => route.push('/tops')}
+                        className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Топ - книги</div>
                     <div className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Популярное</div>
                     <div className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Оплата</div>
                     <div className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Договор оферты</div>

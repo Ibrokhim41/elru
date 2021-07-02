@@ -1,11 +1,15 @@
 import "./style.css"
+import { useHistory } from 'react-router-dom';
 
 const Cart = ({ img = "https://i.pinimg.com/736x/3a/b7/af/3ab7af70652b87ba70afd133e0258afc.jpg", author = "Скотт Вестерфельд", classAdd = "" }) => {
+
+    const route = useHistory()
 
     return (
         // <div className="container mx-auto flex flex-wrap justify-between">
         <div className={`cart-container mx-auto ${classAdd} mt-4`}>
             <div
+                onClick={() => route.push('/book')} 
                 style={{ backgroundImage: `url('${img}')` }}
                 className="cart relative bg-center bg-cover bg-no-repeat cursor-pointer"
             >

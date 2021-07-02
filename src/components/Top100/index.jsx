@@ -1,8 +1,14 @@
 
+import animateScrollTo from 'animated-scroll-to';
 import CartContainer from 'components/CartContainer';
+import { useEffect } from 'react';
 
 
 const Top100 = () => {
+
+    useEffect(() => {
+        animateScrollTo(0)
+    }, [])
 
     return (
         <div>
