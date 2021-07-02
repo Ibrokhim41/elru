@@ -4,9 +4,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useWindowDimensions } from "../../hooks/ScreenWidth"
+import { useHistory } from 'react-router-dom';
 
 const SpecialContainer = () => {
 
+    const route = useHistory()
     const { width } = useWindowDimensions();
 
     const SampleNextArrow = (props) => {
@@ -73,27 +75,30 @@ const SpecialContainer = () => {
         <div className="bg-grey-light py-7">
             <div className="specialContainer container mx-auto">
                 <Slider {...settings}>
-                    <div className="cursor-pointer">
+                    <div 
+                        onClick={() => route.push('/book')}
+                        className="cursor-pointer">
                         <img src="https://i.ytimg.com/vi/awfn8dP1UYI/maxresdefault.jpg" alt="post" className="w-full h-36 object-cover rounded-md" />
                         <div className="ctext-base text-black font-medium mt-4">Скидка 20% на все книги категории “Ужасы”</div>
                     </div>
-                    <div className="cursor-pointer">
+                    <div
+                        onClick={() => route.push('/book')}
+                        className="cursor-pointer">
                         <img src="https://i.ytimg.com/vi/awfn8dP1UYI/maxresdefault.jpg" alt="post" className="w-full h-36 object-cover rounded-md" />
                         <div className="ctext-base text-black font-medium mt-4">Скидка 20% на все книги категории “Ужасы”</div>
-                    </div>
-                    <div className="cursor-pointer">
+                    </div><div
+                        onClick={() => route.push('/book')}
+                        className="cursor-pointer">
                         <img src="https://i.ytimg.com/vi/awfn8dP1UYI/maxresdefault.jpg" alt="post" className="w-full h-36 object-cover rounded-md" />
                         <div className="ctext-base text-black font-medium mt-4">Скидка 20% на все книги категории “Ужасы”</div>
-                    </div>
-                    <div className="cursor-pointer">
+                    </div><div
+                        onClick={() => route.push('/book')}
+                        className="cursor-pointer">
                         <img src="https://i.ytimg.com/vi/awfn8dP1UYI/maxresdefault.jpg" alt="post" className="w-full h-36 object-cover rounded-md" />
                         <div className="ctext-base text-black font-medium mt-4">Скидка 20% на все книги категории “Ужасы”</div>
-                    </div>
-                    <div className="cursor-pointer">
-                        <img src="https://i.ytimg.com/vi/awfn8dP1UYI/maxresdefault.jpg" alt="post" className="w-full h-36 object-cover rounded-md" />
-                        <div className="ctext-base text-black font-medium mt-4">Скидка 20% на все книги категории “Ужасы”</div>
-                    </div>
-                    <div className="cursor-pointer">
+                    </div><div
+                        onClick={() => route.push('/book')}
+                        className="cursor-pointer">
                         <img src="https://i.ytimg.com/vi/awfn8dP1UYI/maxresdefault.jpg" alt="post" className="w-full h-36 object-cover rounded-md" />
                         <div className="ctext-base text-black font-medium mt-4">Скидка 20% на все книги категории “Ужасы”</div>
                     </div>

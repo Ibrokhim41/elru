@@ -5,9 +5,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useWindowDimensions } from "../../hooks/ScreenWidth";
+import { useHistory } from 'react-router-dom';
 
 const TopBooksContainer = () => {
 
+    const route = useHistory()
     const { width } = useWindowDimensions();
 
     const SampleNextArrow = (props) => {
@@ -73,81 +75,90 @@ const TopBooksContainer = () => {
     return (
         <div className="bg-grey-light py-10 top-books">
             {width > 576 ?
-            <Slider  {...settings} className="container mx-auto">
-                <span>
-                    <div className="w-full bg-white flex rounded-md py-7 px-9">
-                        <div className="flex flex-col justify-between">
-                            <div>
-                                <div className="ctext-2xl text-black font-bold uppercase">Топ 100 книг по саморазвитию</div>
-                                <div className="ctext-base text-grey font-medium">Лучшая подборка для тех, кто ищет мотивацию именно в книгах</div>
+                <Slider  {...settings} className="container mx-auto">
+                    <span>
+                        <div className="w-full bg-white flex rounded-md py-7 px-9">
+                            <div className="flex flex-col justify-between">
+                                <div>
+                                    <div className="ctext-2xl text-black font-bold uppercase">Топ 100 книг по саморазвитию</div>
+                                    <div className="ctext-base text-grey font-medium">Лучшая подборка для тех, кто ищет мотивацию именно в книгах</div>
+                                </div>
+                                <button
+                                    onClick={() => route.push('/top100')}
+                                    className="w-min ctext-base font-bold text-white bg-blue rounded-md py-3 px-10 focus:outline-none">Посмотреть</button>
                             </div>
-                            <button className="w-min ctext-base font-bold text-white bg-blue rounded-md py-3 px-10 focus:outline-none">Посмотреть</button>
+                            <div
+                                style={{ background: "url('https://cdn1.ozone.ru/multimedia/1019443093.jpg')" }}
+                                className="top-books-img ml-4 rounded-md"
+                            ></div>
                         </div>
-                        <div
-                            style={{ background: "url('https://cdn1.ozone.ru/multimedia/1019443093.jpg')" }}
-                            className="top-books-img ml-4 rounded-md"
-                        ></div>
-                    </div>
-                </span>
-                <span>
-                    <div className="w-full bg-white flex rounded-md py-7 px-9">
-                        <div className="flex flex-col justify-between">
-                            <div>
-                                <div className="ctext-2xl text-black font-bold uppercase">Топ 100 книг по саморазвитию</div>
-                                <div className="ctext-base text-grey font-medium">Лучшая подборка для тех, кто ищет мотивацию именно в книгах</div>
+                    </span>
+                    <span>
+                        <div className="w-full bg-white flex rounded-md py-7 px-9">
+                            <div className="flex flex-col justify-between">
+                                <div>
+                                    <div className="ctext-2xl text-black font-bold uppercase">Топ 100 книг по саморазвитию</div>
+                                    <div className="ctext-base text-grey font-medium">Лучшая подборка для тех, кто ищет мотивацию именно в книгах</div>
+                                </div>
+                                <button
+                                    onClick={() => route.push('/top100')}
+                                    className="w-min ctext-base font-bold text-white bg-blue rounded-md py-3 px-10 focus:outline-none">Посмотреть</button>
                             </div>
-                            <button className="w-min ctext-base font-bold text-white bg-blue rounded-md py-3 px-10 focus:outline-none">Посмотреть</button>
+                            <div
+                                style={{ background: "url('https://cdn1.ozone.ru/multimedia/1019443093.jpg')" }}
+                                className="top-books-img ml-4 rounded-md"
+                            ></div>
                         </div>
-                        <div
-                            style={{ background: "url('https://zvukobook.ru/800/600/https/chitatel.by/storage/thumbs/5e/h1001_w1001_5e53bd2f963174b66e6d3b9a39dbcf7c.jpg')" }}
-                            className="top-books-img ml-4 rounded-md"
-                        ></div>
-                    </div>
-                </span>
-                <span>
-                    <div className="w-full bg-white flex rounded-md py-7 px-9">
-                        <div className="flex flex-col justify-between">
-                            <div>
-                                <div className="ctext-2xl text-black font-bold uppercase">Топ 100 книг по саморазвитию</div>
-                                <div className="ctext-base text-grey font-medium">Лучшая подборка для тех, кто ищет мотивацию именно в книгах</div>
+                    </span><span>
+                        <div className="w-full bg-white flex rounded-md py-7 px-9">
+                            <div className="flex flex-col justify-between">
+                                <div>
+                                    <div className="ctext-2xl text-black font-bold uppercase">Топ 100 книг по саморазвитию</div>
+                                    <div className="ctext-base text-grey font-medium">Лучшая подборка для тех, кто ищет мотивацию именно в книгах</div>
+                                </div>
+                                <button
+                                    onClick={() => route.push('/top100')}
+                                    className="w-min ctext-base font-bold text-white bg-blue rounded-md py-3 px-10 focus:outline-none">Посмотреть</button>
                             </div>
-                            <button className="w-min ctext-base font-bold text-white bg-blue rounded-md py-3 px-10 focus:outline-none">Посмотреть</button>
+                            <div
+                                style={{ background: "url('https://cdn1.ozone.ru/multimedia/1019443093.jpg')" }}
+                                className="top-books-img ml-4 rounded-md"
+                            ></div>
                         </div>
-                        <div
-                            style={{ background: "url('https://cdn.nur.kz/images/1200x675/05076353e7729930.jpeg?version=2')" }}
-                            className="top-books-img ml-4 rounded-md"
-                        ></div>
+                    </span>
+                </Slider>
+                :
+                <div className="container mx-auto">
+                    {/* for mobile */}
+                    {/* titile */}
+                    <div className="w-full flex justify-between mb-4">
+                        <div className="ctext-xl text-black font-bold">Топ - 100</div>
+                        <div className="ctext-lg text-blue flex items-center cursor-pointer group">Все {width > 410 && "рекомендованные"} <img src={icon_arrow} alt="arrow-icon" className="w-4 h-4 ml-2 transition-all transform group-hover:translate-x-1" /></div>
                     </div>
-                </span>
-            </Slider>
-            :
-            <div className="container mx-auto">
-                {/* for mobile */}
-                {/* titile */}
-                <div className="w-full flex justify-between mb-4">
-                    <div className="ctext-xl text-black font-bold">Топ - 100</div>
-                    <div className="ctext-lg text-blue flex items-center cursor-pointer group">Все {width > 410 && "рекомендованные"} <img src={icon_arrow} alt="arrow-icon" className="w-4 h-4 ml-2 transition-all transform group-hover:translate-x-1" /></div>
-                </div>
-                {/* container */}
-                <div className="flex items-center mb-4">
-                    <div className="w-20 h-20 flex justify-center items-center rounded-md bg-white border border-grey">
-                        <span
-                            style={{ background: "url('https://cdn1.ozone.ru/multimedia/1019443093.jpg')" }}
-                            className="mob-top-book-img block"
-                        ></span>
+                    {/* container */}
+                    <div
+                        onClick={() => route.push('/top100')}
+                        className="flex items-center mb-4">
+                        <div className="w-20 h-20 flex justify-center items-center rounded-md bg-white border border-grey">
+                            <span
+                                style={{ background: "url('https://cdn1.ozone.ru/multimedia/1019443093.jpg')" }}
+                                className="mob-top-book-img block"
+                            ></span>
+                        </div>
+                        <div className="ctext-lg text-dark font-semibold ml-4">Топ 100 шедевров научной фантастики</div>
                     </div>
-                    <div className="ctext-lg text-dark font-semibold ml-4">Топ 100 шедевров научной фантастики</div>
-                </div>
-                <div className="flex items-center mb-4">
-                    <div className="w-20 h-20 flex justify-center items-center rounded-md bg-white border border-grey">
-                        <span
-                            style={{ background: "url('https://cdn1.ozone.ru/multimedia/1019443093.jpg')" }}
-                            className="mob-top-book-img block"
-                        ></span>
+                    <div
+                        onClick={() => route.push('/top100')}
+                        className="flex items-center mb-4">
+                        <div className="w-20 h-20 flex justify-center items-center rounded-md bg-white border border-grey">
+                            <span
+                                style={{ background: "url('https://cdn1.ozone.ru/multimedia/1019443093.jpg')" }}
+                                className="mob-top-book-img block"
+                            ></span>
+                        </div>
+                        <div className="ctext-lg text-dark font-semibold ml-4">Топ 100 шедевров научной фантастики</div>
                     </div>
-                    <div className="ctext-lg text-dark font-semibold ml-4">Топ 100 шедевров научной фантастики</div>
-                </div>
-            </div>}
+                </div>}
         </div>
     )
 }

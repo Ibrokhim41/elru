@@ -5,9 +5,11 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {useWindowDimensions} from "../../hooks/ScreenWidth";
+import { useHistory } from 'react-router-dom';
 
 const NewsContainer = () => {
 
+    const route = useHistory()
     const {width} = useWindowDimensions();
 
     const SampleNextArrow = (props) => {
@@ -76,7 +78,9 @@ const NewsContainer = () => {
             {/* title */}
             < div className="w-full flex justify-between mb-7" >
                 <div className="ctext-xl text-black font-bold">Новости</div>
-                <div className="ctext-lg text-blue flex items-center cursor-pointer group">Все {width > 410 && "рекомендованные"} <img src={icon_arrow} alt="arrow-icon" className="w-4 h-4 ml-2 transition-all transform group-hover:translate-x-1" /></div>
+                <div 
+                    onClick={() => route.push('/news')}
+                    className="ctext-lg text-blue flex items-center cursor-pointer group">Все {width > 410 && "рекомендованные"} <img src={icon_arrow} alt="arrow-icon" className="w-4 h-4 ml-2 transition-all transform group-hover:translate-x-1" /></div>
             </div >
             {/* body */}
             <Slider {...settings}>
