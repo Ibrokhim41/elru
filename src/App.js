@@ -2,10 +2,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Example from "./components/Example";
 import Footer from "components/Footer";
 import Header from "components/Header";
-<<<<<<< HEAD
-// import Discounts from "pages/Discounts";
-// import Home from "pages/Home";
-=======
 import Home from "pages/Home";
 import News from "pages/News"
 import SearchResult from './pages/SearchResult/index';
@@ -13,7 +9,6 @@ import Tops from "pages/Tops";
 import Top100 from "components/Top100";
 import Discounts from "pages/Discounts";
 import Book from "pages/Book";
->>>>>>> c91c5f0b95d8bee662b8abb049df032e528bb66a
 
 function App() {
     return (
