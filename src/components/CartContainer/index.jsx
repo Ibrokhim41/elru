@@ -3,7 +3,7 @@ import "./style.css"
 import Cart from '../Cart/index';
 import ReactPaginate from "react-paginate";
 import JsonData from "MOCK_DATA.json"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import icon_chevron from 'assets/images/chevron.svg';
 import animateScrollTo from "animated-scroll-to";
 import { useWindowDimensions } from "hooks/ScreenWidth"
@@ -38,6 +38,10 @@ const CartSliderContainer = () => {
     const next = <div>
         <img src={icon_chevron} alt="next" className="" />
     </div>
+
+    useEffect(() => {
+        setBooks(JsonData)
+    })
 
     return (
         <>
