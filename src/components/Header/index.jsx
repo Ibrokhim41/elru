@@ -19,7 +19,6 @@ const Header = () => {
 
     const route = useHistory()
     const [catalog, setCatalog] = useState(false)
-    const [clickOutside, setClickOutside] = useState(false)
 
     console.log(catalog);
 
