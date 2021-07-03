@@ -9,7 +9,6 @@ import animateScrollTo from "animated-scroll-to";
 import { useWindowDimensions } from "hooks/ScreenWidth"
 
 const CartSliderContainer = ({ grid = "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6", rows={xl: 24, lg: 20, md: 15, sm: 12}}) => {
-    console.log(rows);
     const { width } = useWindowDimensions()
 
     const [books, setBooks] = useState(JsonData)
