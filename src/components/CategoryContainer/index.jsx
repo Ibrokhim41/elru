@@ -2,7 +2,7 @@ import "./style.css"
 import { BiChevronDown } from 'react-icons/bi';
 import { AiOutlineClose } from 'react-icons/ai'
 import { GoSettings} from 'react-icons/go'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CartContainer from 'components/CartContainer';
 
 const CategoryContainer = () => {
@@ -11,6 +11,10 @@ const CategoryContainer = () => {
     const [showFilter2, setShowFilter2] = useState(false)
     const [showFilter3, setShowFilter3] = useState(false)
     const [closeSidebar, setCloseSidebar] = useState(false)
+
+    useEffect(() => {
+        
+    },[])
 
 
     return (
