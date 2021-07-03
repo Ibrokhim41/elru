@@ -8,14 +8,14 @@ import icon_chevron from 'assets/images/chevron.svg';
 import animateScrollTo from "animated-scroll-to";
 import { useWindowDimensions } from "hooks/ScreenWidth"
 
-const CartSliderContainer = () => {
-
+const CartSliderContainer = ({ grid = "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6", rows={xl: 24, lg: 20, md: 15, sm: 12}}) => {
+    console.log(rows);
     const { width } = useWindowDimensions()
 
     const [books, setBooks] = useState(JsonData)
     const [pageNumber, setPageNumber] = useState(0)
 
-    const booksPerPage = width > 1440 ? 24 : width > 769 ? 20 : width > 576 ? 15 : 12
+    const booksPerPage = width > 1440 ? rows.xl : width > 769 ? rows.lg : width > 576 ? rows.md : rows.sm
     const pagesVisited = pageNumber * booksPerPage
 
     const displayBooks = books
@@ -29,7 +29,7 @@ const CartSliderContainer = () => {
     const pageCount = Math.ceil(books.length / booksPerPage)
     const changePage = ({ selected }) => {
         setPageNumber(selected)
-        animateScrollTo(width > 1060 ? 500 : width > 861 ? 700 : width > 576 ? 600 : 100, { speed: 200 })
+        animateScrollTo(0, { speed: 200 })
     }
 
     const prev = <div>
@@ -45,9 +45,8 @@ const CartSliderContainer = () => {
 
     return (
         <>
-            {/* <div className="container mx-auto flex flex-wrap my-4 md:my-8 gap-x-2"> */}
             <div>
-                <div className="container mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6 mt-8">
+                <div className={`container mx-auto grid ${grid}`}>
                     {displayBooks}
                 </div>
                 <ReactPaginate

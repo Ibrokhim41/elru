@@ -71,7 +71,7 @@ const CartSliderContainer = ({title, linkText}) => {
     };
 
     return (
-        <div className="container mx-auto my-10">
+        <div className="container mx-auto my-0 mt-5 sm:my-10">
             {/* title */}
             <div className="w-full flex justify-between mb-7">
                 <div className="ctext-xl text-black font-bold">{title}</div>

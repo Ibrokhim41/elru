@@ -14,10 +14,14 @@ import Category from "components/Category"
 import { useState } from "react"
 import { useHistory } from "react-router-dom"
 
+
 const Header = () => {
 
     const route = useHistory()
     const [catalog, setCatalog] = useState(false)
+    const [clickOutside, setClickOutside] = useState(false)
+
+    console.log(catalog);
 
     return (
         <div className="header">
@@ -61,10 +65,11 @@ const Header = () => {
             <div className="hidden sm:block bg-grey-light">
                 <div className="relative container mx-auto flex items-center justify-between">
                     <div className={`absolute w-full lg:w-11/12 top-full left-0 z-20 ${catalog ? 'block showCategory' : 'hidden'}`}>
-                        <Category />
+                        <Category setCatalog={setCatalog} />
                     </div>
                     <button
-                        onClick={() => setCatalog(!catalog)}
+                        onClick={() => {
+                            setCatalog(!catalog)}}
                         className="catigory flex text-white bg-blue font-bold ctext-base focus:outline-none">
                         <span className="pr-1">&#9776;</span>
                         <span className="hidden lg:block">Категории</span>
@@ -115,7 +120,9 @@ const Header = () => {
                 </button>
             </div>
             <div className="mob-bottom z-30 fixed bottom-0 left-0 w-full sm:hidden flex justify-around text-grey-dark ctext-xs bg-grey-light border-t border-grey">
-                <div className="flex flex-col items-center cursor-pointer">
+                <div 
+                    onClick={() => route.push('/')}
+                    className="flex flex-col items-center cursor-pointer">
                     <img src={mob_icon_home} alt="home-icon" />
                     Магазин
                 </div>

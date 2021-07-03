@@ -1,11 +1,11 @@
-const { default: Book } = require("pages/Book")
+const { default: CategoryContainer } = require("./CategoryContainer")
 
 
 
 const Example = () => {
     return (
         <>
-            <Book />
+            <CategoryContainer />
         </>
     )
 }

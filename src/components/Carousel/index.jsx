@@ -66,7 +66,7 @@ const Carousel = () => {
     };
 
     return (
-        <div className="container mx-auto w-full hidden sm:flex flex-col lg:flex-row justify-between gap-2 md:gap-4 my-4">
+        <div className="container mx-auto w-full hidden sm:flex flex-col lg:flex-row justify-between gap-2 md:gap-4 mt-4 mb-10">
             {/* left */}
             <div className="w-full lg:w-8/12">
                 <Slider {...settings}>

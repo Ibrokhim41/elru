@@ -7,7 +7,7 @@ const Cart = ({ img = "https://i.pinimg.com/736x/3a/b7/af/3ab7af70652b87ba70afd1
 
     return (
         // <div className="container mx-auto flex flex-wrap justify-between">
-        <div className={`cart-container mx-auto ${classAdd} mt-4`}>
+        <div className={`cart-container mx-auto ${classAdd} mb-4`}>
             <div
                 onClick={() => route.push('/book')} 
                 style={{ backgroundImage: `url('${img}')` }}
