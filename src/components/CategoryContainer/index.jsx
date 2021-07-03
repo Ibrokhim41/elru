@@ -251,7 +251,7 @@ const CategoryContainer = () => {
                 <div className="text-grey-dark ctext-base font-semibold py-4 pl-4">Подбор по параметрам</div>
                 <div 
                     onClick={() => setCloseSidebar(!closeSidebar)}
-                    className="bg-blue h-full flex items-center px-4">
+                    className="bg-blue h-ful flex items-center px-4 py-3">
                     <GoSettings className="text-white text-2xl" />
                 </div>
             </div>
