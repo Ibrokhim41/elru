@@ -4,6 +4,7 @@ import { AiOutlineClose } from 'react-icons/ai'
 import { GoSettings} from 'react-icons/go'
 import { useState, useEffect } from "react";
 import CartContainer from 'components/CartContainer';
+import animateScrollTo from "animated-scroll-to";
 
 const CategoryContainer = () => {
 
@@ -13,7 +14,7 @@ const CategoryContainer = () => {
     const [closeSidebar, setCloseSidebar] = useState(false)
 
     useEffect(() => {
-        
+        animateScrollTo(0, 500)
     },[])
 
 
