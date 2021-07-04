@@ -5,8 +5,11 @@ import { IoLocationSharp } from "react-icons/io5"
 import cliTruncate from 'cli-truncate';
 import animateScrollTo from "animated-scroll-to";
 import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 const Basket = () => {
+
+    const route = useHistory()
 
     useEffect(() => {
         animateScrollTo(0, 500)
@@ -119,7 +122,9 @@ const Basket = () => {
                             <IoLocationSharp className="text-blue text-3xl" />
                             <div className="text-black ctext-20 border-b border-black cursor-pointer">Доставка в: Ташкент</div>
                         </div>
-                        <button className="text-white ctext-base font-bold rounded-md bg-blue py-3 px-14 focus:outline-none">Перейти к оформлению</button>
+                        <button 
+                            onClick={() => route.push('/order')}
+                            className="text-white ctext-base font-bold rounded-md bg-blue py-3 px-14 focus:outline-none">Перейти к оформлению</button>
                     </div>
                 </div>
             </div>
