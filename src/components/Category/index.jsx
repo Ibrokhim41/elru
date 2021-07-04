@@ -1,6 +1,6 @@
 import "./style.css"
 import icon_search from "assets/images/icon-search.svg"
-import user_photo from "assets/images/user_avatar 94.png"
+// import user_photo from "assets/images/user_avatar 94.png"
 import icon_arrow from "assets/images/arrow.svg"
 // import mob_icon_user from "assets/images/mob-icon-user.svg"
 // import arrow_black from "assets/images/arrow-black.svg"
