@@ -11,6 +11,7 @@ import Discounts from "pages/Discounts";
 import Book from "pages/Book";
 import CategoryContainer from "components/CategoryContainer";
 import UserProfile from './components/UserProfile/index';
+import Basket from "components/Basket";
 
 function App() {
     return (
@@ -27,6 +28,7 @@ function App() {
                     <Route exact path="/category" component={CategoryContainer} />
                     <Route exact path="/searchresults" component={SearchResult} />
                     <Route exact path="/user" component={UserProfile} />
+                    <Route exact path="/basket" component={Basket} />
                     <Route exact path="/example" component={Example} />
                 </Switch>
                 <Footer />

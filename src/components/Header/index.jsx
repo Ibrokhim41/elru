@@ -85,7 +85,9 @@ const Header = () => {
                             <img src={icon_order} alt="order-icon" />
                             Мои заказы
                         </div>
-                        <div className="relative flex flex-col cursor-pointer text-grey-dark hover:text-blue">
+                        <div 
+                            onClick={() => route.push('/basket')}
+                            className="relative flex flex-col cursor-pointer text-grey-dark hover:text-blue">
                             <img src={icon_basket} alt="basket-icon" />
                             <span className="order-count absolute text-blue ctext-base font-bold">14</span>
                             Корзина
@@ -129,7 +131,9 @@ const Header = () => {
                     <img src={icon_order} alt="order-icon" />
                     Мои заказы
                 </div>
-                <div className="flex flex-col items-center cursor-pointer">
+                <div 
+                    onClick={() => route.push('/basket')}
+                    className="flex flex-col items-center cursor-pointer">
                     <img src={mob_icon_basket} alt="basket-icon" />
                     Корзина
                 </div>

@@ -1,8 +1,14 @@
 import "./style.css"
 import { BiPencil } from "react-icons/bi"
 import { ImExit, ImPhone} from "react-icons/im"
+import { useEffect } from 'react';
+import animateScrollTo from "animated-scroll-to";
 
 const UserProfile = () => {
+
+    useEffect(() => {
+        animateScrollTo(0, 500)
+    }, [])
 
     return (
         <div className="container mx-auto grid grid-cols-12 mt-10">
