@@ -9,7 +9,7 @@ import mob_icon_home from "assets/images/mob-icon-home.svg"
 import mob_icon_basket from "assets/images/mob-icon-basket.svg"
 import mob_icon_user from "assets/images/mob-icon-user.svg"
 import mob_icon_search from "assets/images/mob-icon-search.svg"
-import arrow_black from "assets/images/arrow-black.svg"
+// import arrow_black from "assets/images/arrow-black.svg"
 import Category from "components/Category"
 import { useState } from "react"
 import { useHistory } from "react-router-dom"
@@ -92,20 +92,22 @@ const Header = () => {
                         </div>
                     </div>
                     {/* user-info */}
-                    {/* <div className="hidden xl:flex header-user-info cursor-pointer">
-                        <img src={user_photo} alt="user-avatar" className="object-cover" />
+                    <div 
+                        onClick={() => route.push('/user')}
+                        className="hidden xl:flex header-user-info cursor-pointer">
+                        <img src="https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/profile_user.jpg" alt="user-avatar" className="object-cover rounded-full" />
                         <div className="ml-2">
                             <div className="ctext-sm text-grey-dark font-medium">userName</div>
                             <div className="ctext-xs text-grey-dark">123 000 000 сум</div>
                         </div>
-                    </div> */}
-                    <div className="hidden xl:flex items-center header-user-login">
+                    </div>
+                    {/* <div className="hidden xl:flex items-center header-user-login">
                         <div className="flex justify-center items-center w-10 h-10 rounded-full bg-white border border-grey">
                             <img src={mob_icon_user} alt="user-avatar" className="object-cover" />
                         </div>
                         <div className="ctext-sm text-grey-dark font-medium mx-2 cursor-pointer hover:text-blue">Войти</div>
                         <img src={arrow_black} alt="arrow-icon" width="15px" />
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
@@ -131,7 +133,9 @@ const Header = () => {
                     <img src={mob_icon_basket} alt="basket-icon" />
                     Корзина
                 </div>
-                <div className="flex flex-col items-center cursor-pointer">
+                <div 
+                    onClick={() => route.push('/user')}
+                    className="flex flex-col items-center cursor-pointer">
                     <img src={mob_icon_user} alt="user-icon" />
                     Профиль
                 </div>

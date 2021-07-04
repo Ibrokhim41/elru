@@ -10,6 +10,7 @@ import Top100 from "components/Top100";
 import Discounts from "pages/Discounts";
 import Book from "pages/Book";
 import CategoryContainer from "components/CategoryContainer";
+import UserProfile from './components/UserProfile/index';
 
 function App() {
     return (
@@ -25,6 +26,7 @@ function App() {
                     <Route exact path="/book" component={Book} />
                     <Route exact path="/category" component={CategoryContainer} />
                     <Route exact path="/searchresults" component={SearchResult} />
+                    <Route exact path="/user" component={UserProfile} />
                     <Route exact path="/example" component={Example} />
                 </Switch>
                 <Footer />
