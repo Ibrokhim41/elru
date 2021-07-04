@@ -1,5 +1,4 @@
 import { VscBook } from "react-icons/vsc"
-import cliTruncate from 'cli-truncate';
 
 
 
