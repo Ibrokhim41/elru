@@ -81,7 +81,9 @@ const Header = () => {
                             <img src={icon_chat} alt="chat-icon" />
                             Чат
                         </div>
-                        <div className="flex flex-col cursor-pointer text-grey-dark hover:text-blue mx-10">
+                        <div 
+                            onClick={() => route.push('/myorders')}
+                            className="flex flex-col cursor-pointer text-grey-dark hover:text-blue mx-10">
                             <img src={icon_order} alt="order-icon" />
                             Мои заказы
                         </div>
@@ -127,7 +129,9 @@ const Header = () => {
                     <img src={mob_icon_home} alt="home-icon" />
                     Магазин
                 </div>
-                <div className="flex flex-col items-center cursor-pointer">
+                <div 
+                    onClick={() => route.push('/myorders')}
+                    className="flex flex-col items-center cursor-pointer">
                     <img src={icon_order} alt="order-icon" />
                     Мои заказы
                 </div>

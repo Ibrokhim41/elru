@@ -1,8 +1,14 @@
 
+import animateScrollTo from 'animated-scroll-to';
 import Carousel from 'components/Carousel/index';
 import CartContainer from 'components/CartContainer'
+import { useEffect } from 'react';
 
 const Discounts = () => {
+
+    useEffect(() => {
+        animateScrollTo(0, 500)
+    }, [])
 
     return (
         <>

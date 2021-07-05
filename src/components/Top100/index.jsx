@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 const Top100 = () => {
 
     useEffect(() => {
-        animateScrollTo(0)
+        animateScrollTo(0, 500)
     }, [])
 
     return (

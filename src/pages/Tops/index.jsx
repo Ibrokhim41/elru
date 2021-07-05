@@ -1,6 +1,12 @@
+import animateScrollTo from "animated-scroll-to";
 import TopBooksContainer from "components/TopBooksContainer";
+import { useEffect } from 'react';
 
 const Tops = () => {
+    
+    useEffect(() => {
+        animateScrollTo(0, 500)
+    }, [])
 
     return (
         <div className="container mx-auto flex flex-wrap my-10">
