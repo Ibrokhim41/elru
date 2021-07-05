@@ -14,6 +14,7 @@ import UserProfile from './components/UserProfile/index';
 import Basket from "components/Basket";
 import Order from './components/Order/index';
 import MyOrders from './components/MyOrders/index';
+import Chat from "components/Chat";
 
 function App() {
     return (
@@ -33,6 +34,7 @@ function App() {
                     <Route exact path="/basket" component={Basket} />
                     <Route exact path="/order" component={Order} />
                     <Route exact path="/myorders" component={MyOrders} />
+                    <Route exact path="/chat" component={Chat} />
                     <Route exact path="/example" component={Example} />
                 </Switch>
                 <Footer />

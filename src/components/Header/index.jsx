@@ -77,7 +77,9 @@ const Header = () => {
                     </div>
                     {/* user-route */}
                     <div className="flex header-user font-medium ctext-sm">
-                        <div className="flex flex-col cursor-pointer text-grey-dark hover:text-blue">
+                        <div 
+                            onClick={() => route.push('/chat')}
+                            className="flex flex-col cursor-pointer text-grey-dark hover:text-blue">
                             <img src={icon_chat} alt="chat-icon" />
                             Чат
                         </div>

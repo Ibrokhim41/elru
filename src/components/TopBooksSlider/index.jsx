@@ -133,7 +133,9 @@ const TopBooksContainer = () => {
                     {/* titile */}
                     <div className="w-full flex justify-between mb-4">
                         <div className="ctext-xl text-black font-bold">Топ - 100</div>
-                        <div className="ctext-lg text-blue flex items-center cursor-pointer group">Все {width > 410 && "рекомендованные"} <img src={icon_arrow} alt="arrow-icon" className="w-4 h-4 ml-2 transition-all transform group-hover:translate-x-1" /></div>
+                        <div
+                            onClick={() => route.push('/tops')} 
+                            className="ctext-lg text-blue flex items-center cursor-pointer group">Все {width > 410 && "рекомендованные"} <img src={icon_arrow} alt="arrow-icon" className="w-4 h-4 ml-2 transition-all transform group-hover:translate-x-1" /></div>
                     </div>
                     {/* container */}
                     <div

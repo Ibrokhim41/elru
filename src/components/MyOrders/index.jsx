@@ -12,7 +12,7 @@ const MyOrders = () => {
     return (
         <div className="container mx-auto mb-10">
             {/* title */}
-            <div className="text-grey-dark ctext-xl my-4">Мои заказы</div>
+            <div className="text-grey-dark ctext-xl font-bold my-4">Мои заказы</div>
 
             {/* content */}
             <div className="grid grid-cols-12 gap-4">
