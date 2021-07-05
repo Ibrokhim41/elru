@@ -14,7 +14,7 @@ const Chat = () => {
                 <div className="text-black ctext-lg font-bold ml-4">Менеджер Мадина</div>
             </div>
 
-            {true ? 
+            {!true ? 
             // {/* start-chat */}
             <div className="flex items-center justify-center text-center h-80 sm:h-96">
                 <div className="text-grey ctext-xl font-medium">Мы готовы ответить на все ваши вопросы. <br /> Отправьте нам сообщение и мы ответим вам в ближайшее время...</div>
