@@ -68,7 +68,7 @@ const Header = () => {
             <div className="hidden sm:block bg-grey-light">
                 <div className="relative container mx-auto flex items-center justify-between">
                     <div className={`absolute w-full lg:w-11/12 top-full left-0 z-20 ${catalog ? 'block showCategory' : 'hidden'}`}>
-                        <Category setCatalog={setCatalog} />
+                        <Category setCatalog={setCatalog} setShow={setAuth} />
                     </div>
                     <button
                         onClick={() => {
@@ -154,7 +154,10 @@ const Header = () => {
                     Корзина
                 </div>
                 <div 
-                    onClick={() => route.push('/user')}
+                    onClick={() => {
+                        route.push('/user')
+                        setAuth(true)
+                    }}
                     className="flex flex-col items-center cursor-pointer">
                     <img src={mob_icon_user} alt="user-icon" />
                     Профиль

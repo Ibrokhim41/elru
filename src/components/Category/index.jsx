@@ -2,13 +2,13 @@ import "./style.css"
 import icon_search from "assets/images/icon-search.svg"
 // import user_photo from "assets/images/user_avatar 94.png"
 import icon_arrow from "assets/images/arrow.svg"
-// import mob_icon_user from "assets/images/mob-icon-user.svg"
-// import arrow_black from "assets/images/arrow-black.svg"
+import mob_icon_user from "assets/images/mob-icon-user.svg"
+import arrow_black from "assets/images/arrow-black.svg"
 import { useState } from "react"
 import { useHistory } from 'react-router-dom';
 import OutsideClickHandler from 'react-outside-click-handler';
 
-const Category = ({ setCatalog }) => {
+const Category = ({ setCatalog, setShow }) => {
 
     const route = useHistory()
     const [showCatalog, setShowCatalog] = useState(false)
@@ -17,7 +17,7 @@ const Category = ({ setCatalog }) => {
         <OutsideClickHandler onOutsideClick={() => setCatalog(false)}>
             <div className="category w-full lg:w-4/5 bg-grey-light lg:bg-white lg:border border-grey flex flex-col text-grey-dark ctext-base">
                 {/* user */}
-                <div
+                {/* <div
                     onClick={() => route.push('/user')}
                     className="header-user-info w-full flex lg:hidden justify-center cursor-pointer mt-6 mb-3">
                     <img src="https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/profile_user.jpg" alt="user-avatar" className="object-cover rounded-full" />
@@ -25,15 +25,17 @@ const Category = ({ setCatalog }) => {
                         <div className="ctext-sm text-grey-dark font-medium">userName</div>
                         <div className="ctext-xs text-grey-dark">123 000 000 сум</div>
                     </div>
-                </div>
+                </div> */}
                 {/* login user */}
-                {/* <div className="header-user-login w-full flex lg:hidden justify-center items-center cursor-pointer mt-6 mb-3">
+                <div 
+                    onClick={() => setShow(true)}
+                    className="header-user-login w-full flex lg:hidden justify-center items-center cursor-pointer mt-6 mb-3">
                     <div className="flex justify-center items-center w-10 h-10 rounded-full bg-white border border-grey">
                         <img src={mob_icon_user} alt="user-avatar" className="object-cover" />
                     </div>
                     <div className="ctext-sm text-grey-dark font-medium mx-2 cursor-pointer hover:text-blue">Войти</div>
                     <img src={arrow_black} alt="arrow-icon" width="15px" />
-                </div> */}
+                </div>
                 {/* search */}
                 <div className="header-search flex md:hidden justify-center my-4 mb-8 px-4">
                     <input type="text" placeholder="Введите книгу, автора..." className="h-full w-full rounded border border-grey focus:outline-none px-3 text-grey-dark" />
