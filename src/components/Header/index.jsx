@@ -9,19 +9,24 @@ import mob_icon_home from "assets/images/mob-icon-home.svg"
 import mob_icon_basket from "assets/images/mob-icon-basket.svg"
 import mob_icon_user from "assets/images/mob-icon-user.svg"
 import mob_icon_search from "assets/images/mob-icon-search.svg"
-// import arrow_black from "assets/images/arrow-black.svg"
+import arrow_black from "assets/images/arrow-black.svg"
 import Category from "components/Category"
 import { useState } from "react"
 import { useHistory } from "react-router-dom"
+import Auth from "components/Auth"
 
 
 const Header = () => {
 
     const route = useHistory()
     const [catalog, setCatalog] = useState(false)
+    const [auth, setAuth] = useState(false)
 
     return (
         <div className="header">
+
+            <Auth show={auth} setShow={setAuth} />
+
             {/* header-top */}
             <div className="header-top container mx-auto hidden sm:flex items-center text-grey-dark font-bold">
                 {/* logo */}
@@ -43,7 +48,8 @@ const Header = () => {
                     <div
                         onClick={() => route.push('/news')} 
                         className="hover:text-blue cursor-pointer">Новости</div>
-                    <div className="hover:text-blue cursor-pointer">Оплата</div>
+                    <div 
+                        className="hover:text-blue cursor-pointer">Оплата</div>
                     <div className="hover:text-blue cursor-pointer">Обратная связь</div>
                 </div>
                 {/* tel & lang */}
@@ -73,7 +79,9 @@ const Header = () => {
                     </button>
                     <div className="header-search hidden md:flex">
                         <input type="text" placeholder="Введите книгу, автора..." className="h-full w-full rounded border border-grey focus:outline-none px-3 text-grey-dark" />
-                        <button className="h-full bg-blue rounded px-3 -ml-1 focus:outline-none"><img src={icon_search} alt="search-icon" /></button>
+                        <button 
+                            onClick={() => route.push('/searchresults')}
+                            className="h-full bg-blue rounded px-3 -ml-1 focus:outline-none"><img src={icon_search} alt="search-icon" /></button>
                     </div>
                     {/* user-route */}
                     <div className="flex header-user font-medium ctext-sm">
@@ -98,7 +106,7 @@ const Header = () => {
                         </div>
                     </div>
                     {/* user-info */}
-                    <div 
+                    {/* <div 
                         onClick={() => route.push('/user')}
                         className="hidden xl:flex header-user-info cursor-pointer">
                         <img src="https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/profile_user.jpg" alt="user-avatar" className="object-cover rounded-full" />
@@ -106,14 +114,16 @@ const Header = () => {
                             <div className="ctext-sm text-grey-dark font-medium">userName</div>
                             <div className="ctext-xs text-grey-dark">123 000 000 сум</div>
                         </div>
-                    </div>
-                    {/* <div className="hidden xl:flex items-center header-user-login">
+                    </div> */}
+                    <div className="hidden xl:flex items-center header-user-login">
                         <div className="flex justify-center items-center w-10 h-10 rounded-full bg-white border border-grey">
                             <img src={mob_icon_user} alt="user-avatar" className="object-cover" />
                         </div>
-                        <div className="ctext-sm text-grey-dark font-medium mx-2 cursor-pointer hover:text-blue">Войти</div>
+                        <div 
+                            onClick={() => setAuth(true)}
+                            className="ctext-sm text-grey-dark font-medium mx-2 cursor-pointer hover:text-blue">Войти</div>
                         <img src={arrow_black} alt="arrow-icon" width="15px" />
-                    </div> */}
+                    </div>
                 </div>
             </div>
 

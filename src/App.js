@@ -15,6 +15,7 @@ import Basket from "components/Basket";
 import Order from './components/Order/index';
 import MyOrders from './components/MyOrders/index';
 import Chat from "components/Chat";
+import Auth from "components/Auth";
 
 function App() {
     return (
@@ -22,6 +23,7 @@ function App() {
             <div className="App mb-20 sm:mb-0">
                 <Header />
                 <Switch>
+                    <Route exact path="/auth" component={Auth} />
                     <Route exact path="/" component={Home} />
                     <Route exact path="/tops" component={Tops} />
                     <Route exact path="/top100" component={Top100} />

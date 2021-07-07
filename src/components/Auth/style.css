@@ -1,0 +1,12 @@
+@layer components {
+    .sign-in-up {
+        @apply bg-grey-light border border-grey-border
+    }
+}
+
+.default-avatars {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    max-height: 65px;
+}
