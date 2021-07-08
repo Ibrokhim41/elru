@@ -117,7 +117,7 @@ const Auth = ({ show, setShow }) => {
     </>
 
     return (
-        <div className={`z-40 absolute ${show ? 'top-0' : '-top-full'} left-0 transition-all w-full h-full bg-white flex justify-center items-center overflow-hidden`}>
+        <div className={`z-40 fixed ${show ? 'top-0' : '-top-full'} left-0 transition-all w-full h-full bg-white flex justify-center items-center overflow-scroll`}>
             <div
                 onClick={() => setShow(false)}
                 className="absolute top-10 right-2 sm:right-10 cursor-pointer text-2xl sm:text-3xl lg:text-4xl hover:text-red"><AiOutlineClose /></div>
