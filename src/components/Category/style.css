@@ -13,7 +13,6 @@
 }
 
 
-
 @layer components {
     .active-menu {
         @apply text-white bg-blue;

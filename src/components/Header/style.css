@@ -1,8 +1,8 @@
 .header-top {
     height: 50px;
 }
-.catigory {
-    padding: 24px;
+.category {
+    padding: 0px;
 }
 .header-search {
     width: 458px;
@@ -17,6 +17,7 @@
     width: 40px;
     height: 40px;
 }
+
 .header-user-login img {
     width: 25px;
     height: 25px;
@@ -24,6 +25,9 @@
 .order-count {
     top: -5px;
     right: 17px;
+}
+.burger {
+    padding: 12px 15px;
 }
 .mob-top {
     padding-top: 16px;

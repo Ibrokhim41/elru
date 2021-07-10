@@ -11,7 +11,8 @@ import mob_icon_user from "assets/images/mob-icon-user.svg"
 import mob_icon_search from "assets/images/mob-icon-search.svg"
 import arrow_black from "assets/images/arrow-black.svg"
 import Category from "components/Category"
-import { useState } from "react"
+import { Squash as Hamburger } from 'hamburger-react'
+import { useRef, useState } from "react"
 import { useHistory } from "react-router-dom"
 import Auth from "components/Auth"
 
@@ -21,6 +22,7 @@ const Header = () => {
     const route = useHistory()
     const [catalog, setCatalog] = useState(false)
     const [auth, setAuth] = useState(false)
+    let menuRef = useRef()
 
     return (
         <div className="header">
@@ -31,7 +33,7 @@ const Header = () => {
             <div className="header-top container mx-auto hidden sm:flex items-center text-grey-dark font-bold">
                 {/* logo */}
                 <div className="flex-auto">
-                    <div 
+                    <div
                         onClick={() => route.push('/')}
                         className="cursor-pointer">
                         <img src={elru_logo} alt="elru.uz_logo" />
@@ -39,16 +41,16 @@ const Header = () => {
                 </div>
                 {/* nav-top */}
                 <div className="nav-top hidden xl:flex flex-auto justify-around ctext-xs">
-                    <div 
+                    <div
                         onClick={() => route.push('/discounts')}
                         className="hover:text-blue cursor-pointer">Акции и скидки</div>
-                    <div 
+                    <div
                         onClick={() => route.push('/tops')}
                         className="hover:text-blue cursor-pointer">Топ - книги</div>
                     <div
-                        onClick={() => route.push('/news')} 
+                        onClick={() => route.push('/news')}
                         className="hover:text-blue cursor-pointer">Новости</div>
-                    <div 
+                    <div
                         className="hover:text-blue cursor-pointer">Оплата</div>
                     <div className="hover:text-blue cursor-pointer">Обратная связь</div>
                 </div>
@@ -67,37 +69,37 @@ const Header = () => {
             {/* header */}
             <div className="hidden sm:block bg-grey-light">
                 <div className="relative container mx-auto flex items-center justify-between">
-                    <div className={`absolute w-full lg:w-11/12 top-full left-0 z-20 ${catalog ? 'block showCategory' : 'hidden'}`}>
-                        <Category setCatalog={setCatalog} setShow={setAuth} />
+                    <div className={`absolute w-full lg:w-11/12 top-full  z-20 ${catalog ? 'block showCategory' : 'hidden'}`}>
+                        <Category setCatalog={setCatalog} setShow={setAuth} menuRef={menuRef} />
                     </div>
-                    <button
-                        onClick={() => {
-                            setCatalog(!catalog)}}
-                        className="catigory flex text-white bg-blue font-bold ctext-base focus:outline-none">
-                        <span className="pr-1">&#9776;</span>
+                    <div
+                        ref={menuRef}
+                        onClick={() => setCatalog(!catalog)}
+                        className="burger flex items-center h-full text-white bg-blue font-bold ctext-base focus:outline-none cursor-pointer">
+                        <Hamburger toggled={catalog} size={20} />
                         <span className="hidden lg:block">Категории</span>
-                    </button>
+                    </div>
                     <div className="header-search hidden md:flex">
                         <input type="text" placeholder="Введите книгу, автора..." className="h-full w-full rounded border border-grey focus:outline-none px-3 text-grey-dark" />
-                        <button 
+                        <button
                             onClick={() => route.push('/searchresults')}
                             className="h-full bg-blue rounded px-3 -ml-1 focus:outline-none"><img src={icon_search} alt="search-icon" /></button>
                     </div>
                     {/* user-route */}
                     <div className="flex header-user font-medium ctext-sm">
-                        <div 
+                        <div
                             onClick={() => route.push('/chat')}
                             className="flex flex-col cursor-pointer text-grey-dark hover:text-blue">
                             <img src={icon_chat} alt="chat-icon" />
                             Чат
                         </div>
-                        <div 
+                        <div
                             onClick={() => route.push('/myorders')}
                             className="flex flex-col cursor-pointer text-grey-dark hover:text-blue mx-10">
                             <img src={icon_order} alt="order-icon" />
                             Мои заказы
                         </div>
-                        <div 
+                        <div
                             onClick={() => route.push('/basket')}
                             className="relative flex flex-col cursor-pointer text-grey-dark hover:text-blue">
                             <img src={icon_basket} alt="basket-icon" />
@@ -119,7 +121,7 @@ const Header = () => {
                         <div className="flex justify-center items-center w-10 h-10 rounded-full bg-white border border-grey">
                             <img src={mob_icon_user} alt="user-avatar" className="object-cover" />
                         </div>
-                        <div 
+                        <div
                             onClick={() => setAuth(true)}
                             className="ctext-sm text-grey-dark font-medium mx-2 cursor-pointer hover:text-blue">Войти</div>
                         <img src={arrow_black} alt="arrow-icon" width="15px" />
@@ -135,25 +137,25 @@ const Header = () => {
                 </button>
             </div>
             <div className="mob-bottom z-30 fixed bottom-0 left-0 w-full sm:hidden flex justify-around text-grey-dark ctext-xs bg-grey-light border-t border-grey">
-                <div 
+                <div
                     onClick={() => route.push('/')}
                     className="flex flex-col items-center cursor-pointer">
                     <img src={mob_icon_home} alt="home-icon" />
                     Магазин
                 </div>
-                <div 
+                <div
                     onClick={() => route.push('/myorders')}
                     className="flex flex-col items-center cursor-pointer">
                     <img src={icon_order} alt="order-icon" />
                     Мои заказы
                 </div>
-                <div 
+                <div
                     onClick={() => route.push('/basket')}
                     className="flex flex-col items-center cursor-pointer">
                     <img src={mob_icon_basket} alt="basket-icon" />
                     Корзина
                 </div>
-                <div 
+                <div
                     onClick={() => {
                         route.push('/user')
                         setAuth(true)

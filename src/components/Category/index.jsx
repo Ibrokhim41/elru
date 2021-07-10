@@ -4,18 +4,25 @@ import icon_search from "assets/images/icon-search.svg"
 import icon_arrow from "assets/images/arrow.svg"
 import mob_icon_user from "assets/images/mob-icon-user.svg"
 import arrow_black from "assets/images/arrow-black.svg"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useHistory } from 'react-router-dom';
-import OutsideClickHandler from 'react-outside-click-handler';
 
-const Category = ({ setCatalog, setShow }) => {
+
+const Category = ({ setCatalog, setShow, menuRef }) => {
 
     const route = useHistory()
     const [showCatalog, setShowCatalog] = useState(false)
+    Category.handleClickOutside = () => setCatalog(false)
+
+
+    useEffect(() => {
+        document.addEventListener("mousedown", (event) => {
+            if(!menuRef.current.contains(event.target)) setCatalog(false)
+        })
+    })
 
     return (
-        <OutsideClickHandler onOutsideClick={() => setCatalog(false)}>
-            <div className="category w-full lg:w-4/5 bg-grey-light lg:bg-white lg:border border-grey flex flex-col text-grey-dark ctext-base">
+            <div ref={menuRef} className="category w-full lg:w-4/5 bg-grey-light lg:bg-white lg:border border-grey flex flex-col text-grey-dark ctext-base">
                 {/* user */}
                 {/* <div
                     onClick={() => route.push('/user')}
@@ -166,8 +173,9 @@ const Category = ({ setCatalog, setShow }) => {
                     </div>
                 </div>
             </div>
-        </OutsideClickHandler>
     )
 }
+
+
 
 export default Category;
