@@ -1,0 +1,16 @@
+.comment-user {
+    min-width: 65px;
+    width: 65px;
+    min-height: 65px;
+    height: 65px;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;
+    background-position: center!important;
+}
+
+@media screen and (max-width: 900px) {
+    .comment-user {
+        min-width: 55px!important;
+        min-height: 55px!important;
+    }    
+}
