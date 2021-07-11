@@ -15,7 +15,6 @@ import Basket from "components/Basket";
 import Order from './components/Order/index';
 import MyOrders from './components/MyOrders/index';
 import Chat from "components/Chat";
-import Auth from "components/Auth";
 
 function App() {
     return (

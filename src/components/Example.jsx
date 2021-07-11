@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 // const { default: CategoryContainer } = require("./CategoryContainer")
-import { decrement, increment } from 'redux/counter'
+import { increment } from 'redux/counter'
 
 
 
