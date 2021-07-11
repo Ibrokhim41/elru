@@ -9,8 +9,15 @@ import { IoIosAttach, IoIosCheckmarkCircle } from "react-icons/io"
 import { AiOutlineClose } from "react-icons/ai"
 import { useState } from 'react';
 import { Step2 } from "components/AuthForms"
+import { useDispatch, useSelector } from "react-redux"
+import { setAuth, setStartComment, setStartChat } from "redux/modals"
 
-const Auth = ({ show, setShow }) => {
+const Auth = () => {
+
+    const startComment = useSelector(state => state.modals.startComment)
+    const auth = useSelector(state => state.modals.auth)
+    const startChat = useSelector(state => state.modals.startChat)
+    const dispatch = useDispatch()
 
     const [typeAuth, setTypeAuth] = useState(true)
     const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6]
@@ -128,13 +135,20 @@ const Auth = ({ show, setShow }) => {
 
 
     return (
-        <div className={`z-40 fixed ${show ? 'top-0' : '-top-full'} left-0 transition-all w-full h-full bg-white flex justify-center items-center overflow-scroll`}>
+        <div className={`z-40 fixed ${auth ? 'top-0' : '-top-full'} left-0 transition-all w-full h-full bg-white flex justify-center items-center overflow-scroll`}>
             <div
-                onClick={() => setShow(false)}
+                onClick={() => {
+                    dispatch(setAuth(false))
+                    dispatch(setStartComment(false))
+                    dispatch(setStartChat(false))
+                }}
                 className="absolute top-10 right-2 sm:right-10 cursor-pointer text-2xl sm:text-3xl lg:text-4xl hover:text-red"><AiOutlineClose /></div>
             <div className="container h-full sm:w-4/5 lg:w-3/4 xl:w-2/3 mt-52">
-                {/* login-title */}
-                {/* <div className={`text-black-black ${!typeAuth && 'hidden'} ctext-xl font-bold text-center mt-32 mb-10`}>Войдите или зарегистрируйтесь, чтобы начать чат с менеджером</div> */}
+                
+                {/* leave-comment-title */}
+                <div className={`text-black-black ${startComment ? 'block' : 'hidden'} ctext-xl font-bold text-center mt-20 mb-10`}>Войдите или зарегистрируйтесь, чтобы оставить отзыв </div>
+                {/* start-chat-title */}
+                <div className={`text-black-black ${startChat ? 'block' : 'hidden'} ctext-xl font-bold text-center mt-20 mb-10`}>Войдите или зарегистрируйтесь, чтобы начать чат с менеджером</div>
                 {/* top */}
                 <div className="flex border-b border-grey-border">
                     <div

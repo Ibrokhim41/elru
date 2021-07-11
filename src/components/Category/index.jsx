@@ -12,11 +12,10 @@ const Category = ({ setCatalog, setShow, menuRef }) => {
 
     const route = useHistory()
     const [showCatalog, setShowCatalog] = useState(false)
-    Category.handleClickOutside = () => setCatalog(false)
 
 
     useEffect(() => {
-        document.addEventListener("mousedown", (event) => {
+        document.addEventListener("mouseup", (event) => {
             if(!menuRef.current.contains(event.target)) setCatalog(false)
         })
     })

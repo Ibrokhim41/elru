@@ -11,24 +11,24 @@ import mob_icon_user from "assets/images/mob-icon-user.svg"
 import mob_icon_search from "assets/images/mob-icon-search.svg"
 import arrow_black from "assets/images/arrow-black.svg"
 import Category from "components/Category"
+import Auth from "components/Auth"
 import { Squash as Hamburger } from 'hamburger-react'
 import { useRef, useState } from "react"
 import { useHistory } from "react-router-dom"
-import Auth from "components/Auth"
-
+import { useDispatch } from 'react-redux';
+import { setAuth, setStartChat } from "redux/modals"
 
 const Header = () => {
 
+    const dispatch = useDispatch()
+
     const route = useHistory()
     const [catalog, setCatalog] = useState(false)
-    const [auth, setAuth] = useState(false)
     let menuRef = useRef()
 
     return (
         <div className="header">
-
-            <Auth show={auth} setShow={setAuth} />
-
+            <Auth />
             {/* header-top */}
             <div className="header-top container mx-auto hidden sm:flex items-center text-grey-dark font-bold">
                 {/* logo */}
@@ -88,7 +88,11 @@ const Header = () => {
                     {/* user-route */}
                     <div className="flex header-user font-medium ctext-sm">
                         <div
-                            onClick={() => route.push('/chat')}
+                            onClick={() => {
+                                dispatch(setStartChat(true))
+                                dispatch(setAuth(true))
+                                route.push('/chat')
+                            }}
                             className="flex flex-col cursor-pointer text-grey-dark hover:text-blue">
                             <img src={icon_chat} alt="chat-icon" />
                             Чат
@@ -122,7 +126,7 @@ const Header = () => {
                             <img src={mob_icon_user} alt="user-avatar" className="object-cover" />
                         </div>
                         <div
-                            onClick={() => setAuth(true)}
+                            onClick={() => dispatch(setAuth(true))}
                             className="ctext-sm text-grey-dark font-medium mx-2 cursor-pointer hover:text-blue">Войти</div>
                         <img src={arrow_black} alt="arrow-icon" width="15px" />
                     </div>

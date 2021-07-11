@@ -21,7 +21,8 @@ const Carousel = () => {
                     width: "40px",
                     borderRadius: "50%",
                     zIndex: "5",
-                    right: "0",
+                    right: "10px",
+                    opacity: '0.7',
                     top: "50%",
                     boxShadow: "4px 4px 4px -1px rgba(0, 0, 0, 0.04)"
                 }}
@@ -44,7 +45,8 @@ const Carousel = () => {
                     height: "40px",
                     width: "40px",
                     zIndex: "5",
-                    left: "0",
+                    left: "10px",
+                    opacity: '0.7',
                     top: "50%",
                     justifyContent: "center",
                     boxShadow: "4px 4px 4px 1px rgba(0, 0, 0, 0.04)"

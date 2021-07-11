@@ -2,12 +2,15 @@ import "./style.css"
 import { FiPlus } from "react-icons/fi"
 import { HiOutlineReply } from "react-icons/hi"
 import { useState } from "react"
+import { useDispatch } from 'react-redux';
+import { setAuth, setLeaveComment, setStartComment } from "redux/modals"
 
 const Comment = () => {
 
+    const dispatch = useDispatch()
+
     const [showComment, setShowComment] = useState(false)
     const [addReply, setAddReply] = useState(false)
-    const [addComment, setAddCommet] = useState(false)
 
     return (
         <div>
@@ -15,8 +18,12 @@ const Comment = () => {
             <div className="flex justify-between items-center pb-4 border-b border-grey">
                 <div className="text-black-dark ctext-xl font-bold">Отзывы о книге</div>
                 <div 
-                    onClick={() => setAddCommet(!addComment)}
-                    className={`flex items-center ctext-sm font-bold cursor-pointer ${addComment ? 'text-red' : 'text-blue'}`}>ОСТАВИТЬ ОТЗЫВ <FiPlus className={`text-xl transition-all transform ${addComment ? 'rotate-45' : 'rotate-0'}`} /></div>
+                    onClick={() => {
+                        dispatch(setAuth(false))
+                        dispatch(setStartComment(false))
+                        dispatch(setLeaveComment(true))
+                    }}
+                    className={`flex items-center ctext-sm font-bold cursor-pointer text-blue`}>ОСТАВИТЬ ОТЗЫВ <FiPlus className={`text-xl transition-all transform`} /></div>
             </div>
             {/* content */}
             <div className="border-b border-grey">
