@@ -8,6 +8,10 @@
     background-position: center!important;
 }
 
+.leave-comment {
+    height: 450px;
+}
+
 @media screen and (max-width: 900px) {
     .comment-user {
         min-width: 55px!important;

@@ -20,8 +20,8 @@ const RegionChoose = () => {
             <AiOutlineClose
                 onClick={() => dispatch(setRegionChoose(false))}
                 className="absolute top-10 right-10 cursor-pointer text-2xl text-white sm:text-3xl lg:text-4xl hover:text-red" />
-            <div className="w-10/12 h-4/6 bg-white rounded-md">
-                <div className="mt-4 h-full flex flex-col items-center justify-center">
+            <div className="leave-comment w-11/12 md:w-8/12 bg-white rounded-md px-4">
+                <div className="h-full flex flex-col items-center justify-center">
                     <div className="text-black ctext-2xl font-bold text-center mb-10">Выберите город или область</div>
                     <Select
                         placeholder="Город или область"
