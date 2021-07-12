@@ -1,0 +1,40 @@
+import "./style.css"
+import { AiOutlineClose } from "react-icons/ai"
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
+import { useDispatch, useSelector } from "react-redux"
+import { setThanks } from "redux/modals"
+import { useHistory } from 'react-router-dom';
+
+
+const Thanks = () => {
+
+    const thanks = useSelector(state => state.modals.thanks)
+    const dispatch = useDispatch()
+    const route = useHistory() 
+
+    return (
+        <div className={`fixed ${thanks ? 'top-0' : '-top-full'} transition-all w-full h-full bg-black-black bg-opacity-30 flex justify-center items-center z-40`}>
+            <AiOutlineClose
+                onClick={() => dispatch(setThanks(false))}
+                className="absolute top-5 right-5 cursor-pointer text-2xl text-white sm:text-3xl lg:text-4xl hover:text-red" />
+            <div
+                className="leave-comment w-10/12 bg-white rounded-md">
+                <div className="h-full flex flex-col items-center justify-center">
+                    <div className="text-black ctext-2xl font-bold text-center mb-5 px-4">Благодарим за заказ!</div>
+                    <div className="w-full sm:w-4/6 px-4 text-center text-grey-dark ctext-20">Вы можете отслеживать статус вашего заказа (если бумажная версия), а так же скачать купленный ресурс (если это аудио / pdf файлы) во вкладке “Мои заказы”</div>
+                    <div className="flex mt-8">
+                        <div
+                            onClick={() => route.push('/')}
+                            className="text-blue text-lg font-medium mx-4 sm:mx-10 flex items-center cursor-pointer my-4"><FiChevronLeft className="text-2xl" />Назад</div>
+                        <div
+                            onClick={() => route.push('/myorders')}
+                            className="text-blue text-lg font-medium mx-4 sm:mx-10 flex items-center cursor-pointer my-4">Мои заказы<FiChevronRight className="text-2xl" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+
+}
+
+export default Thanks;
