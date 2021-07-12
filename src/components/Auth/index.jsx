@@ -10,13 +10,14 @@ import { AiOutlineClose } from "react-icons/ai"
 import { useState } from 'react';
 import { Step2 } from "components/AuthForms"
 import { useDispatch, useSelector } from "react-redux"
-import { setAuth, setStartComment, setStartChat } from "redux/modals"
+import { setAuth, setStartComment, setStartChat, setStartOrder } from "redux/modals"
 
 const Auth = () => {
 
     const startComment = useSelector(state => state.modals.startComment)
-    const auth = useSelector(state => state.modals.auth)
     const startChat = useSelector(state => state.modals.startChat)
+    const startOrder = useSelector(state => state.modals.startOrder)
+    const auth = useSelector(state => state.modals.auth)
     const dispatch = useDispatch()
 
     const [typeAuth, setTypeAuth] = useState(true)
@@ -141,6 +142,7 @@ const Auth = () => {
                     dispatch(setAuth(false))
                     dispatch(setStartComment(false))
                     dispatch(setStartChat(false))
+                    dispatch(setStartOrder(false))
                 }}
                 className="absolute top-10 right-2 sm:right-10 cursor-pointer text-2xl sm:text-3xl lg:text-4xl hover:text-red"><AiOutlineClose /></div>
             <div className="container h-full sm:w-4/5 lg:w-3/4 xl:w-2/3 mt-52">
@@ -149,6 +151,8 @@ const Auth = () => {
                 <div className={`text-black-black ${startComment ? 'block' : 'hidden'} ctext-xl font-bold text-center mt-20 mb-10`}>Войдите или зарегистрируйтесь, чтобы оставить отзыв </div>
                 {/* start-chat-title */}
                 <div className={`text-black-black ${startChat ? 'block' : 'hidden'} ctext-xl font-bold text-center mt-20 mb-10`}>Войдите или зарегистрируйтесь, чтобы начать чат с менеджером</div>
+                {/* start-order-title */}
+                <div className={`text-black-black ${startOrder ? 'block' : 'hidden'} ctext-xl font-bold text-center mt-20 mb-10`}>Войдите или зарегистрируйтесь, чтобы оформить заказ</div>
                 {/* top */}
                 <div className="flex border-b border-grey-border">
                     <div

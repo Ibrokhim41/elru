@@ -7,7 +7,7 @@ import animateScrollTo from "animated-scroll-to";
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setRegionChoose } from "redux/modals"
+import { setRegionChoose, setStartOrder, setAuth } from "redux/modals"
 import RegionChoose from "components/Modals/RegionChoose";
 
 const Basket = () => {
@@ -133,7 +133,11 @@ const Basket = () => {
                                 <div className="text-black ctext-20 border-b border-black cursor-pointer">Доставка в: {deliveryTo}</div>
                             </div>
                             <button
-                                onClick={() => route.push('/order')}
+                                onClick={() => {
+                                    route.push('/order')
+                                    dispatch(setAuth(true))
+                                    dispatch(setStartOrder(true))
+                                }}
                                 className="text-white ctext-base font-bold rounded-md bg-blue py-3 px-14 focus:outline-none">Перейти к оформлению</button>
                         </div>
                     </div>
