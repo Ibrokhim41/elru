@@ -6,12 +6,13 @@ import cliTruncate from 'cli-truncate';
 import animateScrollTo from "animated-scroll-to";
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setRegionChoose } from "redux/modals"
 import RegionChoose from "components/Modals/RegionChoose";
 
 const Basket = () => {
 
+    const deliveryTo = useSelector(state => state.modals.deliveryTo)
     const dispatch = useDispatch()
 
     const route = useHistory()
@@ -129,7 +130,7 @@ const Basket = () => {
                                 onClick={() => dispatch(setRegionChoose(true))}
                                 className="flex items-center my-7">
                                 <IoLocationSharp className="text-blue text-3xl" />
-                                <div className="text-black ctext-20 border-b border-black cursor-pointer">Доставка в: Ташкент</div>
+                                <div className="text-black ctext-20 border-b border-black cursor-pointer">Доставка в: {deliveryTo}</div>
                             </div>
                             <button
                                 onClick={() => route.push('/order')}

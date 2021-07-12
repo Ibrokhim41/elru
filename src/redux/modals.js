@@ -5,7 +5,8 @@ const initialState = {
     startComment: false,
     startChat: false,
     leaveComment: false,
-    regionChoose: false
+    regionChoose: false,
+    deliveryTo: "Ташкент",
 };
 
 export const counterSlice = createSlice({
@@ -26,6 +27,9 @@ export const counterSlice = createSlice({
         },
         setRegionChoose: (state, action) => {
             state.regionChoose = action.payload
+        },
+        setDeliveryTo: (state, action) => {
+            state.deliveryTo = action.payload
         }
         // increment: (state) => {
         //     // Redux Toolkit allows us to write "mutating" logic in reducers. It
@@ -44,6 +48,6 @@ export const counterSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setAuth, setStartComment, setStartChat, setLeaveComment, setRegionChoose } = counterSlice.actions;
+export const { setAuth, setStartComment, setStartChat, setLeaveComment, setRegionChoose, setDeliveryTo } = counterSlice.actions;
 
 export default counterSlice.reducer;
