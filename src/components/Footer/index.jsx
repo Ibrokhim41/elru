@@ -25,13 +25,19 @@ const Footer = () => {
                     <div 
                         onClick={() => route.push('/news')}
                         className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Новости</div>
-                    <div className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Обратная связь</div>
+                    <div 
+                        onClick={() => route.push('/feedback')}
+                        className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Обратная связь</div>
                     <div 
                         onClick={() => route.push('/tops')}
                         className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Топ - книги</div>
                     <div className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Популярное</div>
-                    <div className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Оплата</div>
-                    <div className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Договор оферты</div>
+                    <div
+                        onClick={() => route.push('/payment')} 
+                        className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Оплата</div>
+                    <div 
+                        onClick={() => route.push('/oferta')}
+                        className="w-2/4 md:w-1/4 pb-4 cursor-pointer">Договор оферты</div>
                 </div>
                 <div className="w-4/6 xl:w-2/6 mx-auto flex flex-col justify-between items-end mt-8 xl:mt-0">
                     <div className="w-full text-left ctext-base text-white mb-4 xl:mb-0">Оставьте заявку, если у вас есть вопросы:</div>

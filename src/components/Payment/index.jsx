@@ -1,9 +1,15 @@
 import { FaCircle } from "react-icons/fa"
 import payment_img from "assets/images/payment.png"
+import { useEffect } from "react"
+import animateScrollTo from 'animated-scroll-to';
 
 const Payment = () => {
 
-    return (
+    useEffect(() => {
+        animateScrollTo(0)
+    }, [])
+
+    return ( 
         <div className="container mx-auto">
             {/* title */}
             <div className="text-black ctext-xl font-bold mt-8">Способы оплаты на нашем сервисе:</div>

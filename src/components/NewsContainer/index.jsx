@@ -6,9 +6,11 @@ import { useState, useEffect } from 'react';
 import icon_chevron from 'assets/images/chevron.svg';
 import animateScrollTo from "animated-scroll-to";
 import { useWindowDimensions } from "hooks/ScreenWidth"
+import { useHistory } from 'react-router-dom';
 
 const CartSliderContainer = () => {
 
+    const route = useHistory()
     const { width } = useWindowDimensions()
     const [books, setBooks] = useState(JsonData)
     const [pageNumber, setPageNumber] = useState(0)
@@ -20,6 +22,7 @@ const CartSliderContainer = () => {
         .map(book => {
             return (
                 <div 
+                    onClick={() => route.push('/article')}
                     className="w-full sm:w-1/2 lg:w-1/3 p-2">
                     <div className="border-2 border-grey cursor-pointer rounded-md">
                         <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/18291/production/_118216989_gettyimages-585281685.jpg" alt="news" className="news-img object-cover rounded-t-md" />

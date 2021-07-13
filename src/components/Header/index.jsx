@@ -51,8 +51,11 @@ const Header = () => {
                         onClick={() => route.push('/news')}
                         className="hover:text-blue cursor-pointer">Новости</div>
                     <div
+                        onClick={() => route.push('/payment')}
                         className="hover:text-blue cursor-pointer">Оплата</div>
-                    <div className="hover:text-blue cursor-pointer">Обратная связь</div>
+                    <div 
+                        onClick={() => route.push('/feedback')}
+                        className="hover:text-blue cursor-pointer">Обратная связь</div>
                 </div>
                 {/* tel & lang */}
                 <div className="flex flex-auto xl:justify-center ctext-xs">

@@ -16,6 +16,9 @@ import Order from './components/Order/index';
 import MyOrders from './components/MyOrders/index';
 import Chat from "components/Chat";
 import Payment from './components/Payment/index';
+import Feedback from './components/Feedback/index';
+import Oferta from './components/Oferta/index';
+import Article from './components/Article/index';
 
 function App() {
     return (
@@ -37,6 +40,9 @@ function App() {
                     <Route exact path="/myorders" component={MyOrders} />
                     <Route exact path="/chat" component={Chat} />
                     <Route exact path="/payment" component={Payment} />
+                    <Route exact path="/feedback" component={Feedback} />
+                    <Route exact path="/oferta" component={Oferta} />
+                    <Route exact path="/article" component={Article} />
                     <Route exact path="/example" component={Example} />
                 </Switch>
                 <Footer />
