@@ -19,6 +19,7 @@ import Payment from './components/Payment/index';
 import Feedback from './components/Feedback/index';
 import Oferta from './components/Oferta/index';
 import Article from './components/Article/index';
+import NotFound from './components/404/index';
 
 function App() {
     return (
@@ -44,6 +45,7 @@ function App() {
                     <Route exact path="/oferta" component={Oferta} />
                     <Route exact path="/article" component={Article} />
                     <Route exact path="/example" component={Example} />
+                    <Route exact component={NotFound} />
                 </Switch>
                 <Footer />
             </div>
