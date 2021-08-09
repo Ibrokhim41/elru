@@ -61,7 +61,6 @@ const SpecialContainer = () => {
     }
 
     const settings = {
-        autoplay: true,
         infinite: true,
         speed: 500,
         slidesToShow: width > "1440" ? 4 : width > "992" ? 3 : width > "769" ? 3 : width > "530" ? 2 : 1,

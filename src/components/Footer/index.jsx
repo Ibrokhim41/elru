@@ -61,8 +61,8 @@ const Footer = () => {
                 <div>
                     <div className="text-center text-white mt-8 lg:-mt-6">Мобильное приложение:</div>
                     <div className="flex justify-center mt-8">
-                        <img src={google_play} alt="google-play" width="160px" height="45px" className="cursor-pointer mr-2" />
-                        <img src={app_store} alt="app-store" width="160px" height="45px" className="cursor-pointer ml-2" />
+                        <img src={google_play} alt="google-play" width="160px" min-height="45px" height="45px" className="cursor-pointer mr-2" />
+                        <img src={app_store} alt="app-store" width="160px" min-height="45px" height="45px" className="cursor-pointer ml-2" />
                     </div>
                     <div className="text-white ctext-xs text-center mt-10">©2000 - 2021 Elru.uz.Все права защищены.</div>
                 </div>

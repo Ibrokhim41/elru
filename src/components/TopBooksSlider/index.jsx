@@ -62,7 +62,6 @@ const TopBooksContainer = () => {
     }
 
     const settings = {
-        autoplay: true,
         infinite: true,
         speed: 500,
         slidesToShow: width > "1200" ? 2 : 1,
