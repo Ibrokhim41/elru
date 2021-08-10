@@ -34,7 +34,7 @@ function App() {
                     <Route exact path="/news" component={News} />
                     <Route exact path="/book" component={Book} />
                     <Route exact path="/category" component={CategoryContainer} />
-                    <Route exact path="/searchresults" component={SearchResult} />
+                    <Route exact path="/searchresults/:book" component={SearchResult} />
                     <Route exact path="/user" component={UserProfile} />
                     <Route exact path="/basket" component={Basket} />
                     <Route exact path="/order" component={Order} />

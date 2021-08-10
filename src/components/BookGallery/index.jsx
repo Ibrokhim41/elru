@@ -72,9 +72,9 @@ const BookGallery = () => {
         <div className="flex justify-between book-gallery">
             <div className={`w-full md:w-1/5 book-slider ${mockImage.length > 5 && 'mt-0'}`}>
                 <Slider {...settings}>
-                    {mockImage.map(image => {
+                    {mockImage.map((image,i) => {
                         return (
-                            <span>
+                            <span key={i}>
                                 <div 
                                     onClick={() => setMainImage(image)}
                                     className="w-full flex justify-center">

@@ -26,6 +26,8 @@ const Header = () => {
     const [catalog, setCatalog] = useState(false)
     let menuRef = useRef()
 
+    const [search, setSearch] = useState('')
+
     return (
         <div className="header">
             <Auth />
@@ -82,10 +84,15 @@ const Header = () => {
                         <Hamburger toggled={catalog} size={20} />
                         <span className="hidden lg:block">Категории</span>
                     </div>
+                    {/* search */}
                     <div className="header-search hidden md:flex">
-                        <input type="text" placeholder="Введите книгу, автора..." className="h-full w-full rounded border border-grey focus:outline-none px-3 text-grey-dark" />
+                        <input
+                            onChange={(e) => setSearch(e.target.value)} 
+                            type="text" 
+                            placeholder="Введите книгу, автора..." 
+                            className="h-full w-full rounded border border-grey focus:outline-none px-3 text-grey-dark" />
                         <button
-                            onClick={() => route.push('/searchresults')}
+                            onClick={() => route.push(`/searchresults/${search}`)}
                             className="h-full bg-blue rounded px-3 -ml-1 focus:outline-none"><img src={icon_search} alt="search-icon" /></button>
                     </div>
                     {/* user-route */}
