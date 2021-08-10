@@ -85,16 +85,19 @@ const Header = () => {
                         <span className="hidden lg:block">Категории</span>
                     </div>
                     {/* search */}
-                    <div className="header-search hidden md:flex">
+                    <form className="header-search hidden md:flex">
                         <input
                             onChange={(e) => setSearch(e.target.value)} 
                             type="text" 
                             placeholder="Введите книгу, автора..." 
                             className="h-full w-full rounded border border-grey focus:outline-none px-3 text-grey-dark" />
                         <button
-                            onClick={() => route.push(`/searchresults/${search}`)}
+                            onClick={(e) => {
+                                e.preventDefault()
+                                route.push(`/searchresults/${search}`)
+                            }}
                             className="h-full bg-blue rounded px-3 -ml-1 focus:outline-none"><img src={icon_search} alt="search-icon" /></button>
-                    </div>
+                    </form>
                     {/* user-route */}
                     <div className="flex header-user font-medium ctext-sm">
                         <div
