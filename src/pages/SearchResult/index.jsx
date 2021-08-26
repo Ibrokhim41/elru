@@ -1,5 +1,6 @@
 import axios from "axios";
 import Cart from "components/Cart";
+// import SpecialOffers from "components/SpecialOffers";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -11,20 +12,19 @@ const SearchResult = () => {
     axios
       .get(`https://api.itbook.store/1.0/search/${book}`)
       .then((response) => {
-        console.log(response);
         setBooks(response.data.books);
       });
-
     }, [book]);
     
   return (
     <div>
       {/* title */}
-      <div className="container mx-auto text-black ctext-xl font-bold my-6">
+      <div className="container mx-auto text-black ctext-xl font-bold mt-6">
         Результаты поиска
       </div>
       {/* body */}
-      <div className="container mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
+      <div className="container mx-auto mb-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
+        {/* {books !== undefined && <SpecialOffers items={books} />} */}
         {books !== undefined && books.map((book, i) => {
           return (
             <div key={i}>

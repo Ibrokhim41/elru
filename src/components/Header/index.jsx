@@ -23,9 +23,12 @@ const Header = () => {
 
   const route = useHistory();
   const [catalog, setCatalog] = useState(false);
-  let menuRef = useRef();
+  let burgerRef = useRef();
 
   const [search, setSearch] = useState("");
+  const handleCatalog = () => {
+    setCatalog(!catalog)    
+  }
 
   return (
     <div className="header">
@@ -96,12 +99,12 @@ const Header = () => {
             <Category
               setCatalog={setCatalog}
               setShow={setAuth}
-              menuRef={menuRef}
+              burgerRef={burgerRef}
             />
           </div>
           <div
-            ref={menuRef}
-            onClick={() => setCatalog(!catalog)}
+            ref={burgerRef}
+            onClick={handleCatalog}
             className="burger flex items-center h-full text-white bg-blue font-bold ctext-base focus:outline-none cursor-pointer"
           >
             <Hamburger toggled={catalog} size={20} />
@@ -111,6 +114,7 @@ const Header = () => {
           <form className="header-search hidden md:flex">
             <input
               onChange={(e) => setSearch(e.target.value)}
+              value={search}
               type="text"
               placeholder="Введите книгу, автора..."
               className="h-full w-full rounded border border-grey focus:outline-none px-3 text-grey-dark"
@@ -119,6 +123,7 @@ const Header = () => {
               onClick={(e) => {
                 e.preventDefault();
                 route.push(`/searchresults/${search}`);
+                setSearch('')
               }}
               className="h-full bg-blue rounded px-3 -ml-1 focus:outline-none"
             >

@@ -28,19 +28,19 @@ const CategoryContainer = () => {
                 {/* top-filter */}
                 <div className="flex items-center">
                     <input id="checkbox" type="checkbox" />
-                    <label for="checkbox" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Новинки</label>
+                    <label htmlFor="checkbox" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Новинки</label>
                 </div>
                 <div className="flex items-center">
                     <input id="checkbox2" type="checkbox" />
-                    <label for="checkbox2" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Бестселлеры</label>
+                    <label htmlFor="checkbox2" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Бестселлеры</label>
                 </div>
                 <div className="flex items-center">
                     <input id="checkbox3" type="checkbox" />
-                    <label for="checkbox3" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Рекомендуемое</label>
+                    <label htmlFor="checkbox3" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Рекомендуемое</label>
                 </div>
                 <div className="flex items-center">
                     <input id="checkbox4" type="checkbox" />
-                    <label for="checkbox4" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Со скидкой</label>
+                    <label htmlFor="checkbox4" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Со скидкой</label>
                 </div>
                 {/* lang-filter */}
                 {/* filter-title */}
@@ -48,25 +48,25 @@ const CategoryContainer = () => {
                     <div
                         onClick={() => setShowFilter(!showFilter)}
                         className="text-black-dark ctext-lg font-medium cursor-pointer">Язык</div>
-                    <BiChevronDown className={`text-blue text-2xl transition-all transform ${showFilter ? 'rotate-180' : 'rotate-0'}`} />
+                    <BiChevronDown className={`text-blue text-2xl transition-all transhtmlForm ${showFilter ? 'rotate-180' : 'rotate-0'}`} />
                 </div>
                 {/* filter-body */}
                 <div className={`${showFilter ? 'hidden' : 'block'}`}>
                     <div className={`flex items-center`}>
                         <input id="1checkbox" type="checkbox" />
-                        <label for="1checkbox" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Русский</label>
+                        <label htmlFor="1checkbox" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Русский</label>
                     </div>
                     <div className="flex items-center">
                         <input id="1checkbox2" type="checkbox" />
-                        <label for="1checkbox2" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Английский</label>
+                        <label htmlFor="1checkbox2" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Английский</label>
                     </div>
                     <div className="flex items-center">
                         <input id="1checkbox3" type="checkbox" />
-                        <label for="1checkbox3" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Испанский</label>
+                        <label htmlFor="1checkbox3" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Испанский</label>
                     </div>
                     <div className="flex items-center">
                         <input id="1checkbox4" type="checkbox" />
-                        <label for="1checkbox4" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Узбекский</label>
+                        <label htmlFor="1checkbox4" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Узбекский</label>
                     </div>
                 </div>
 
@@ -76,21 +76,21 @@ const CategoryContainer = () => {
                     <div
                         onClick={() => setShowFilter2(!showFilter2)}
                         className="text-black-dark ctext-lg font-medium cursor-pointer">Издательство</div>
-                    <BiChevronDown className={`text-blue text-2xl transition-all transform ${showFilter2 ? 'rotate-180' : 'rotate-0'}`} />
+                    <BiChevronDown className={`text-blue text-2xl transition-all transhtmlForm ${showFilter2 ? 'rotate-180' : 'rotate-0'}`} />
                 </div>
                 {/* filter-body */}
                 <div className={`${showFilter2 ? 'hidden' : 'block'}`}>
                     <div className={`flex items-center`}>
                         <input id="1checkbox" type="checkbox" />
-                        <label for="1checkbox" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Росмен</label>
+                        <label htmlFor="1checkbox" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Росмен</label>
                     </div>
                     <div className="flex items-center">
                         <input id="1checkbox2" type="checkbox" />
-                        <label for="1checkbox2" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Кубик в рубике</label>
+                        <label htmlFor="1checkbox2" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Кубик в рубике</label>
                     </div>
                     <div className="flex items-center">
                         <input id="1checkbox3" type="checkbox" />
-                        <label for="1checkbox3" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Росмен</label>
+                        <label htmlFor="1checkbox3" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Росмен</label>
                     </div>
                 </div>
 
@@ -100,21 +100,21 @@ const CategoryContainer = () => {
                     <div
                         onClick={() => setShowFilter3(!showFilter3)}
                         className="text-black-dark ctext-lg font-medium cursor-pointer">Автор</div>
-                    <BiChevronDown className={`text-blue text-2xl transition-all transform ${showFilter3 ? 'rotate-180' : 'rotate-0'}`} />
+                    <BiChevronDown className={`text-blue text-2xl transition-all transhtmlForm ${showFilter3 ? 'rotate-180' : 'rotate-0'}`} />
                 </div>
                 {/* filter-body */}
                 <div className={`${showFilter3 ? 'hidden' : 'block'}`}>
                     <div className={`flex items-center`}>
                         <input id="1checkbox" type="checkbox" />
-                        <label for="1checkbox" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Росмен</label>
+                        <label htmlFor="1checkbox" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Росмен</label>
                     </div>
                     <div className="flex items-center">
                         <input id="1checkbox2" type="checkbox" />
-                        <label for="1checkbox2" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Кубик в рубике</label>
+                        <label htmlFor="1checkbox2" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Кубик в рубике</label>
                     </div>
                     <div className="flex items-center">
                         <input id="1checkbox3" type="checkbox" />
-                        <label for="1checkbox3" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Росмен</label>
+                        <label htmlFor="1checkbox3" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Росмен</label>
                     </div>
                 </div>
 
@@ -146,19 +146,19 @@ const CategoryContainer = () => {
                 {/* top-filter */}
                 <div className="flex items-center">
                     <input id="checkbox" type="checkbox" />
-                    <label for="checkbox" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Новинки</label>
+                    <label htmlFor="checkbox" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Новинки</label>
                 </div>
                 <div className="flex items-center">
                     <input id="checkbox2" type="checkbox" />
-                    <label for="checkbox2" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Бестселлеры</label>
+                    <label htmlFor="checkbox2" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Бестселлеры</label>
                 </div>
                 <div className="flex items-center">
                     <input id="checkbox3" type="checkbox" />
-                    <label for="checkbox3" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Рекомендуемое</label>
+                    <label htmlFor="checkbox3" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Рекомендуемое</label>
                 </div>
                 <div className="flex items-center">
                     <input id="checkbox4" type="checkbox" />
-                    <label for="checkbox4" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Со скидкой</label>
+                    <label htmlFor="checkbox4" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Со скидкой</label>
                 </div>
                 {/* lang-filter */}
                 {/* filter-title */}
@@ -166,25 +166,25 @@ const CategoryContainer = () => {
                     <div
                         onClick={() => setShowFilter(!showFilter)}
                         className="text-black-dark ctext-lg font-medium cursor-pointer">Язык</div>
-                    <BiChevronDown className={`text-blue text-2xl transition-all transform ${showFilter ? 'rotate-180' : 'rotate-0'}`} />
+                    <BiChevronDown className={`text-blue text-2xl transition-all transhtmlForm ${showFilter ? 'rotate-180' : 'rotate-0'}`} />
                 </div>
                 {/* filter-body */}
                 <div className={`${showFilter ? 'hidden' : 'block'}`}>
                     <div className={`flex items-center`}>
                         <input id="1checkbox" type="checkbox" />
-                        <label for="1checkbox" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Русский</label>
+                        <label htmlFor="1checkbox" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Русский</label>
                     </div>
                     <div className="flex items-center">
                         <input id="1checkbox2" type="checkbox" />
-                        <label for="1checkbox2" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Английский</label>
+                        <label htmlFor="1checkbox2" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Английский</label>
                     </div>
                     <div className="flex items-center">
                         <input id="1checkbox3" type="checkbox" />
-                        <label for="1checkbox3" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Испанский</label>
+                        <label htmlFor="1checkbox3" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Испанский</label>
                     </div>
                     <div className="flex items-center">
                         <input id="1checkbox4" type="checkbox" />
-                        <label for="1checkbox4" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Узбекский</label>
+                        <label htmlFor="1checkbox4" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Узбекский</label>
                     </div>
                 </div>
 
@@ -194,21 +194,21 @@ const CategoryContainer = () => {
                     <div
                         onClick={() => setShowFilter2(!showFilter2)}
                         className="text-black-dark ctext-lg font-medium cursor-pointer">Издательство</div>
-                    <BiChevronDown className={`text-blue text-2xl transition-all transform ${showFilter2 ? 'rotate-180' : 'rotate-0'}`} />
+                    <BiChevronDown className={`text-blue text-2xl transition-all transhtmlForm ${showFilter2 ? 'rotate-180' : 'rotate-0'}`} />
                 </div>
                 {/* filter-body */}
                 <div className={`${showFilter2 ? 'hidden' : 'block'}`}>
                     <div className={`flex items-center`}>
                         <input id="1checkbox" type="checkbox" />
-                        <label for="1checkbox" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Росмен</label>
+                        <label htmlFor="1checkbox" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Росмен</label>
                     </div>
                     <div className="flex items-center">
                         <input id="1checkbox2" type="checkbox" />
-                        <label for="1checkbox2" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Кубик в рубике</label>
+                        <label htmlFor="1checkbox2" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Кубик в рубике</label>
                     </div>
                     <div className="flex items-center">
                         <input id="1checkbox3" type="checkbox" />
-                        <label for="1checkbox3" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Росмен</label>
+                        <label htmlFor="1checkbox3" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Росмен</label>
                     </div>
                 </div>
 
@@ -218,21 +218,21 @@ const CategoryContainer = () => {
                     <div
                         onClick={() => setShowFilter3(!showFilter3)}
                         className="text-black-dark ctext-lg font-medium cursor-pointer">Автор</div>
-                    <BiChevronDown className={`text-blue text-2xl transition-all transform ${showFilter3 ? 'rotate-180' : 'rotate-0'}`} />
+                    <BiChevronDown className={`text-blue text-2xl transition-all transhtmlForm ${showFilter3 ? 'rotate-180' : 'rotate-0'}`} />
                 </div>
                 {/* filter-body */}
                 <div className={`${showFilter3 ? 'hidden' : 'block'}`}>
                     <div className={`flex items-center`}>
                         <input id="1checkbox" type="checkbox" />
-                        <label for="1checkbox" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Росмен</label>
+                        <label htmlFor="1checkbox" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Росмен</label>
                     </div>
                     <div className="flex items-center">
                         <input id="1checkbox2" type="checkbox" />
-                        <label for="1checkbox2" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Кубик в рубике</label>
+                        <label htmlFor="1checkbox2" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Кубик в рубике</label>
                     </div>
                     <div className="flex items-center">
                         <input id="1checkbox3" type="checkbox" />
-                        <label for="1checkbox3" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Росмен</label>
+                        <label htmlFor="1checkbox3" className="text-grey-dark ctext-base font-medium ml-2 cursor-pointer">Росмен</label>
                     </div>
                 </div>
 
