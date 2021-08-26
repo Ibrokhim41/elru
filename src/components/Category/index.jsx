@@ -13,11 +13,13 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
   const [showCatalog, setShowCatalog] = useState(false);
   const handleClick = useCallback((event) => {
       if(!menuRef.current.contains(event.target) && !burgerRef.current.contains(event.target)) setCatalog(false)
-  }, [])
+  }, [burgerRef, setCatalog])
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClick)
-  }, []);
+  }, [handleClick]);
+
+  console.log("times")
 
   return (
     <div
