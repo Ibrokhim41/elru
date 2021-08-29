@@ -1,24 +1,12 @@
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-// const { default: CategoryContainer } = require("./CategoryContainer")
-import { increment } from 'redux/counter'
+import Loading from "./Loading";
 
 
 
 const Example = () => {
 
-    const count  = useSelector(state => state.counter.value)
-    const dispatch = useDispatch()
-
     return (
         <>
-            {/* <CategoryContainer /> */}
-            <h1>So</h1>
-            <br />
-            <h1>{count}</h1>
-            <button
-                onClick={() => dispatch(increment())}
-            >+</button>
+            <Loading />
         </>
     )
 }

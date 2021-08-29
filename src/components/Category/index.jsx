@@ -6,6 +6,7 @@ import mob_icon_user from "assets/images/mob-icon-user.svg";
 import arrow_black from "assets/images/arrow-black.svg";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useHistory } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Category = ({ setCatalog, setShow, burgerRef }) => {
   const menuRef = useRef();
@@ -14,12 +15,11 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
   const handleClick = useCallback((event) => {
       if(!menuRef.current.contains(event.target) && !burgerRef.current.contains(event.target)) setCatalog(false)
   }, [burgerRef, setCatalog])
-
   useEffect(() => {
     document.addEventListener("mousedown", handleClick)
   }, [handleClick]);
 
-  console.log("times")
+  const {t} = useTranslation()
 
   return (
     <div
@@ -45,7 +45,7 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
           <img src={mob_icon_user} alt="user-avatar" className="object-cover" />
         </div>
         <div className="ctext-sm text-grey-dark font-medium mx-2 cursor-pointer hover:text-blue">
-          Войти
+          {t("header.login")}
         </div>
         <img src={arrow_black} alt="arrow-icon" width="15px" />
       </div>
@@ -53,7 +53,7 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
       <div className="header-search flex md:hidden justify-center my-4 mb-8 px-4">
         <input
           type="text"
-          placeholder="Введите книгу, автора..."
+          placeholder={`${t("placeholders.book_search")}`}
           className="h-full w-full rounded border border-grey focus:outline-none px-3 text-grey-dark"
         />
         <button className="h-full bg-blue rounded px-3 -ml-1 focus:outline-none">
@@ -67,7 +67,7 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
             onClick={() => setShowCatalog(!showCatalog)}
             className="flex p-4 active-menu cursor-pointer"
           >
-            {showCatalog ? "Назад" : "Категории"}
+            {showCatalog ? `${t("back")}` : `${t("header.categories")}`}
             <img
               src={icon_arrow}
               alt="arrow-icon"
@@ -83,7 +83,7 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
             }}
             className="p-4 cursor-pointer"
           >
-            Акции и скидки{" "}
+            {t("nav.discounts_and_sales")}
           </div>
           <div
             onClick={() => {
@@ -92,7 +92,7 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
             }}
             className="p-4 cursor-pointer"
           >
-            Топ - книги{" "}
+            {t("nav.top_books")}
           </div>
           <div
             onClick={() => {
@@ -101,7 +101,7 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
             }}
             className="p-4 cursor-pointer"
           >
-            Новости{" "}
+            {t("nav.news")}
           </div>
           <div
             onClick={() => {
@@ -110,7 +110,7 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
             }}
             className="p-4 cursor-pointer"
           >
-            Оплата{" "}
+            {t("nav.payment")}
           </div>
           <div
             onClick={() => {
@@ -119,7 +119,7 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
             }}
             className="p-4 cursor-pointer"
           >
-            Обратная связь{" "}
+            {t("nav.service")}
           </div>
         </div>
         {/* list */}

@@ -1,0 +1,39 @@
+{
+    "back": "Назад",
+    "nav": {
+        "discounts_and_sales": "Акции и скидки",
+        "top_books": "Топ-книги",
+        "news": "Новости",
+        "payment": "Оплата",
+        "service": "Обратная связь"
+    },
+    "header": {
+        "categories": "Категории",
+        "login": "Войти",
+        "chat": "Чат",
+        "orders": "Мои заказы",
+        "basket": "Корзина"
+    },
+    "placeholders": {
+        "book_search": "Введите книгу, автора..."
+    },
+    "titles": {
+        "recommended": "Рекомендованное",
+        "best_prices": "Лучшие цены",
+        "new": "Новинки",
+        "bestsellers": "Бестселлеры",
+        "book_of_the_month": "Книга месяца",
+        "news": "Новости"
+    },
+    "links": {
+        "all_recommended": "Все рекомендованные",
+        "book_with_discount": "Книги со скидкой",
+        "all_new_books": "Все новинки",
+        "all_bestsellers": "Все Бестселлеры",
+        "all_news": "Все новости"
+    },
+    "btn_link": {
+        "all": "Все",
+        "view": "Посмотреть"
+    }
+}

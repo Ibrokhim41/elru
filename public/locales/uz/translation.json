@@ -1,0 +1,41 @@
+{
+    "back": "Ortga",
+    "nav": {
+        "discounts_and_sales": "Aksiyalar va Skidkalar",
+        "top_books": "Top-kitoblar",
+        "news": "Yangiliklar",
+        "payment": "To'lo'v",
+        "service": "Qo'lab quvatlash"
+    },
+    "header": {
+        "categories": "Kategoriyalar",
+        "login": "Kirish",
+        "chat": "Chat",
+        "orders": "Buyurtmalarim",
+        "basket": "Savat"
+    },
+    "placeholders": {
+        "book_search": "Kitobni nomi, avtori..."
+    },
+    "titles": {
+        "recommended": "Tavsiya etiladi",
+        "best_prices": "Eng zo'r naxlar",
+        "new": "Yangilar",
+        "bestsellers": "Bestsellerlar",
+        "book_of_the_month": "Oy kitobi",
+        "news": "Yangiliklar"
+
+    },
+    "links": {
+        "all_recommended": "Barcha Tavsiya etilganlar",
+        "book_with_discount": "Barcha qulay narxlar",
+        "all_new_books": "Barcha yangi kitoblar",
+        "all_bestsellers": "Barcha bestsellerlar",
+        "all_news": "Barcha yangiliklar"
+
+    },
+    "btn_link": {
+        "all": "Barchasi",
+        "view": "Ko'rish"
+    }
+}

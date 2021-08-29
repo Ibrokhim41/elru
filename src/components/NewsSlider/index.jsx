@@ -6,9 +6,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import {useWindowDimensions} from "../../hooks/ScreenWidth";
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 
 const NewsContainer = () => {
 
+    const {t} = useTranslation()
     const route = useHistory()
     const {width} = useWindowDimensions();
 
@@ -77,10 +79,10 @@ const NewsContainer = () => {
         <div className="news container mx-auto my-10">
             {/* title */}
             < div className="w-full flex justify-between mb-7" >
-                <div className="ctext-xl text-black font-bold">Новости</div>
+                <div className="ctext-xl text-black font-bold">{t("titles.news")}</div>
                 <div 
                     onClick={() => route.push('/news')}
-                    className="ctext-lg text-blue flex items-center cursor-pointer group">Все {width > 410 && "рекомендованные"} <img src={icon_arrow} alt="arrow-icon" className="w-4 h-4 ml-2 transition-all transform group-hover:translate-x-1" /></div>
+                    className="ctext-lg text-blue flex items-center cursor-pointer group">{width > 410 ? t("links.all_news") : t("btn_link.all")} <img src={icon_arrow} alt="arrow-icon" className="w-4 h-4 ml-2 transition-all transform group-hover:translate-x-1" /></div>
             </div >
             {/* body */}
             <Slider {...settings}>

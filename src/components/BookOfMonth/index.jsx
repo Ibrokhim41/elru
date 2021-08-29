@@ -1,16 +1,18 @@
 import "./style.css";
 import monthBook from "assets/images/book-month.png"
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 
 const BookOfMonth = () => {
 
     const route = useHistory()
+    const {t} = useTranslation()
 
     return (
         <div className="container mx-auto my-10">
             {/* title */}
             <div className="w-full flex justify-between mb-4">
-                <div className="ctext-xl text-black font-bold">Книга месяца</div>
+                <div className="ctext-xl text-black font-bold">{t("titles.book_of_the_month")}</div>
             </div>
             {/* body */}
             <div className="flex justify-between gap-4">

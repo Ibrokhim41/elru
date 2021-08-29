@@ -13,14 +13,19 @@ import arrow_black from "assets/images/arrow-black.svg";
 import Category from "components/Category";
 import Auth from "components/Auth";
 import { Squash as Hamburger } from "hamburger-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setAuth, setStartChat } from "redux/modals";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const dispatch = useDispatch();
-
+  const {t, i18n} = useTranslation()
+  const changeLanguage = language => {
+    i18n.changeLanguage(language)
+    setCheckLanguage(language)
+  }
   const route = useHistory();
   const [catalog, setCatalog] = useState(false);
   let burgerRef = useRef();
@@ -29,6 +34,11 @@ const Header = () => {
   const handleCatalog = () => {
     setCatalog(!catalog)    
   }
+
+  const [checkLanguage, setCheckLanguage] = useState("")
+  useEffect(() => {
+    setCheckLanguage(localStorage.getItem("i18nextLng"))
+  }, [])
 
   return (
     <div className="header">
@@ -47,31 +57,31 @@ const Header = () => {
             onClick={() => route.push("/discounts")}
             className="hover:text-blue cursor-pointer"
           >
-            Акции и скидки
+            {t("nav.discounts_and_sales")}
           </div>
           <div
             onClick={() => route.push("/tops")}
             className="hover:text-blue cursor-pointer"
           >
-            Топ - книги
+            {t("nav.top_books")}
           </div>
           <div
             onClick={() => route.push("/news")}
             className="hover:text-blue cursor-pointer"
           >
-            Новости
+            {t("nav.news")}
           </div>
           <div
             onClick={() => route.push("/payment")}
             className="hover:text-blue cursor-pointer"
           >
-            Оплата
+            {t("nav.payment")}
           </div>
           <div
             onClick={() => route.push("/feedback")}
             className="hover:text-blue cursor-pointer"
           >
-            Обратная связь
+            {t("nav.service")}
           </div>
         </div>
         {/* tel & lang */}
@@ -82,9 +92,13 @@ const Header = () => {
           </a>
         </div>
         <div className="lang flex justify-items-end text-sm text-grey">
-          <div className="hover:text-blue cursor-pointer text-blue">RU</div>
+          <div 
+            onClick={() => changeLanguage("ru")}
+            className={`hover:text-blue cursor-pointer ${checkLanguage === "ru" && "text-blue"}`}>RU</div>
           <span className="px-1 lg:px-3">/</span>
-          <div className="hover:text-blue cursor-pointer">UZ</div>
+          <div 
+            onClick={() => changeLanguage("uz")}
+            className={`hover:text-blue cursor-pointer ${checkLanguage === "uz" && "text-blue"}`}>UZ</div>
         </div>
       </div>
 
@@ -108,7 +122,7 @@ const Header = () => {
             className="burger flex items-center h-full text-white bg-blue font-bold ctext-base focus:outline-none cursor-pointer"
           >
             <Hamburger toggled={catalog} size={20} />
-            <span className="hidden lg:block">Категории</span>
+            <span className="hidden lg:block">{t("header.categories")}</span>
           </div>
           {/* search */}
           <form className="header-search hidden md:flex">
@@ -116,7 +130,7 @@ const Header = () => {
               onChange={(e) => setSearch(e.target.value)}
               value={search}
               type="text"
-              placeholder="Введите книгу, автора..."
+              placeholder={`${t("placeholders.book_search")}`}
               className="h-full w-full rounded border border-grey focus:outline-none px-3 text-grey-dark"
             />
             <button
@@ -141,14 +155,14 @@ const Header = () => {
               className="flex flex-col cursor-pointer text-grey-dark hover:text-blue"
             >
               <img src={icon_chat} alt="chat-icon" />
-              Чат
+              {t("header.chat")}
             </div>
             <div
               onClick={() => route.push("/myorders")}
               className="flex flex-col cursor-pointer text-grey-dark hover:text-blue mx-10"
             >
               <img src={icon_order} alt="order-icon" />
-              Мои заказы
+              {t("header.orders")}
             </div>
             <div
               onClick={() => route.push("/basket")}
@@ -158,7 +172,7 @@ const Header = () => {
               <span className="order-count absolute text-blue ctext-base font-bold">
                 14
               </span>
-              Корзина
+              {t("header.basket")}
             </div>
           </div>
           {/* user-info */}
@@ -183,7 +197,7 @@ const Header = () => {
               onClick={() => dispatch(setAuth(true))}
               className="ctext-sm text-grey-dark font-medium mx-2 cursor-pointer hover:text-blue"
             >
-              Войти
+              {t("header.login")}
             </div>
             <img src={arrow_black} alt="arrow-icon" width="15px" />
           </div>
@@ -195,7 +209,7 @@ const Header = () => {
         <input
           onChange={(e) => setSearch(e.target.value)}
           type="text"
-          placeholder="Введите книгу, автора..."
+          placeholder={`${t("placeholders.book_search")}`}
           className="w-full focus:outline-none pl-10 border border-grey rounded text-grey-dark"
         />
         <button

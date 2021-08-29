@@ -6,9 +6,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Cart from 'components/Cart';
 import { useWindowDimensions } from "../../hooks/ScreenWidth"
+import { useTranslation } from "react-i18next";
 
 const CartSliderContainer = ({title, linkText}) => {
 
+    const {t} = useTranslation()
     const { width } = useWindowDimensions();
 
     const SampleNextArrow = (props) => {
@@ -75,7 +77,7 @@ const CartSliderContainer = ({title, linkText}) => {
             <div className="w-full flex justify-between mb-7">
                 <div className="ctext-xl text-black font-bold">{title}</div>
                 {/* <div className="ctext-lg text-blue flex items-center cursor-pointer group">{linkText}<img src={icon_arrow} alt="arrow-icon" className="w-4 h-4 ml-2 transition-all transform group-hover:translate-x-1" /></div> */}
-                <div className="ctext-lg text-blue flex items-center cursor-pointer group">{width > 410 ? linkText : "Все" } <img src={icon_arrow} alt="arrow-icon" className="w-4 h-4 ml-2 transition-all transform group-hover:translate-x-1" /></div>
+                <div className="ctext-lg text-blue flex items-center cursor-pointer group">{width > 410 ? linkText : t("btn_link.all") } <img src={icon_arrow} alt="arrow-icon" className="w-4 h-4 ml-2 transition-all transform group-hover:translate-x-1" /></div>
             </div>
             {/* container */}
             <div className="book-slider">

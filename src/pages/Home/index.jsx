@@ -6,9 +6,11 @@ import BookOfMonth from "components/BookOfMonth";
 import NewsSlider from "components/NewsSlider";
 import { useEffect } from 'react';
 import animateScrollTo from "animated-scroll-to";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
 
+    const {t} = useTranslation()
     useEffect(() => {
         animateScrollTo(0, 500)
     }, [])
@@ -16,11 +18,11 @@ const Home = () => {
     return (
         <>
             <Carousel />
-            <CartSliderContainer title="Рекомендованное" linkText="Все рекомендованные" />
+            <CartSliderContainer title={t("titles.recommended")} linkText={t("links.all_recommended")} />
             <DiscountsContainer />
-            <CartSliderContainer title="Лучшие цены" linkText="Книги со скидкой" />
-            <CartSliderContainer title="Новинки" linkText="Все новинки" />
-            <CartSliderContainer title="Бестселлеры" linkText="Все Бестселлеры" />
+            <CartSliderContainer title={t("titles.best_prices")} linkText={t("links.book_with_discount")} />
+            <CartSliderContainer title={t("titles.new")} linkText={t("links.all_new_books")} />
+            <CartSliderContainer title={t("titles.bestsellers")} linkText={t("links.all_bestsellers")} />
             <TopBooksSlider />
             <BookOfMonth />
             <NewsSlider />

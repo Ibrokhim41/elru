@@ -6,9 +6,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useWindowDimensions } from "../../hooks/ScreenWidth";
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
 
 const TopBooksContainer = () => {
 
+    const {t} = useTranslation()
     const route = useHistory()
     const { width } = useWindowDimensions();
 
@@ -84,7 +86,7 @@ const TopBooksContainer = () => {
                                 </div>
                                 <button
                                     onClick={() => route.push('/top100')}
-                                    className="w-min ctext-base font-bold text-white bg-blue rounded-md py-3 px-10 focus:outline-none">Посмотреть</button>
+                                    className="w-min ctext-base font-bold text-white bg-blue rounded-md py-3 px-10 focus:outline-none mt-4">{t("btn_link.view")}</button>
                             </div>
                             <div
                                 style={{ background: "url('https://cdn1.ozone.ru/multimedia/1019443093.jpg')" }}
@@ -101,7 +103,7 @@ const TopBooksContainer = () => {
                                 </div>
                                 <button
                                     onClick={() => route.push('/top100')}
-                                    className="w-min ctext-base font-bold text-white bg-blue rounded-md py-3 px-10 focus:outline-none">Посмотреть</button>
+                                    className="w-min ctext-base font-bold text-white bg-blue rounded-md py-3 px-10 focus:outline-none mt-4">{t("btn_link.view")}</button>
                             </div>
                             <div
                                 style={{ background: "url('https://cdn1.ozone.ru/multimedia/1019443093.jpg')" }}
@@ -117,7 +119,7 @@ const TopBooksContainer = () => {
                                 </div>
                                 <button
                                     onClick={() => route.push('/top100')}
-                                    className="w-min ctext-base font-bold text-white bg-blue rounded-md py-3 px-10 focus:outline-none">Посмотреть</button>
+                                    className="w-min ctext-base font-bold text-white bg-blue rounded-md py-3 px-10 focus:outline-none mt-4">{t("btn_link.view")}</button>
                             </div>
                             <div
                                 style={{ background: "url('https://cdn1.ozone.ru/multimedia/1019443093.jpg')" }}
