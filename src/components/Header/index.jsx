@@ -21,24 +21,26 @@ import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const {t, i18n} = useTranslation()
-  const changeLanguage = language => {
-    i18n.changeLanguage(language)
-    setCheckLanguage(language)
-  }
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+    setCheckLanguage(language);
+  };
   const route = useHistory();
   const [catalog, setCatalog] = useState(false);
   let burgerRef = useRef();
 
   const [search, setSearch] = useState("");
   const handleCatalog = () => {
-    setCatalog(!catalog)    
-  }
+    setCatalog(!catalog);
+  };
 
-  const [checkLanguage, setCheckLanguage] = useState("")
+  const [checkLanguage, setCheckLanguage] = useState("");
   useEffect(() => {
-    setCheckLanguage(localStorage.getItem("i18nextLng"))
-  }, [])
+    setCheckLanguage(localStorage.getItem("i18nextLng"));
+  }, []);
+
+  const [count] = useState(87)
 
   return (
     <div className="header">
@@ -47,8 +49,8 @@ const Header = () => {
       <div className="header-top container mx-auto hidden sm:flex items-center text-grey-dark font-bold">
         {/* logo */}
         <div className="flex-auto">
-          <div onClick={() => route.push("/")} className="cursor-pointer">
-            <img src={elru_logo} alt="elru.uz_logo" />
+          <div>
+            <img src={elru_logo} alt="elru.uz_logo" onClick={() => route.push("/")} className="cursor-pointer" />
           </div>
         </div>
         {/* nav-top */}
@@ -92,13 +94,23 @@ const Header = () => {
           </a>
         </div>
         <div className="lang flex justify-items-end text-sm text-grey">
-          <div 
+          <div
             onClick={() => changeLanguage("ru")}
-            className={`hover:text-blue cursor-pointer ${checkLanguage === "ru" && "text-blue"}`}>RU</div>
+            className={`hover:text-blue cursor-pointer ${
+              checkLanguage === "ru" && "text-blue"
+            }`}
+          >
+            RU
+          </div>
           <span className="px-1 lg:px-3">/</span>
-          <div 
+          <div
             onClick={() => changeLanguage("uz")}
-            className={`hover:text-blue cursor-pointer ${checkLanguage === "uz" && "text-blue"}`}>UZ</div>
+            className={`hover:text-blue cursor-pointer ${
+              checkLanguage === "uz" && "text-blue"
+            }`}
+          >
+            UZ
+          </div>
         </div>
       </div>
 
@@ -137,7 +149,7 @@ const Header = () => {
               onClick={(e) => {
                 e.preventDefault();
                 route.push(`/searchresults/${search}`);
-                setSearch('')
+                setSearch("");
               }}
               className="h-full bg-blue rounded px-3 -ml-1 focus:outline-none"
             >
@@ -166,12 +178,22 @@ const Header = () => {
             </div>
             <div
               onClick={() => route.push("/basket")}
-              className="relative flex flex-col cursor-pointer text-grey-dark hover:text-blue"
+              className="relative flex flex-col justify-between items-center cursor-pointer text-grey-dark hover:text-blue"
             >
-              <img src={icon_basket} alt="basket-icon" />
-              <span className="order-count absolute text-blue ctext-base font-bold">
-                14
-              </span>
+              {/* <img src={icon_basket} alt="basket-icon" />
+               */}
+              <div style={{
+                backgroundImage: `url(${icon_basket})`,
+                backgroundRepeat: "no-repeat",
+                width: "38px",
+                height: "29px"
+              }}>
+                <span 
+                  className="order-count absolute text-blue ctext-xs font-bold"
+                  style={{
+                    left: `${count > 9 ? '41%' : '47%'}`
+                  }}>{count}</span>
+              </div>
               {t("header.basket")}
             </div>
           </div>
