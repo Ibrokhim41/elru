@@ -64,6 +64,12 @@
     }
 }
 
+@media screen and (max-width: 1023px) {
+    .burger {
+        width: 100px;
+    }
+}
+
 @media screen and (max-width: 992px) {
     .header-search {
         width: 352px;
