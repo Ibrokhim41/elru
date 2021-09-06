@@ -131,7 +131,7 @@ const Header = () => {
           <div
             ref={burgerRef}
             onClick={handleCatalog}
-            className="burger flex items-center h-full text-white bg-blue font-bold ctext-base focus:outline-none cursor-pointer"
+            className="burger flex justify-center items-center h-full text-white bg-blue font-bold ctext-base focus:outline-none cursor-pointer"
           >
             <Hamburger toggled={catalog} size={20} />
             <span className="hidden lg:block">{t("header.categories")}</span>
@@ -178,7 +178,7 @@ const Header = () => {
             </div>
             <div
               onClick={() => route.push("/basket")}
-              className="relative flex flex-col justify-between items-center cursor-pointer text-grey-dark hover:text-blue"
+              className="basket relative flex flex-col justify-between items-center cursor-pointer text-grey-dark hover:text-blue"
             >
               {/* <img src={icon_basket} alt="basket-icon" />
                */}
@@ -189,7 +189,7 @@ const Header = () => {
                 height: "29px"
               }}>
                 <span 
-                  className="order-count absolute text-blue ctext-xs font-bold"
+                  className="order-count absolute text-blue font-bold"
                   style={{
                     left: `${count > 9 ? '41%' : '47%'}`
                   }}>{count}</span>

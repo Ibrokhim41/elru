@@ -39,7 +39,7 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
       {/* login user */}
       <div
         onClick={() => setShow(true)}
-        className="header-user-login w-full flex lg:hidden justify-center items-center cursor-pointer mt-6 mb-3"
+        className="header-user-login w-full flex xl:hidden justify-center items-center cursor-pointer mt-6 mb-3"
       >
         <div className="flex justify-center items-center w-10 h-10 rounded-full bg-white border border-grey">
           <img src={mob_icon_user} alt="user-avatar" className="object-cover" />

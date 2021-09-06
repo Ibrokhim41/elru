@@ -4,9 +4,13 @@
 .category {
     padding: 0px;
 }
+.header-user {
+    width: auto;
+}
 .header-search {
-    width: 458px;
+    width: 600px;
     height: 45px;
+    padding: 0 10px;
 }
 .header-user img {
     width: auto;
@@ -25,9 +29,11 @@
 .order-count {
     top: -5px;
     left: 44%;
+    font-size: 15px;
 }
 .burger {
-    padding: 12px 15px;
+    width: 162px;
+    padding: 12px 0;
 }
 .mob-top {
     padding-top: 16px;
@@ -47,6 +53,16 @@
 .mob-bottom img {
     width: 24px;
 }
+.basket {
+    width: 60px;
+}
+
+@media screen and (max-width: 1400px) {
+    .header-search {
+        width: 458px;
+        height: 45px;
+    }
+}
 
 @media screen and (max-width: 992px) {
     .header-search {
@@ -56,6 +72,9 @@
     .order-count {
         top: -5px;
         right: 16px;
+    }
+    .header-user {
+        width: 250px;
     }
 }
 
