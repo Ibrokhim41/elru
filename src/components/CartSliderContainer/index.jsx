@@ -8,26 +8,27 @@ import Cart from 'components/Cart';
 import { useWindowDimensions } from "../../hooks/ScreenWidth"
 import { useTranslation } from "react-i18next";
 
-const CartSliderContainer = ({title, linkText}) => {
+const CartSliderContainer = ({ title, linkText, books = [] }) => {
 
-    const {t} = useTranslation()
+    const { t } = useTranslation()
     const { width } = useWindowDimensions();
+
 
     const SampleNextArrow = (props) => {
         const { className, style, onClick } = props;
         return (
             <div
                 className={className}
-                style={{ 
-                    ...style, 
-                    display: "flex", 
-                    justifyContent: "center", 
-                    background: "#fff", 
-                    height: "50px", 
+                style={{
+                    ...style,
+                    display: "flex",
+                    justifyContent: "center",
+                    background: "#fff",
+                    height: "50px",
                     width: "50px",
-                    borderRadius: "50%", 
-                    zIndex: "5", 
-                    right: "-15px", 
+                    borderRadius: "50%",
+                    zIndex: "5",
+                    right: "-15px",
                     top: "50%",
                     boxShadow: "4px 4px 4px -1px rgba(0, 0, 0, 0.04)"
                 }}
@@ -42,17 +43,17 @@ const CartSliderContainer = ({title, linkText}) => {
         return (
             <div
                 className={className}
-                style={{ 
-                    ...style, 
-                    display: "flex", 
+                style={{
+                    ...style,
+                    display: "flex",
                     background: "#fff",
                     borderRadius: "50%",
-                    height: "50px", 
-                    width: "50px", 
-                    zIndex: "5", 
-                    left: "-15px", 
-                    top: "50%", 
-                    justifyContent: "center", 
+                    height: "50px",
+                    width: "50px",
+                    zIndex: "5",
+                    left: "-15px",
+                    top: "50%",
+                    justifyContent: "center",
                     boxShadow: "4px 4px 4px 1px rgba(0, 0, 0, 0.04)"
                 }}
                 onClick={onClick}
@@ -77,7 +78,7 @@ const CartSliderContainer = ({title, linkText}) => {
             <div className="w-full flex justify-between mb-7">
                 <div className="ctext-xl text-black font-bold">{title}</div>
                 {/* <div className="ctext-lg text-blue flex items-center cursor-pointer group">{linkText}<img src={icon_arrow} alt="arrow-icon" className="w-4 h-4 ml-2 transition-all transform group-hover:translate-x-1" /></div> */}
-                <div className="ctext-lg text-blue flex items-center cursor-pointer group">{width > 410 ? linkText : t("btn_link.all") } <img src={icon_arrow} alt="arrow-icon" className="w-4 h-4 ml-2 transition-all transform group-hover:translate-x-1" /></div>
+                <div className="ctext-lg text-blue flex items-center cursor-pointer group">{width > 410 ? linkText : t("btn_link.all")} <img src={icon_arrow} alt="arrow-icon" className="w-4 h-4 ml-2 transition-all transform group-hover:translate-x-1" /></div>
             </div>
             {/* container */}
             <div className="book-slider">

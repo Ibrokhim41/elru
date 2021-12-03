@@ -7,7 +7,7 @@ import avatar5 from "assets/images/user_avatar 95.png"
 import avatar6 from "assets/images/user_avatar 96.png"
 import { IoIosAttach, IoIosCheckmarkCircle } from "react-icons/io"
 import { AiOutlineClose } from "react-icons/ai"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Step2 } from "components/AuthForms"
 import { useDispatch, useSelector } from "react-redux"
 import { setAuth, setStartComment, setStartChat, setStartOrder } from "redux/modals"
@@ -24,6 +24,15 @@ const Auth = () => {
     const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6]
     const [selected, setSelected] = useState(0)
     const [steps, setSteps] = useState('step1')
+    const [userAvatar, setUserAvatar] = useState('')
+
+    const avatarImg = (e) => {
+        setUserAvatar(URL.createObjectURL(e.target.files[0]))
+    }
+
+    useEffect(() => {
+        auth ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto")
+    }, [auth])
 
     const Login = <>
         {/* info */}
@@ -91,14 +100,25 @@ const Auth = () => {
 
                 {/* avatar */}
                 <div className="text-black ctext-lg font-bold my-5 pt-6 border-t border-grey-border">Выберите аватарку профиля:</div>
-                <div className="text-grey-dark ctext-base py-2.5 px-2 sm:px-4 border border-grey-border flex items-center w-max rounded-md">
+                <div className="text-grey-dark ctext-base py-2.5 px-2 sm:px-4 border border-grey-border flex flex-col sm:flex-row items-center w-full sm:w-max rounded-md">
                     Фотография
                     <button className="bg-blue text-white ctext-base font-semibold rounded-md px-1.5 sm:px-2.5 py-1 sm:py-1.5 flex items-center ml-2">
                         <IoIosAttach className="text-white text-2xl sm:text-3xl mr-1 transform rotate-45" />
                         Прикрепить файл
                     </button>
+                    <input
+                        onChange={(e) => avatarImg(e)}
+                        type="file"
+                        accept="image/*"
+                        className="absolute opacity-0 cursor-pointer" />
+                    {userAvatar &&
+                        <img
+                            className={`w-32 h-32 object-cover sm:ml-3 mt-3 sm:mt-0`}
+                            src={userAvatar}
+                            alt=" " />
+                    }
                 </div>
-                <div className="flex flex-col md:flex-row md:items-center my-6">
+                {!userAvatar && <div className="flex flex-col md:flex-row md:items-center my-6">
                     <div className="text-black ctext-lg font-bold mb-4 md:mb-0">Или выберите готовый:</div>
                     <div className="flex flex-wrap">
                         {avatars.map((item, i) => {
@@ -114,7 +134,7 @@ const Auth = () => {
                             )
                         })}
                     </div>
-                </div>
+                </div>}
 
                 {/* rights */}
                 <div className="flex items-center my-10">
@@ -123,7 +143,7 @@ const Auth = () => {
                         <div className={`text-grey-dark ctext-lg font-bold`}>Я принимаю условия пользовательского соглашения</div>
                     </label>
                 </div>
-                <button 
+                <button
                     onClick={() => setSteps('step2')}
                     className="bg-blue text-white ctext-lg font-bold rounded-md w-full py-4 mb-20">Далее</button>
             </div>
@@ -146,7 +166,7 @@ const Auth = () => {
                 }}
                 className="absolute top-10 right-2 sm:right-10 cursor-pointer text-2xl sm:text-3xl lg:text-4xl hover:text-red"><AiOutlineClose /></div>
             <div className="container h-full sm:w-4/5 lg:w-3/4 xl:w-2/3 mt-52">
-                
+
                 {/* leave-comment-title */}
                 <div className={`text-black-black ${startComment ? 'block' : 'hidden'} ctext-xl font-bold text-center mt-20 mb-10`}>Войдите или зарегистрируйтесь, чтобы оставить отзыв </div>
                 {/* start-chat-title */}

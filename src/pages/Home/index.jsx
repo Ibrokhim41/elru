@@ -18,7 +18,7 @@ const Home = () => {
     return (
         <>
             <Carousel />
-            <CartSliderContainer title={t("titles.recommended")} linkText={t("links.all_recommended")} />
+            <CartSliderContainer title={t("titles.recommended")} linkText={t("links.all_recommended")} books={[]} />
             <DiscountsContainer />
             <CartSliderContainer title={t("titles.best_prices")} linkText={t("links.book_with_discount")} />
             <CartSliderContainer title={t("titles.new")} linkText={t("links.all_new_books")} />
