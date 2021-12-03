@@ -1,4 +1,3 @@
-
 import "./style.css"
 import Cart from '../Cart/index';
 import ReactPaginate from "react-paginate";
@@ -21,7 +20,7 @@ const CartSliderContainer = ({ grid = "grid-cols-2 sm:grid-cols-3 md:grid-cols-4
         .slice(pagesVisited, pagesVisited + booksPerPage)
         .map(book => {
             return (
-                <Cart author={book.name} />
+                <Cart key={book.name} author={book.name} />
             )
         })
 
