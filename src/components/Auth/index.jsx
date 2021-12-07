@@ -7,7 +7,7 @@ import avatar5 from "assets/images/user_avatar 95.png"
 import avatar6 from "assets/images/user_avatar 96.png"
 import { IoIosAttach, IoIosCheckmarkCircle } from "react-icons/io"
 import { AiOutlineClose } from "react-icons/ai"
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Step2 } from "components/AuthForms"
 import { useDispatch, useSelector } from "react-redux"
 import { setAuth, setStartComment, setStartChat, setStartOrder } from "redux/modals"
@@ -29,10 +29,6 @@ const Auth = () => {
     const avatarImg = (e) => {
         setUserAvatar(URL.createObjectURL(e.target.files[0]))
     }
-
-    useEffect(() => {
-        auth ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto")
-    }, [auth])
 
     const Login = <>
         {/* info */}

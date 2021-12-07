@@ -15,12 +15,13 @@ import Auth from "components/Auth";
 import { Squash as Hamburger } from "hamburger-react";
 import { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setAuth, setStartChat } from "redux/modals";
 import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const auth = useSelector(state => state.modals.auth)
   const { t, i18n } = useTranslation();
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
@@ -39,6 +40,9 @@ const Header = () => {
   useEffect(() => {
     setCheckLanguage(localStorage.getItem("i18nextLng"));
   }, []);
+  useEffect(() => {
+    auth ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto")
+  }, [auth])
 
   const [count] = useState(87)
 

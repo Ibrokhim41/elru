@@ -49,9 +49,9 @@ function App() {
       <div className="App mb-20 sm:mb-0">
         <Header />
         <Switch>
-          {pages.map((v) => (
+          {pages.map((v,i) => (
             <Route
-              key={v.path}
+              key={i}
               exact={v.exact}
               path={v?.path}
               component={v.component}
