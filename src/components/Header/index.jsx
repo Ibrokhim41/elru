@@ -231,19 +231,26 @@ const Header = () => {
       </div>
 
       {/* for mob size */}
-      <form className="block sm:hidden mob-top relative container bg-grey-light">
+      <form className="flex sm:hidden mob-top relative container bg-grey-light">
+        <div
+          onClick={handleCatalog}
+          className="text-blue mr-3 rounded-md font-bold ctext-base focus:outline-none cursor-pointer"
+        >
+          <Hamburger toggled={catalog} size={27} />
+          <span className="hidden lg:block">{t("header.categories")}</span>
+        </div>
         <input
           onChange={(e) => setSearch(e.target.value)}
           type="text"
           placeholder={`${t("placeholders.book_search")}`}
-          className="w-full focus:outline-none pl-10 border border-grey rounded text-grey-dark"
+          className="w-full focus:outline-none pl-2 sm:pl-10 pr-10 sm:pr-0 border border-grey rounded text-grey-dark"
         />
         <button
           onClick={(e) => {
             e.preventDefault();
             route.push(`/searchresults/${search}`);
           }}
-          className="absolute left-0 focus:outline-none"
+          className="absolute right-5 md:left-0 focus:outline-none"
         >
           <img src={mob_icon_search} alt="search-icon" />
         </button>
