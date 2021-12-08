@@ -100,18 +100,16 @@ const Header = () => {
         <div className="lang flex justify-items-end text-sm text-grey">
           <div
             onClick={() => changeLanguage("ru")}
-            className={`hover:text-blue cursor-pointer ${
-              checkLanguage === "ru" && "text-blue"
-            }`}
+            className={`hover:text-blue cursor-pointer ${checkLanguage === "ru" && "text-blue"
+              }`}
           >
             RU
           </div>
           <span className="px-1 lg:px-3">/</span>
           <div
             onClick={() => changeLanguage("uz")}
-            className={`hover:text-blue cursor-pointer ${
-              checkLanguage === "uz" && "text-blue"
-            }`}
+            className={`hover:text-blue cursor-pointer ${checkLanguage === "uz" && "text-blue"
+              }`}
           >
             UZ
           </div>
@@ -122,9 +120,8 @@ const Header = () => {
       <div className="hidden sm:block bg-grey-light">
         <div className="relative container mx-auto flex items-center justify-between">
           <div
-            className={`absolute w-full lg:w-11/12 top-full  z-20 ${
-              catalog ? "block showCategory" : "hidden"
-            }`}
+            className={`absolute w-full lg:w-11/12 top-full  z-20 ${catalog ? "block showCategory" : "hidden"
+              }`}
           >
             <Category
               setCatalog={setCatalog}
@@ -192,7 +189,7 @@ const Header = () => {
                 width: "38px",
                 height: "29px"
               }}>
-                <span 
+                <span
                   className="order-count absolute text-blue font-bold"
                   style={{
                     left: `${count > 9 ? '41%' : '47%'}`
@@ -231,12 +228,16 @@ const Header = () => {
       </div>
 
       {/* for mob size */}
-      <form className="flex sm:hidden mob-top relative container bg-grey-light">
+      <div
+        style={{ marginBottom: "80px" }}
+        className="sm:hidden">
+      </div>
+      <form className="flex sm:hidden mob-top fixed top-0 sm:relative container bg-grey-light z-50">
         <div
           onClick={handleCatalog}
-          className="text-blue mr-3 rounded-md font-bold ctext-base focus:outline-none cursor-pointer"
+          className="text-blue mr-1 rounded-md font-bold ctext-base focus:outline-none cursor-pointer"
         >
-          <Hamburger toggled={catalog} size={27} />
+          <Hamburger toggled={catalog} size={25} />
           <span className="hidden lg:block">{t("header.categories")}</span>
         </div>
         <input

@@ -90,3 +90,10 @@
         height: 45px;
     }
 }
+
+@media screen and (max-width: 576px) {
+    .mob-top {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
