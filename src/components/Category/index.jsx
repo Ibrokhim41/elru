@@ -27,7 +27,7 @@ const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
   return (
     <div
       ref={menuRef}
-      className={`${catalog ? 'w-10/12' : 'w-0'} transition-all overflow-hidden category fixed sm:relative top-0 z-50 sm:-ml-4 lg:ml-0 sm:w-full lg:w-4/5 bg-grey-light lg:bg-white lg:border border-grey flex flex-col text-grey-dark ctext-base`}
+      className={`${catalog ? 'w-10/12' : 'w-0'} transition-all duration-500 overflow-hidden category fixed sm:relative top-0 z-50 sm:-ml-4 lg:ml-0 sm:w-full lg:w-4/5 bg-grey-light lg:bg-white lg:border border-grey flex flex-col text-grey-dark ctext-base`}
     >
       {/* background */}
       <IoCloseOutline 
