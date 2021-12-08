@@ -17,7 +17,7 @@ const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
   const [showCatalog, setShowCatalog] = useState(false);
   const handleClick = useCallback((event) => {
     if ((width > 575) && !menuRef.current.contains(event.target) && !burgerRef.current.contains(event.target)) setCatalog(false)
-  }, [burgerRef, setCatalog])
+  }, [burgerRef, setCatalog, width])
   useEffect(() => {
     document.addEventListener("mousedown", handleClick)
   }, [handleClick]);
