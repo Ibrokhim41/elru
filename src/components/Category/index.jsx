@@ -7,13 +7,16 @@ import arrow_black from "assets/images/arrow-black.svg";
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useWindowDimensions } from '../../hooks/ScreenWidth';
+import { IoCloseOutline } from "react-icons/io5";
 
-const Category = ({ setCatalog, setShow, burgerRef }) => {
+const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
   const menuRef = useRef();
   const route = useHistory();
+  const {width} = useWindowDimensions();
   const [showCatalog, setShowCatalog] = useState(false);
   const handleClick = useCallback((event) => {
-      if(!menuRef.current.contains(event.target) && !burgerRef.current.contains(event.target)) setCatalog(false)
+    if ((width > 575) && !menuRef.current.contains(event.target) && !burgerRef.current.contains(event.target)) setCatalog(false)
   }, [burgerRef, setCatalog])
   useEffect(() => {
     document.addEventListener("mousedown", handleClick)
@@ -24,8 +27,17 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
   return (
     <div
       ref={menuRef}
-      className="category -ml-4 lg:ml-0 w-full lg:w-4/5 bg-grey-light lg:bg-white lg:border border-grey flex flex-col text-grey-dark ctext-base"
+      className={`${catalog ? 'w-10/12' : 'w-0'} transition-all overflow-hidden category fixed sm:relative top-0 z-50 sm:-ml-4 lg:ml-0 sm:w-full lg:w-4/5 bg-grey-light lg:bg-white lg:border border-grey flex flex-col text-grey-dark ctext-base`}
     >
+      {/* background */}
+      <IoCloseOutline 
+        onClick={() => {
+          setCatalog(false)
+          setShowCatalog(false)
+        }}
+        className={`${catalog ? 'block' : 'hidden'} fixed top-0 right-0 text-white text-5xl m-1 z-50`} />
+      <div className={`${catalog ? 'block' : 'hidden'} bg-black-black w-full h-full fixed top-0 left-0 opacity-60`}>
+      </div>
       {/* user */}
       {/* <div
                     onClick={() => route.push('/user')}
@@ -39,7 +51,7 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
       {/* login user */}
       <div
         onClick={() => setShow(true)}
-        className="header-user-login w-full flex xl:hidden justify-center items-center cursor-pointer mt-6 mb-3"
+        className="header-user-login w-full hidden sm:flex xl:hidden justify-center items-center cursor-pointer mt-6 mb-3"
       >
         <div className="flex justify-center items-center w-10 h-10 rounded-full bg-white border border-grey">
           <img src={mob_icon_user} alt="user-avatar" className="object-cover" />
@@ -50,7 +62,7 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
         <img src={arrow_black} alt="arrow-icon" width="15px" />
       </div>
       {/* search */}
-      <div className="header-search flex md:hidden justify-center my-4 mb-8 px-4">
+      <div className="header-search hidden sm:flex md:hidden justify-center my-4 mb-8 px-4">
         <input
           type="text"
           placeholder={`${t("placeholders.book_search")}`}
@@ -61,8 +73,8 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
         </button>
       </div>
       {/* menu */}
-      <div className="menu relative w-screen lg:w-full h-screen lg:h-full overflow-hidden">
-        <div className="absolute w-full bg-grey-light block lg:hidden text-grey-dark font-bold">
+      <div className="menu relative w-screen lg:w-full h-screen lg:h-full overflow-hidden z-40">
+        <div className="absolute w-full h-full sm:h-auto bg-grey-light block lg:hidden text-grey-dark font-bold">
           <div
             onClick={() => setShowCatalog(!showCatalog)}
             className="flex p-4 active-menu cursor-pointer"
@@ -124,11 +136,11 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
         </div>
         {/* list */}
         <div
-          className={`list w-full absolute left-0 lg:relative border-r border-blue transition-all duration-700 transform ${
+          className={`list w-full h-full absolute left-0 lg:relative border-r border-blue transition-all duration-700 transform ${
             showCatalog
               ? "trlanslate-x-0"
               : "-translate-x-full lg:translate-x-0"
-          } flex lg:flex-row flex-wrap bg-grey-light lg:bg-white`}
+          } flex lg:flex-row flex-wrap bg-grey-light lg:bg-white overflow-y-scroll sm:overflow-y-auto`}
         >
           <div
             onClick={() => {
@@ -205,6 +217,50 @@ const Category = ({ setCatalog, setShow, burgerRef }) => {
           >
             <div className="inline-block border-b-2 border-grey-light lg:border-white hover:border-blue hover:text-blue cursor-pointer">
               Маркетинг
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              setCatalog(false);
+              route.push("/category");
+            }}
+            className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
+          >
+            <div className="inline-block border-b-2 border-grey-light lg:border-white hover:border-blue hover:text-blue cursor-pointer">
+              Семейные
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              setCatalog(false);
+              route.push("/category");
+            }}
+            className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
+          >
+            <div className="inline-block border-b-2 border-grey-light lg:border-white hover:border-blue hover:text-blue cursor-pointer">
+              Семейные
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              setCatalog(false);
+              route.push("/category");
+            }}
+            className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
+          >
+            <div className="inline-block border-b-2 border-grey-light lg:border-white hover:border-blue hover:text-blue cursor-pointer">
+              Семейные
+            </div>
+          </div>
+          <div
+            onClick={() => {
+              setCatalog(false);
+              route.push("/category");
+            }}
+            className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
+          >
+            <div className="inline-block border-b-2 border-grey-light lg:border-white hover:border-blue hover:text-blue cursor-pointer">
+              Семейные
             </div>
           </div>
           <div

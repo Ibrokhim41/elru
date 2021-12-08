@@ -46,6 +46,7 @@ const Header = () => {
 
   const [count] = useState(87)
 
+
   return (
     <div className="header">
       <Auth />
@@ -232,7 +233,15 @@ const Header = () => {
         style={{ marginBottom: "80px" }}
         className="sm:hidden">
       </div>
-      <form className="flex sm:hidden mob-top fixed top-0 sm:relative container bg-grey-light z-50">
+      <div className={`sm:hidden`}>
+        <Category
+          catalog={catalog}
+          setCatalog={setCatalog}
+          setShow={setAuth}
+          burgerRef={burgerRef}
+        />
+      </div>
+      <form className="flex sm:hidden mob-top fixed top-0 sm:relative container bg-grey-light z-40">
         <div
           onClick={handleCatalog}
           className="text-blue mr-1 rounded-md font-bold ctext-base focus:outline-none cursor-pointer"
