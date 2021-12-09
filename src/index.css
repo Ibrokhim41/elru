@@ -4,6 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
 body {
     /* font-family: 'Cabin', sans-serif; */
     font-family: 'Roboto', sans-serif;
