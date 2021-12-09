@@ -9,10 +9,10 @@ const LeaveComment = () => {
     const dispatch = useDispatch()
 
     return (
-        <div className={`fixed ${leaveComment ? 'top-0' : '-top-full'} transition-all w-full h-full bg-black-black bg-opacity-30 flex justify-center items-center z-40`}>
+        <div className={`fixed ${leaveComment ? 'top-0 flex opacity-100' : 'top-0 hidden opacity-0'} transition-all w-full h-full bg-black-black bg-opacity-30 justify-center items-center z-40`}>
             <AiOutlineClose
                 onClick={() => dispatch(setLeaveComment(false))}
-                className="absolute top-5 right-5 cursor-pointer text-2xl text-white sm:text-3xl lg:text-4xl hover:text-red" />
+                className="absolute top-5 right-5 cursor-pointer text-3xl text-white sm:text-3xl lg:text-4xl hover:text-red" />
             <div 
                 className="leave-comment w-10/12 bg-white rounded-md">
                 <div className="h-full flex flex-col items-center justify-evenly">
@@ -31,6 +31,9 @@ const LeaveComment = () => {
                         <div className="mt-4 md:mt-0">
                             <textarea name="" id="" rows="4" placeholder="Текст отзыва..." className="w-full border border-grey text-grey-dark ctext-base font-medium rounded-md p-4 focus:outline-none"></textarea>
                             <button className="bg-blue text-white ctext-base w-full font-bold rounded-md py-3 px-8 mt-2">Опубликовать</button>
+                            <button 
+                                onClick={() => dispatch(setLeaveComment(false))}
+                                className="bg-red text-white ctext-base w-full font-bold rounded-md py-3 px-8 mt-2">Отменять</button>
                         </div>
                     </div>
                 </div>
