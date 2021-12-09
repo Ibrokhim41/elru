@@ -13,11 +13,13 @@ import arrow_black from "assets/images/arrow-black.svg";
 import Category from "components/Category";
 import Auth from "components/Auth";
 import { Squash as Hamburger } from "hamburger-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setAuth, setStartChat } from "redux/modals";
 import { useTranslation } from "react-i18next";
+import { useDetectClickOutside } from 'react-detect-click-outside';
+import { useWindowDimensions } from 'hooks/ScreenWidth';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -29,7 +31,10 @@ const Header = () => {
   };
   const route = useHistory();
   const [catalog, setCatalog] = useState(false);
-  let burgerRef = useRef();
+  const {width} = useWindowDimensions();
+  const ref = useDetectClickOutside({ onTriggered: () => {
+    width > 769 && setCatalog(false)
+  } });
 
   const [search, setSearch] = useState("");
   const handleCatalog = () => {
@@ -127,11 +132,10 @@ const Header = () => {
             <Category
               setCatalog={setCatalog}
               setShow={setAuth}
-              burgerRef={burgerRef}
             />
           </div>
           <div
-            ref={burgerRef}
+            ref={ref}
             onClick={handleCatalog}
             className="burger flex justify-center items-center h-full text-white bg-blue font-bold ctext-base focus:outline-none cursor-pointer"
           >
@@ -238,7 +242,6 @@ const Header = () => {
           catalog={catalog}
           setCatalog={setCatalog}
           setShow={setAuth}
-          burgerRef={burgerRef}
         />
       </div>
       <form className="flex sm:hidden mob-top fixed top-0 sm:relative container bg-grey-light z-40">

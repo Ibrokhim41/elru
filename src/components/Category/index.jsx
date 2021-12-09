@@ -4,29 +4,24 @@ import icon_search from "assets/images/icon-search.svg";
 import icon_arrow from "assets/images/arrow.svg";
 import mob_icon_user from "assets/images/mob-icon-user.svg";
 import arrow_black from "assets/images/arrow-black.svg";
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useWindowDimensions } from '../../hooks/ScreenWidth';
 import { IoCloseOutline } from "react-icons/io5";
+import { setAuth } from "redux/modals";
+import { useDispatch } from 'react-redux';
 
-const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
-  const menuRef = useRef();
+
+
+const Category = ({ catalog, setCatalog }) => {
+  const dispatch = useDispatch();
   const route = useHistory();
-  const {width} = useWindowDimensions();
   const [showCatalog, setShowCatalog] = useState(false);
-  const handleClick = useCallback((event) => {
-    if ((width > 575) && !menuRef.current.contains(event.target) && !burgerRef.current.contains(event.target)) setCatalog(false)
-  }, [burgerRef, setCatalog, width])
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClick)
-  }, [handleClick]);
 
   const {t} = useTranslation()
 
   return (
     <div
-      ref={menuRef}
       className={`${catalog ? 'w-10/12' : 'w-0'} transition-all duration-500 overflow-hidden category fixed sm:relative top-0 z-50 sm:-ml-4 lg:ml-0 sm:w-full lg:w-4/5 bg-grey-light lg:bg-white lg:border border-grey flex flex-col text-grey-dark ctext-base`}
     >
       {/* background */}
@@ -50,7 +45,7 @@ const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
                 </div> */}
       {/* login user */}
       <div
-        onClick={() => setShow(true)}
+        onClick={() => dispatch(setAuth(true))}
         className="header-user-login w-full hidden sm:flex xl:hidden justify-center items-center cursor-pointer mt-6 mb-3"
       >
         <div className="flex justify-center items-center w-10 h-10 rounded-full bg-white border border-grey">
@@ -144,8 +139,8 @@ const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
         >
           <div
             onClick={() => {
-              setCatalog(false);
               route.push("/category");
+              setCatalog(false);
             }}
             className="w-full lg:w-1/4 mt-6 p-3"
           >
@@ -155,8 +150,8 @@ const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
           </div>
           <div
             onClick={() => {
+              route.push("/user");
               setCatalog(false);
-              route.push("/category");
             }}
             className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
           >
@@ -166,8 +161,8 @@ const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
           </div>
           <div
             onClick={() => {
-              setCatalog(false);
               route.push("/category");
+              setCatalog(false);
             }}
             className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
           >
@@ -177,8 +172,8 @@ const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
           </div>
           <div
             onClick={() => {
-              setCatalog(false);
               route.push("/category");
+              setCatalog(false);
             }}
             className="w-full lg:w-1/4 mt-6 p-3"
           >
@@ -188,8 +183,8 @@ const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
           </div>
           <div
             onClick={() => {
-              setCatalog(false);
               route.push("/category");
+              setCatalog(false);
             }}
             className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
           >
@@ -199,8 +194,8 @@ const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
           </div>
           <div
             onClick={() => {
-              setCatalog(false);
               route.push("/category");
+              setCatalog(false);
             }}
             className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
           >
@@ -210,8 +205,8 @@ const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
           </div>
           <div
             onClick={() => {
-              setCatalog(false);
               route.push("/category");
+              setCatalog(false);
             }}
             className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
           >
@@ -221,8 +216,8 @@ const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
           </div>
           <div
             onClick={() => {
-              setCatalog(false);
               route.push("/category");
+              setCatalog(false);
             }}
             className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
           >
@@ -232,8 +227,8 @@ const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
           </div>
           <div
             onClick={() => {
-              setCatalog(false);
               route.push("/category");
+              setCatalog(false);
             }}
             className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
           >
@@ -243,8 +238,8 @@ const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
           </div>
           <div
             onClick={() => {
-              setCatalog(false);
               route.push("/category");
+              setCatalog(false);
             }}
             className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
           >
@@ -254,8 +249,8 @@ const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
           </div>
           <div
             onClick={() => {
-              setCatalog(false);
               route.push("/category");
+              setCatalog(false);
             }}
             className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
           >
@@ -265,8 +260,8 @@ const Category = ({ catalog, setCatalog, setShow, burgerRef }) => {
           </div>
           <div
             onClick={() => {
-              setCatalog(false);
               route.push("/category");
+              setCatalog(false);
             }}
             className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
           >

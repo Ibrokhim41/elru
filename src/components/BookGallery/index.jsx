@@ -63,6 +63,7 @@ const BookGallery = () => {
         vertical: width > 769 ? true : false,
         slidesToShow: width > 769 ? 5 : 1,
         speed: 500,
+        arrows: width < 769 && false,
     };
     // nextArrow: <SampleNextArrow />,
     // prevArrow: <SamplePrevArrow />
