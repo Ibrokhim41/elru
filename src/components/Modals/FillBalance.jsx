@@ -53,6 +53,9 @@ const FillBalance = () => {
                                 <input type="text" placeholder="мм/гг" className="border border-grey-border rounded-md p-2.5 md:p-4 focus:outline-none focus:border-blue w-full text-grey-dark text-base font-medium mt-2" />
                             </div>
                             <button className="bg-blue text-white ctext-base col-span-12 font-bold rounded-md py-3">Пополнить</button>
+                            <button
+                                onClick={() => dispatch(setFillBalance(false))}
+                                className="bg-red text-white ctext-base col-span-12 font-bold rounded-md py-3">Отменять</button>
                         </div>
                     }
                 </div>

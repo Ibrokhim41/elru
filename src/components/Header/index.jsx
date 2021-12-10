@@ -49,7 +49,7 @@ const Header = () => {
     auth ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto")
   }, [auth])
 
-  const [count] = useState(87)
+  const [count] = useState(4)
 
 
   return (
@@ -285,10 +285,11 @@ const Header = () => {
         </div>
         <div
           onClick={() => route.push("/basket")}
-          className="flex flex-col items-center cursor-pointer"
+          className="relative flex flex-col items-center cursor-pointer"
         >
           <img src={mob_icon_basket} alt="basket-icon" />
           Корзина
+          <div className={`${!count && 'hidden'} absolute top-0 right-0 bg-blue text-white font-bold rounded-full w-5 h-5 flex justify-center items-center`}>{count}</div>
         </div>
         <div
           onClick={() => {

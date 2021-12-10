@@ -152,7 +152,7 @@ const Auth = () => {
 
 
     return (
-        <div className={`z-40 fixed ${auth ? 'top-0' : '-top-full'} left-0 transition-all w-full h-full bg-white flex justify-center items-center overflow-scroll`}>
+        <div className={`z-50 fixed ${auth ? 'top-0' : '-top-full'} left-0 transition-all w-full h-full bg-white flex justify-center items-center overflow-scroll`}>
             <div
                 onClick={() => {
                     dispatch(setAuth(false))
@@ -161,7 +161,7 @@ const Auth = () => {
                     dispatch(setStartOrder(false))
                 }}
                 className="absolute top-10 right-2 sm:right-10 cursor-pointer text-2xl sm:text-3xl lg:text-4xl hover:text-red"><AiOutlineClose /></div>
-            <div className="container h-full sm:w-4/5 lg:w-3/4 xl:w-2/3 mt-52">
+            <div className="container h-full sm:w-4/5 lg:w-3/4 xl:w-2/3 sm:mt-52">
 
                 {/* leave-comment-title */}
                 <div className={`text-black-black ${startComment ? 'block' : 'hidden'} ctext-xl font-bold text-center mt-20 mb-10`}>Войдите или зарегистрируйтесь, чтобы оставить отзыв </div>
