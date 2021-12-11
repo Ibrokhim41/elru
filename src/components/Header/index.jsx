@@ -281,14 +281,14 @@ const Header = () => {
           className="flex flex-col items-center cursor-pointer"
         >
           <img src={icon_order} alt="order-icon" />
-          Мои заказы
+          <span>Мои заказы</span>
         </div>
         <div
           onClick={() => route.push("/basket")}
           className="relative flex flex-col items-center cursor-pointer"
         >
           <img src={mob_icon_basket} alt="basket-icon" />
-          Корзина
+          <span>Корзина</span>
           <div className={`${!count && 'hidden'} absolute top-0 right-0 bg-blue text-white font-bold rounded-full w-5 h-5 flex justify-center items-center`}>{count}</div>
         </div>
         <div
@@ -299,7 +299,7 @@ const Header = () => {
           className="flex flex-col items-center cursor-pointer"
         >
           <img src={mob_icon_user} alt="user-icon" />
-          Профиль
+          <span>Профиль</span>
         </div>
       </div>
     </div>

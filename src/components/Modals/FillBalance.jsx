@@ -10,7 +10,7 @@ const FillBalance = () => {
 
 
     return (
-        <div className={`fixed ${fillBalance ? 'top-0' : '-top-full'} transition-all w-full h-full bg-black-black bg-opacity-30 flex justify-center items-center z-40`}>
+        <div className={`fixed ${fillBalance ? 'top-0' : '-top-full'} transition-all w-full h-full bg-white sm:bg-black-black sm:bg-opacity-30 flex justify-center items-center z-40`}>
             <AiOutlineClose
                 onClick={() => dispatch(setFillBalance(false))}
                 className="absolute top-5 right-5 cursor-pointer text-2xl text-white sm:text-3xl lg:text-4xl hover:text-red" />
