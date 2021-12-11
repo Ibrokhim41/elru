@@ -274,7 +274,7 @@ const Header = () => {
           className="flex flex-col items-center cursor-pointer"
         >
           <img src={mob_icon_home} alt="home-icon" />
-          Магазин
+          <span>Магазин</span>
         </div>
         <div
           onClick={() => route.push("/myorders")}
