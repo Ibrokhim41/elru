@@ -33,6 +33,9 @@ const RegionChoose = () => {
                         options={options} 
                         className="w-10/12 sm:w-8/12 md:w-6/12 lg:w-1/3"
                         />
+                    <button
+                        onClick={() => dispatch(setRegionChoose(false))}
+                        className="bg-red text-white ctext-base w-10/12 sm:hidden font-bold rounded-md py-3 px-8 mt-6">Отменять</button>
                 </div>
             </div>
         </div>

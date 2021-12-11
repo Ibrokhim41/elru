@@ -32,6 +32,9 @@ const ChangePhoneNumber = () => {
                                 <input type="text" placeholder="Ведите код из смс" className="border border-grey-border rounded-md p-2.5 md:p-4 focus:outline-none focus:border-blue w-full text-grey-dark text-base font-medium mt-2" />
                             </div>
                             <button className="bg-blue text-white ctext-base col-span-12 font-bold rounded-md py-3">Подтвердить</button>
+                            <button 
+                                onClick={() => dispatch(setNewPhoneNumber(false))}
+                                className="bg-red text-white ctext-base col-span-12 font-bold rounded-md py-3">Отменять</button>
                             <div className="text-back ctext-lg font-bold col-span-12 flex flex-col sm:flex-row text-center justify-center items-center">Не пришел пароль?<div className="text-blue mt-2 sm:mt-0 sm:ml-2 border-b border-blue cursor-pointer w-max">Отправить еще раз</div></div>
                         </div>
                     }
