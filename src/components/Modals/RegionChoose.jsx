@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 
 const RegionChoose = () => {
 
+    
     const regionChoose = useSelector(state => state.modals.regionChoose)
     const dispatch = useDispatch()
     const [checkLanguage, setCheckLanguage] = useState("");
@@ -51,7 +52,7 @@ const RegionChoose = () => {
                 })
             }
         })
-    }, [regionId])
+    }, [regionId, checkLanguage])
 
     return (
         <div className={`fixed ${regionChoose ? 'top-0' : '-top-full'} transition-all w-full h-full bg-white sm:bg-black-black sm:bg-opacity-30 flex justify-center items-center z-40`}>
