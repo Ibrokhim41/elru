@@ -134,11 +134,13 @@ const Basket = () => {
                             </div>
                             <button
                                 onClick={() => {
-                                    route.push('/order')
-                                    dispatch(setAuth(true))
-                                    dispatch(setStartOrder(true))
+                                    if (deliveryTo) {
+                                        route.push('/order')
+                                        dispatch(setAuth(true))
+                                        dispatch(setStartOrder(true))
+                                    }
                                 }}
-                                className="text-white ctext-base font-bold rounded-md bg-blue py-3 px-14 focus:outline-none">Перейти к оформлению</button>
+                                className={`${!deliveryTo ? 'bg-grey cursor-default' : 'bg-blue'} text-white ctext-base font-bold rounded-md py-3 px-14 focus:outline-none`}>Перейти к оформлению</button>
                         </div>
                     </div>
                 </div>

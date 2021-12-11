@@ -2,14 +2,14 @@ import { FiChevronLeft } from "react-icons/fi"
 import { FaBoxOpen, FaTruckLoading } from "react-icons/fa"
 import { GiWallet } from "react-icons/gi"
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Thanks from "components/Modals/Thanks";
 import { setThanks } from "redux/modals";
 
 const Order = () => {
 
     const route = useHistory()
-
+    const deliveryTo = useSelector(state => state.modals.deliveryTo)
     const dispatch = useDispatch()
 
     return (
@@ -20,7 +20,7 @@ const Order = () => {
                 <div
                     onClick={() => route.push('/basket')}
                     className="text-blue text-lg font-medium flex items-center cursor-pointer my-4"><FiChevronLeft className="text-2xl" />Назад</div>
-                <div className="text-black ctext-base font-bold">Доставка в: <span className="text-grey-dark font-normal">Ташкент</span></div>
+                <div className="text-black ctext-base font-bold">Доставка в: <span className="text-grey-dark font-normal">{deliveryTo}</span></div>
 
                 <div className="grid grid-cols-12">
                     {/* sum */}

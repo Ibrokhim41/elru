@@ -11,7 +11,7 @@ const initialState = {
     thanks: false,
     newName: false,
     newPhoneNumber: false,
-    deliveryTo: "Ташкент",
+    deliveryTo: null,
 };
 
 export const counterSlice = createSlice({

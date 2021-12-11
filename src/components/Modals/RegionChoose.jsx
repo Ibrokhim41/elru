@@ -2,20 +2,56 @@ import "./style.css"
 import { AiOutlineClose } from "react-icons/ai"
 import { useDispatch, useSelector } from "react-redux"
 import { setRegionChoose, setDeliveryTo } from "redux/modals"
+import { regions } from "../../assets/region.js"
 import Select from 'react-select'
+import { useState, useEffect } from 'react';
 
 const RegionChoose = () => {
 
     const regionChoose = useSelector(state => state.modals.regionChoose)
     const dispatch = useDispatch()
+    const [checkLanguage, setCheckLanguage] = useState("");
+    useEffect(() => {
+        setCheckLanguage(localStorage.getItem("i18nextLng"));
+    }, []);
+    const regionsName = []
+    const [regionId, setRegionId] = useState(null)
+    const [regionsInside, setRegionInside] = useState([])
+    const [selectedRegion, setSelectedRegion] = useState('')
 
+    regions.forEach(region => {
+        if (region.id !== 21) {
+            if (checkLanguage === "en") {
+                regionsName.push({
+                    value: region.id,
+                    label: region.name_en,
+                })
+            } else if (checkLanguage === "ru") {
+                regionsName.push({
+                    value: region.id,
+                    label: region.name_ru,
+                })
+            } else {
+                regionsName.push({
+                    value: region.id,
+                    label: region.name_uz,
+                })
+            }
+        }
+    })
 
-    const options = [
-        { value: 'Джизакская область', label: 'Джизакская область' },
-        { value: 'Хорезмская область', label: 'Хорезмская область' },
-        { value: 'Кашкадарьинская область', label: 'Кашкадарьинская область' },
-        { value: 'Ташкент', label: 'Ташкент' }
-    ]
+    useEffect(() => {
+        regions.forEach(region => {
+            if (region.id === regionId) {
+                region.childs.forEach(child => {
+                    setRegionInside(prevState => [...prevState, {
+                        value: child.id,
+                        label: checkLanguage === "en" ? child.name_en : checkLanguage === "ru" ? child.name_ru : child.name_uz,
+                    }])
+                })
+            }
+        })
+    }, [regionId])
 
     return (
         <div className={`fixed ${regionChoose ? 'top-0' : '-top-full'} transition-all w-full h-full bg-white sm:bg-black-black sm:bg-opacity-30 flex justify-center items-center z-40`}>
@@ -27,12 +63,27 @@ const RegionChoose = () => {
                     <div className="text-black ctext-2xl font-bold text-center mb-10">Выберите город или область</div>
                     <Select
                         onChange={(e) => {
-                            dispatch(setDeliveryTo(e.value))
+                            setRegionId(e.value)
+                            setSelectedRegion(selectedRegion + e.label)
                         }}
-                        placeholder="Город или область"
-                        options={options} 
+                        placeholder="Город или Область"
+                        options={regionsName}
                         className="w-10/12 sm:w-8/12 md:w-6/12 lg:w-1/3"
-                        />
+                    />
+                    <Select
+                        onChange={(e) => {
+                            setSelectedRegion(selectedRegion + ", " + e.label)
+                        }}
+                        placeholder="Район"
+                        options={regionsInside}
+                        className={`${!regionId && 'hidden'} w-10/12 sm:w-8/12 md:w-6/12 lg:w-1/3 mt-5`}
+                    />
+                    <button
+                        onClick={() => {
+                            dispatch(setDeliveryTo(selectedRegion))
+                            dispatch(setRegionChoose(false))
+                        }}
+                        className="bg-blue text-white ctext-base w-10/12 sm:w-8/12 md:w-6/12 lg:w-1/3 font-bold rounded-md py-3 px-8 mt-6">Подтвердить</button>
                     <button
                         onClick={() => dispatch(setRegionChoose(false))}
                         className="bg-red text-white ctext-base w-10/12 sm:hidden font-bold rounded-md py-3 px-8 mt-6">Отменять</button>
