@@ -9,8 +9,11 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setRegionChoose, setStartOrder, setAuth } from "redux/modals"
 import RegionChoose from "components/Modals/RegionChoose";
+import { useTranslation } from 'react-i18next';
 
 const Basket = () => {
+
+    const { t } = useTranslation();
 
     const deliveryTo = useSelector(state => state.modals.deliveryTo)
     const dispatch = useDispatch()
@@ -130,7 +133,7 @@ const Basket = () => {
                                 onClick={() => dispatch(setRegionChoose(true))}
                                 className="flex items-center my-7">
                                 <IoLocationSharp className="text-blue text-3xl" />
-                                <div className="text-black ctext-20 border-b border-black cursor-pointer">Доставка в: {deliveryTo}</div>
+                                <div className="text-black ctext-20 border-b border-black cursor-pointer">{t('delivery_to')}: {deliveryTo}</div>
                             </div>
                             <button
                                 onClick={() => {

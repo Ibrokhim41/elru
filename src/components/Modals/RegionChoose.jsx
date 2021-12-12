@@ -5,9 +5,11 @@ import { setRegionChoose, setDeliveryTo } from "redux/modals"
 import { regions } from "../../assets/region.js"
 import Select from 'react-select'
 import { useState, useEffect } from 'react';
+// import { useTranslation } from 'react-i18next';
 
 const RegionChoose = () => {
 
+    // const { t } = useTranslation();
     
     const regionChoose = useSelector(state => state.modals.regionChoose)
     const dispatch = useDispatch()

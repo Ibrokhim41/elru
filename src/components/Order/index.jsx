@@ -5,12 +5,15 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Thanks from "components/Modals/Thanks";
 import { setThanks } from "redux/modals";
+import { useTranslation } from 'react-i18next';
 
 const Order = () => {
 
     const route = useHistory()
     const deliveryTo = useSelector(state => state.modals.deliveryTo)
     const dispatch = useDispatch()
+    const {t} = useTranslation();
+
 
     return (
         <>
@@ -20,7 +23,7 @@ const Order = () => {
                 <div
                     onClick={() => route.push('/basket')}
                     className="text-blue text-lg font-medium flex items-center cursor-pointer my-4"><FiChevronLeft className="text-2xl" />Назад</div>
-                <div className="text-black ctext-base font-bold">Доставка в: <span className="text-grey-dark font-normal">{deliveryTo}</span></div>
+                <div className="text-black ctext-base font-bold">{t("delivery_to")}: <span className="text-grey-dark font-normal">{deliveryTo}</span></div>
 
                 <div className="grid grid-cols-12">
                     {/* sum */}
