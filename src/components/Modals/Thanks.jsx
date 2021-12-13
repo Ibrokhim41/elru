@@ -4,6 +4,8 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi"
 import { useDispatch, useSelector } from "react-redux"
 import { setThanks } from "redux/modals"
 import { useHistory } from 'react-router-dom';
+import noScroll from "no-scroll"
+import { useEffect } from "react"
 
 
 const Thanks = () => {
@@ -12,8 +14,12 @@ const Thanks = () => {
     const dispatch = useDispatch()
     const route = useHistory() 
 
+    useEffect(() => {
+        thanks ? noScroll.on() : noScroll.off()
+    }, [thanks])
+
     return (
-        <div className={`fixed ${thanks ? 'top-0' : '-top-full'} transition-all w-full h-full bg-white sm:bg-black-black sm:bg-opacity-30 flex justify-center items-center z-40`}>
+        <div className={`fixed ${thanks ? 'top-0' : '-top-full'} transition-all w-full h-full bg-white sm:bg-black-black sm:bg-opacity-30 flex justify-center items-center z-100`}>
             <AiOutlineClose
                 onClick={() => dispatch(setThanks(false))}
                 className="absolute top-5 right-5 cursor-pointer text-2xl text-white sm:text-3xl lg:text-4xl hover:text-red" />

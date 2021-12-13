@@ -24,6 +24,10 @@ body {
   }
 } */
 
+.z-100 {
+    z-index: 100;
+}
+
 .container {
     padding: 0 30px;
 }

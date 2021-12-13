@@ -2,14 +2,20 @@ import "./style.css"
 import { AiOutlineClose } from "react-icons/ai"
 import { useDispatch, useSelector } from "react-redux"
 import { setLeaveComment } from "redux/modals"
+import noScroll from "no-scroll"
+import { useEffect } from "react"
 
 const LeaveComment = () => {
 
     const leaveComment = useSelector(state => state.modals.leaveComment)
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        leaveComment ? noScroll.on() : noScroll.off()
+    }, [leaveComment])
+
     return (
-        <div className={`fixed ${leaveComment ? 'top-0 flex opacity-100' : 'top-0 hidden opacity-0'} transition-all w-full h-full bg-white sm:bg-black-black sm:bg-opacity-30 justify-center items-center z-40`}>
+        <div className={`fixed ${leaveComment ? 'top-0 flex opacity-100' : 'top-0 hidden opacity-0'} transition-all w-full h-full bg-white sm:bg-black-black sm:bg-opacity-30 justify-center items-center z-100`}>
             <AiOutlineClose
                 onClick={() => dispatch(setLeaveComment(false))}
                 className="absolute top-5 right-5 cursor-pointer text-3xl text-white sm:text-3xl lg:text-4xl hover:text-red" />

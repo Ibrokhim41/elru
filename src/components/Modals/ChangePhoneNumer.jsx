@@ -2,6 +2,8 @@ import "./style.css"
 import { AiOutlineClose } from "react-icons/ai"
 import { useDispatch, useSelector } from "react-redux"
 import { setNewPhoneNumber } from "redux/modals"
+import noScroll from "no-scroll"
+import { useEffect } from "react"
 
 
 const ChangePhoneNumber = () => {
@@ -9,8 +11,12 @@ const ChangePhoneNumber = () => {
     const newPhoneNumber = useSelector(state => state.modals.newPhoneNumber)
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        newPhoneNumber ? noScroll.on() : noScroll.off()
+    }, [newPhoneNumber])
+
     return (
-        <div className={`fixed ${newPhoneNumber ? 'top-0' : '-top-full'} transition-all w-full h-full bg-white sm:bg-black-black sm:bg-opacity-30 flex justify-center items-center z-40`}>
+        <div className={`fixed ${newPhoneNumber ? 'top-0' : '-top-full'} transition-all w-full h-full bg-white sm:bg-black-black sm:bg-opacity-30 flex justify-center items-center z-100`}>
             <AiOutlineClose
                 onClick={() => dispatch(setNewPhoneNumber(false))}
                 className="absolute top-5 right-5 cursor-pointer text-2xl text-white sm:text-3xl lg:text-4xl hover:text-red" />
