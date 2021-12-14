@@ -328,7 +328,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className={`mb-36`}></div>
+      <div className={`sm:mb-36`}></div>
     </>
   );
 };
