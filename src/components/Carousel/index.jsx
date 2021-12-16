@@ -3,9 +3,12 @@ import icon_chevron from "assets/images/chevron.svg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useWindowDimensions } from '../../hooks/ScreenWidth';
 
 
 const Carousel = () => {
+
+    const {width} = useWindowDimensions();
 
     const SampleNextArrow = (props) => {
         const { className, style, onClick } = props;
@@ -63,12 +66,13 @@ const Carousel = () => {
         autoplay: true,
         infinite: true,
         speed: 500,
+        arrows: width < 576 ? false : true,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
     };
 
     return (
-        <div className="container mx-auto w-full hidden sm:flex flex-col lg:flex-row justify-between gap-2 md:gap-4 mt-4 mb-10">
+        <div className="container mx-auto w-full flex flex-col lg:flex-row justify-between gap-2 md:gap-4 mt-24 sm:mt-4 mb-10">
             {/* left */}
             <div className="w-full lg:w-8/12">
                 <Slider {...settings}>
@@ -99,10 +103,10 @@ const Carousel = () => {
             <div className="w-full lg:w-4/12 flex lg:flex-col lg:justify-between items-center mt-8 md:mt-4 lg:mt-0">
                 <div 
                     style={{ backgroundImage: `url('https://cdn.slidesharecdn.com/ss_thumbnails/amazoncreatespacehorrorebookcoverdesign2-190315015045-thumbnail-4.jpg?cb=1552614805')` }}
-                    className="w-full h-36 mr-2 lg:mr-0 lg:mb-2 md:h-40 lg:h-1/2 cursor-pointer rounded-md bg-center bg-cover bg-no-repeat"></div>
+                    className="w-full h-24 sm:h-36 mr-2 lg:mr-0 lg:mb-2 md:h-40 lg:h-1/2 cursor-pointer rounded-md bg-center bg-cover bg-no-repeat"></div>
                 <div 
                     style={{ backgroundImage: `url('https://i.ytimg.com/vi/TwsZmALRq5w/maxresdefault.jpg')` }}
-                    className="w-full h-36 ml-2 lg:ml-0 lg:mt-2 md:h-40 lg:h-1/2 cursor-pointer rounded-md bg-center bg-cover bg-no-repeat"></div>
+                    className="w-full h-24 sm:h-36 ml-2 lg:ml-0 lg:mt-2 md:h-40 lg:h-1/2 cursor-pointer rounded-md bg-center bg-cover bg-no-repeat"></div>
             </div>
         </div>
     )

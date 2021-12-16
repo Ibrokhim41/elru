@@ -21,6 +21,7 @@ import { useTranslation } from "react-i18next";
 import { useDetectClickOutside } from 'react-detect-click-outside';
 import { useWindowDimensions } from 'hooks/ScreenWidth';
 import { useCallback } from "react";
+import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -73,8 +74,6 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     }
   }, [handleScroll])
-
-
 
   return (
     <>
@@ -326,6 +325,12 @@ const Header = () => {
             <img src={mob_icon_user} alt="user-icon" />
             <span>Профиль</span>
           </div>
+        </div>
+        {/* mobile-chat */}
+        <div 
+          onClick={() => route.push('/chat')}
+          className={`${route.location.pathname === '/chat' && 'hidden'} fixed bottom-16 right-5 bg-blue p-2 rounded-full`}>
+          <IoChatbubbleEllipsesOutline className={`text-2xl text-white`} />
         </div>
       </div>
       <div className={`sm:mb-36`}></div>
