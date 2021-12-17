@@ -41,6 +41,12 @@ const Header = () => {
   });
 
   const [search, setSearch] = useState("");
+  const submitSearch = (e) => {
+    e.preventDefault();
+    route.push(`/searchresults/${search}`);
+    setSearch("")
+  };
+
   const handleCatalog = () => {
     setCatalog(!catalog);
   };
@@ -167,7 +173,7 @@ const Header = () => {
               <span className="hidden lg:block">{t("header.categories")}</span>
             </div>
             {/* search */}
-            <form className="header-search hidden md:flex">
+            <form onSubmit={submitSearch} className="header-search hidden md:flex">
               <input
                 onChange={(e) => setSearch(e.target.value)}
                 value={search}
@@ -176,11 +182,8 @@ const Header = () => {
                 className="h-full w-full rounded border border-grey focus:outline-none px-3 text-grey-dark"
               />
               <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  route.push(`/searchresults/${search}`);
-                  setSearch("");
-                }}
+                onClick={submitSearch}
+                type="submit"
                 className="h-full bg-blue rounded px-3 -ml-1 focus:outline-none"
               >
                 <img src={icon_search} alt="search-icon" />
@@ -268,7 +271,7 @@ const Header = () => {
             setShow={setAuth}
           />
         </div>
-        <form className="flex sm:hidden mob-top fixed top-0 sm:relative container bg-grey-light z-40">
+        <form onSubmit={submitSearch} className="flex sm:hidden mob-top fixed top-0 sm:relative container bg-grey-light z-40">
           <div
             onClick={handleCatalog}
             className="text-blue mr-1 rounded-md font-bold ctext-base focus:outline-none cursor-pointer"
@@ -278,13 +281,13 @@ const Header = () => {
           </div>
           <input
             onChange={(e) => setSearch(e.target.value)}
+            value={search}
             type="text"
             placeholder={`${t("placeholders.book_search")}`}
             className="w-full focus:outline-none pl-2 sm:pl-10 pr-10 sm:pr-0 border border-grey rounded text-grey-dark"
           />
           <button
             onClick={(e) => {
-              e.preventDefault();
               route.push(`/searchresults/${search}`);
             }}
             className="absolute right-5 md:left-0 focus:outline-none"
@@ -329,7 +332,7 @@ const Header = () => {
         {/* mobile-chat */}
         <div 
           onClick={() => route.push('/chat')}
-          className={`${route.location.pathname === '/chat' && 'hidden'} fixed bottom-16 right-5 bg-blue p-2 rounded-full`}>
+          className={`${route.location.pathname === '/chat' && 'hidden'} block sm:hidden fixed bottom-16 right-5 bg-blue p-2 rounded-full`}>
           <IoChatbubbleEllipsesOutline className={`text-2xl text-white`} />
         </div>
       </div>

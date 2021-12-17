@@ -22,7 +22,7 @@ const UserProfile = () => {
             <ChangeName />
             <FillBalance />
             <ChangePhoneNumber />
-            <div className="container mx-auto grid grid-cols-12 mt-10">
+            <div className="container mx-auto grid grid-cols-12 mt-20">
                 <div className="col-span-12 grid grid-cols-12 bg-grey-light rounded-md py-8 px-4 xl:px-2">
                     {/* user-image */}
                     <div className="col-span-12 sm:col-span-4 xl:col-span-2 flex flex-col items-center">

@@ -4,7 +4,7 @@ import { AiOutlineSend} from "react-icons/ai"
 const Chat = () => {
 
     return (
-        <div className="container mx-auto mb-16 mt-4">
+        <div className="container mx-auto mb-16 mt-20">
             {/* top */}
             <div className="flex items-center py-4 border-b border-grey-border mb-8">
                 <div

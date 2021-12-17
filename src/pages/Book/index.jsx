@@ -16,7 +16,7 @@ const Book = () => {
     return (
         <>
             <LeaveComment />
-            <div className="container mx-auto grid grid-cols-12 my-10">
+            <div className="container mx-auto grid grid-cols-12 my-20">
                 <div className="col-span-12 md:col-span-4 xl:col-span-3">
                     <BookGallery />
                 </div>

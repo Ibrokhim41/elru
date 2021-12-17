@@ -19,7 +19,7 @@ const SearchResult = () => {
   return (
     <div>
       {/* title */}
-      <div className="container mx-auto text-black ctext-xl font-bold mt-6">
+      <div className="container mx-auto text-black ctext-xl font-bold mt-20">
         Результаты поиска
       </div>
       {/* body */}

@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Thanks from "components/Modals/Thanks";
 import { setThanks } from "redux/modals";
 import { useTranslation } from 'react-i18next';
+import { useEffect } from "react";
+import animateScrollTo from 'animated-scroll-to';
 
 const Order = () => {
 
@@ -13,12 +15,15 @@ const Order = () => {
     const deliveryTo = useSelector(state => state.modals.deliveryTo)
     const dispatch = useDispatch()
     const {t} = useTranslation();
+    useEffect(() => {
+        animateScrollTo(0, 500)
+    }, [])
 
 
     return (
         <>
             <Thanks />
-            <div className="container mx-auto mb-14">
+            <div className="container mx-auto mb-14 mt-20">
                 {/* back */}
                 <div
                     onClick={() => route.push('/basket')}

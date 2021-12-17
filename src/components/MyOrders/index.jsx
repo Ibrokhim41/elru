@@ -10,7 +10,7 @@ const MyOrders = () => {
     }, [])
 
     return (
-        <div className="container mx-auto mb-10">
+        <div className="container mx-auto mb-10 mt-20 sm:mt-0">
             {/* title */}
             <div className="text-grey-dark ctext-xl font-bold my-4">Мои заказы</div>
 

@@ -27,7 +27,7 @@ const Basket = () => {
     return (
         <>
             <RegionChoose />
-            <div className="container mx-auto my-10">
+            <div className="container mx-auto my-10 mt-20 sm:mt-0">
                 {/* title */}
                 <div className="text-black ctext-lg font-bold">Товары для оформления:</div>
                 {/* content */}
@@ -35,7 +35,7 @@ const Basket = () => {
                     {/* left */}
                     {/* top-titiles */}
                     <div className="col-span-12 xl:col-span-8 grid grid-cols-8 text-grey-dark ctext-lg pb-2 border-b border-grey mt-4">
-                        <div className="col-span-3">Название</div>
+                        <div className="col-span-3 hidden md:block">Название</div>
                         <div className="col-span-3 hidden md:grid grid-cols-2">
                             <div className="col-span-1">Стоимость</div>
                             <div className="col-span-1">Количество</div>
@@ -77,9 +77,9 @@ const Basket = () => {
                             <div className="col-span-12 xl:col-span-8 grid grid-cols-8 sm:hidden text-grey-dark ctext-lg pb-2 border-b border-grey mt-4 mb-2">
                                 <div className="sm:hidden col-span-8">Итоговая сумма</div>
                             </div>
-                            <div className="col-span-12 sm:col-span-6 md:col-span-2 flex items-center justify-between sm:justify-around">
+                            <div className="col-span-12 sm:col-span-6 md:col-span-2 flex items-center justify-between md:justify-around">
                                 <div className="text-black ctext-base font-bold">950 000 сум</div>
-                                <AiOutlineClose className="absolute top-0 right-0 sm:relative text-grey-dark text-xl cursor-pointer hover:text-red" />
+                                <AiOutlineClose className="absolute top-0 right-0 md:relative text-grey-dark text-xl cursor-pointer hover:text-red" />
                             </div>
                         </div>
 
@@ -116,9 +116,9 @@ const Basket = () => {
                             <div className="col-span-12 xl:col-span-8 grid grid-cols-8 sm:hidden text-grey-dark ctext-lg pb-2 border-b border-grey mt-4 mb-2">
                                 <div className="sm:hidden col-span-8">Итоговая сумма</div>
                             </div>
-                            <div className="col-span-12 sm:col-span-6 md:col-span-2 flex items-center justify-between sm:justify-around">
+                            <div className="col-span-12 sm:col-span-6 md:col-span-2 flex items-center justify-between md:justify-around">
                                 <div className="text-black ctext-base font-bold">950 000 сум</div>
-                                <AiOutlineClose className="absolute top-0 right-0 sm:relative text-grey-dark text-xl cursor-pointer hover:text-red" />
+                                <AiOutlineClose className="absolute top-0 right-0 md:relative text-grey-dark text-xl cursor-pointer hover:text-red" />
                             </div>
                         </div>
                         {/* all-sum */}
