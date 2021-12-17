@@ -113,7 +113,7 @@ const Category = ({ catalog, setCatalog }) => {
           <div
             onClick={() => {
               setCatalog(false);
-              route.push("/");
+              route.push("/payment");
             }}
             className="p-4 cursor-pointer"
           >
@@ -122,7 +122,7 @@ const Category = ({ catalog, setCatalog }) => {
           <div
             onClick={() => {
               setCatalog(false);
-              route.push("/");
+              route.push("/feedback");
             }}
             className="p-4 cursor-pointer"
           >
