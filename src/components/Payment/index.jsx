@@ -10,7 +10,7 @@ const Payment = () => {
     }, [])
 
     return ( 
-        <div className="container mx-auto">
+        <div className="container mx-auto mt-20">
             {/* title */}
             <div className="text-black ctext-xl font-bold mt-8">Способы оплаты на нашем сервисе:</div>
             <div className="flex flex-col py-8">

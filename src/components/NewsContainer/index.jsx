@@ -55,9 +55,9 @@ const CartSliderContainer = () => {
 
     return (
         <>
-            <div className="container mx-auto flex flex-wrap my-4 md:my-8">
+            <div className="container mx-auto flex flex-wrap my-20 md:my-8">
                 {/* title */}
-                <div className="container mx-auto text-black ctext-xl font-bold my-8">Новости</div>
+                <div className="container mx-auto text-black ctext-xl font-bold my-4">Новости</div>
                 {displayBooks}
                 <ReactPaginate
                     previousLabel={prev}
