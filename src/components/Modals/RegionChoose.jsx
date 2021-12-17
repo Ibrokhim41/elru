@@ -59,7 +59,10 @@ const RegionChoose = () => {
     },[regionChoose])
 
     return (
-        <div className={`fixed top-0 ${regionChoose ? 'translate-y-0' : 'translate-y-full hidden'} transform transition-all w-full h-full bg-white sm:bg-black-black sm:bg-opacity-30 flex justify-center items-center z-100`}>
+        <div 
+            // ${regionChoose ? 'translate-y-0' : 'translate-y-full'}
+            style={{translateY: regionChoose ? '0' : '1000px'}}
+            className={`fixed top-0  transform transition-all w-full h-full bg-white sm:bg-black-black sm:bg-opacity-30 flex justify-center items-center z-100`}>
             <AiOutlineClose
                 onClick={() => dispatch(setRegionChoose(false))}
                 className="absolute top-5 right-5 cursor-pointer text-2xl text-white sm:text-3xl lg:text-4xl hover:text-red" />
