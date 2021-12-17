@@ -129,11 +129,14 @@ const Basket = () => {
                     <div className="col-span-12 xl:col-span-4 mt-8 xl:mt-0">
                         <div className="bg-grey-light border-grey-dark w-full h-64 sm:h-80 rounded-md flex flex-col justify-center items-center">
                             <div className="text-black-dark ctext-lg font-bold">Выберите город или область</div>
-                            <div
+                            <button 
                                 onClick={() => dispatch(setRegionChoose(true))}
-                                className="flex items-center my-7">
-                                <IoLocationSharp className="text-blue text-3xl" />
-                                <div className="text-black ctext-20 border-b border-black cursor-pointer">{t('delivery_to')}: {deliveryTo}</div>
+                                className={`bg-blue text-white ctext-base font-bold w-64 rounded-md py-3 my-5 focus:outline-none`}>
+                                {t('delivery_to')}
+                            </button>
+                            <div className={`${deliveryTo ? 'flex' : 'hidden'} items-center mb-5`}>
+                                <IoLocationSharp className="text-blue text-2xl" />
+                                <div className="text-black ctext-20 border-b border-black">{t('delivery_to')}: {deliveryTo}</div>
                             </div>
                             <button
                                 onClick={() => {
@@ -143,7 +146,7 @@ const Basket = () => {
                                         dispatch(setStartOrder(true))
                                     }
                                 }}
-                                className={`${!deliveryTo ? 'bg-grey cursor-default' : 'bg-blue'} text-white ctext-base font-bold rounded-md py-3 px-14 focus:outline-none`}>Перейти к оформлению</button>
+                                className={`${!deliveryTo ? 'bg-grey cursor-default' : 'bg-blue'} text-white ctext-base w-64 font-bold rounded-md py-3 focus:outline-none`}>Перейти к оформлению</button>
                         </div>
                     </div>
                 </div>
