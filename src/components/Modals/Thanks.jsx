@@ -30,15 +30,15 @@ const Thanks = () => {
                     <div className="w-full sm:w-4/6 px-4 text-center text-grey-dark ctext-20">Вы можете отслеживать статус вашего заказа (если бумажная версия), а так же скачать купленный ресурс (если это аудио / pdf файлы) во вкладке “Мои заказы”</div>
                     <div className="flex mt-8">
                         <div
-                            onClick={() => {
-                                dispatch(setThanks(false))
-                                route.push('/')
+                            onClick={async() => {
+                                await dispatch(setThanks(false))
+                                await route.push('/')
                             }}
                             className="text-blue text-lg font-medium mx-4 sm:mx-10 flex items-center cursor-pointer my-4"><FiChevronLeft className="text-2xl" />Назад</div>
                         <div
-                            onClick={() => {
-                                dispatch(setThanks(false))
-                                route.push('/myorders')
+                            onClick={async() => {
+                                await dispatch(setThanks(false))
+                                await route.push('/myorders')
                             }}
                             className="text-blue text-lg font-medium mx-4 sm:mx-10 flex items-center cursor-pointer my-4">Мои заказы<FiChevronRight className="text-2xl" /></div>
                     </div>
