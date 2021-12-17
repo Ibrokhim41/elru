@@ -15,7 +15,7 @@ const LeaveComment = () => {
     }, [leaveComment])
 
     return (
-        <div className={`fixed ${leaveComment ? 'top-0 flex opacity-100' : 'top-0 hidden opacity-0'} transition-all w-full h-full bg-white sm:bg-black-black sm:bg-opacity-30 justify-center items-center z-100`}>
+        <div className={`fixed top-0 ${leaveComment ? 'flex' : 'hidden'} w-full h-full bg-white sm:bg-black-black sm:bg-opacity-30 justify-center items-center z-100`}>
             <AiOutlineClose
                 onClick={() => dispatch(setLeaveComment(false))}
                 className="absolute top-5 right-5 cursor-pointer text-3xl text-white sm:text-3xl lg:text-4xl hover:text-red" />
