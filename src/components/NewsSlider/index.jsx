@@ -4,15 +4,28 @@ import icon_chevron from "assets/images/chevron.svg";
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {useWindowDimensions} from "../../hooks/ScreenWidth";
+import { useWindowDimensions } from "../../hooks/ScreenWidth";
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
+// import { axiosInstance } from '../../axios';
+import moment from 'moment';
+import cliTruncate from 'cli-truncate';
+import axios from 'axios';
 
 const NewsContainer = () => {
-
-    const {t} = useTranslation()
+    const { t } = useTranslation()
     const route = useHistory()
-    const {width} = useWindowDimensions();
+    const { width } = useWindowDimensions();
+    const [data, setData] = useState([])
+
+    useEffect(() => {
+        axios.get('https://elru.cf/ru/news/')
+            .then(res => {
+                console.log(res.data)
+                setData(res.data)
+            })
+    }, [])
 
     const SampleNextArrow = (props) => {
         const { className, style, onClick } = props;
@@ -67,7 +80,7 @@ const NewsContainer = () => {
         autoplay: true,
         infinite: true,
         speed: 500,
-        slidesToShow: width > "1440" ? 3 : width > "992" ? 2 : width > "660" ? 2 : 1,
+        slidesToShow: width > "1440" && data.length > 1 ? 3 : width > "992" && data.length > 1 ? 2 : width > "660" && data.length > 1 ? 2 : 1,
         slidesToScroll: 1,
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />
@@ -80,79 +93,29 @@ const NewsContainer = () => {
             {/* title */}
             < div className="w-full flex justify-between mb-7" >
                 <div className="ctext-xl text-black font-bold">{t("titles.news")}</div>
-                <div 
+                <div
                     onClick={() => route.push('/news')}
                     className="ctext-lg text-blue flex items-center cursor-pointer group">{width > 410 ? t("links.all_news") : t("btn_link.all")} <img src={icon_arrow} alt="arrow-icon" className="w-4 h-4 ml-2 transition-all transform group-hover:translate-x-1" /></div>
             </div >
             {/* body */}
             <Slider {...settings}>
-                <span>
-                    <div className="w-full border-2 border-grey-light cursor-pointer rounded-md">
-                        <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/18291/production/_118216989_gettyimages-585281685.jpg" alt="news" className="news-img object-cover rounded-t-md" />
-                        <div className="p-4">
-                            <div className="ctext-base text-black font-bold">Что читать на карантине?</div>
-                            <div className="text-grey-dark ctext-base font-medium mt-1">Эталонные детективы, помогающие отвлечься от хандры и ипохондрии. Идеальные случаи, чтобы забыться в захватывающем сюжете.</div>
-                            <div className="text-grey font-medium ctext-base mt-6">23.02.2021</div>
-                        </div>
-                    </div>
-                </span>
-                <span>
-                    <div className="w-full border-2 border-grey-light cursor-pointer rounded-md">
-                        <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/18291/production/_118216989_gettyimages-585281685.jpg" alt="news" className="news-img object-cover rounded-t-md" />
-                        <div className="p-4">
-                            <div className="ctext-base text-black font-bold">Что читать на карантине?</div>
-                            <div className="text-grey-dark ctext-base font-medium mt-1">Эталонные детективы, помогающие отвлечься от хандры и ипохондрии. Идеальные случаи, чтобы забыться в захватывающем сюжете.</div>
-                            <div className="text-grey font-medium ctext-base mt-6">23.02.2021</div>
-                        </div>
-                    </div>
-                </span>
-                <span>
-                    <div className="w-full border-2 border-grey-light cursor-pointer rounded-md">
-                        <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/18291/production/_118216989_gettyimages-585281685.jpg" alt="news" className="news-img object-cover rounded-t-md" />
-                        <div className="p-4">
-                            <div className="ctext-base text-black font-bold">Что читать на карантине?</div>
-                            <div className="text-grey-dark ctext-base font-medium mt-1">Эталонные детективы, помогающие отвлечься от хандры и ипохондрии. Идеальные случаи, чтобы забыться в захватывающем сюжете.</div>
-                            <div className="text-grey font-medium ctext-base mt-6">23.02.2021</div>
-                        </div>
-                    </div>
-                </span>
-                <span>
-                    <div className="w-full border-2 border-grey-light cursor-pointer rounded-md">
-                        <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/18291/production/_118216989_gettyimages-585281685.jpg" alt="news" className="news-img object-cover rounded-t-md" />
-                        <div className="p-4">
-                            <div className="ctext-base text-black font-bold">Что читать на карантине?</div>
-                            <div className="text-grey-dark ctext-base font-medium mt-1">Эталонные детективы, помогающие отвлечься от хандры и ипохондрии. Идеальные случаи, чтобы забыться в захватывающем сюжете.</div>
-                            <div className="text-grey font-medium ctext-base mt-6">23.02.2021</div>
-                        </div>
-                    </div>
-                </span>
+                {data.map(news => {
+                    return (
+                        <span className={`px-1`}>
+                            <div
+                                onClick={() => route.push(`/article/${news.id}`)}
+                                className="w-full h-full border-2 border-grey-light cursor-pointer rounded-md">
+                                <img src={news.image} alt="news" className="news-img object-cover rounded-t-md" />
+                                <div className="p-4">
+                                    <div className="ctext-base text-black font-bold">{news.title_ru && cliTruncate(news.title_ru, 70)}</div>
+                                    <div className="text-grey-dark ctext-base font-medium mt-1">{news.info_ru && cliTruncate(news.info_ru, 150)}</div>
+                                    <div className="text-grey font-medium ctext-base mt-6">{moment(news.created_at).format('DD.MM.YYYY')}</div>
+                                </div>
+                            </div>
+                        </span>
+                    )
+                })}
             </Slider>
-            {/* <div className="flex gap-4">
-                <div className="w-1/2 lg:w-1/3 border-2 border-grey-light cursor-pointer rounded-md">
-                    <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/18291/production/_118216989_gettyimages-585281685.jpg" alt="news" className="news-img object-cover rounded-t-md" />
-                    <div className="p-4">
-                        <div className="ctext-base text-black font-bold">Что читать на карантине?</div>
-                        <div className="text-grey-dark ctext-base font-medium mt-1">Эталонные детективы, помогающие отвлечься от хандры и ипохондрии. Идеальные случаи, чтобы забыться в захватывающем сюжете.</div>
-                        <div className="text-grey font-medium ctext-base mt-6">23.02.2021</div>
-                    </div>
-                </div>
-                <div className="w-1/2 lg:w-1/3 border-2 border-grey-light cursor-pointer rounded-md">
-                    <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/18291/production/_118216989_gettyimages-585281685.jpg" alt="news" className="news-img object-cover rounded-t-md" />
-                    <div className="p-4">
-                        <div className="ctext-base text-black font-bold">Что читать на карантине?</div>
-                        <div className="text-grey-dark ctext-base font-medium mt-1">Эталонные детективы, помогающие отвлечься от хандры и ипохондрии. Идеальные случаи, чтобы забыться в захватывающем сюжете.</div>
-                        <div className="text-grey font-medium ctext-base mt-6">23.02.2021</div>
-                    </div>
-                </div>
-                <div className="w-1/2 lg:w-1/3 border-2 border-grey-light cursor-pointer rounded-md">
-                    <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/18291/production/_118216989_gettyimages-585281685.jpg" alt="news" className="news-img object-cover rounded-t-md" />
-                    <div className="p-4">
-                        <div className="ctext-base text-black font-bold">Что читать на карантине?</div>
-                        <div className="text-grey-dark ctext-base font-medium mt-1">Эталонные детективы, помогающие отвлечься от хандры и ипохондрии. Идеальные случаи, чтобы забыться в захватывающем сюжете.</div>
-                        <div className="text-grey font-medium ctext-base mt-6">23.02.2021</div>
-                    </div>
-                </div>
-            </div> */}
         </div>
     )
 }

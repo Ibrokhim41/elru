@@ -36,7 +36,7 @@ const Header = () => {
   const { width } = useWindowDimensions();
   const ref = useDetectClickOutside({
     onTriggered: () => {
-      width > 769 && setCatalog(false)
+      width > 1024 && setCatalog(false)
     }
   });
 
@@ -231,7 +231,7 @@ const Header = () => {
               </div>
             </div>
             {/* user-info */}
-            {/* <div 
+            {/* <div
                         onClick={() => route.push('/user')}
                         className="hidden xl:flex header-user-info cursor-pointer">
                         <img src="https://preview.keenthemes.com/metronic-v4/theme/assets/pages/media/profile/profile_user.jpg" alt="user-avatar" className="object-cover rounded-full" />
@@ -330,7 +330,7 @@ const Header = () => {
           </div>
         </div>
         {/* mobile-chat */}
-        <div 
+        <div
           onClick={() => route.push('/chat')}
           className={`${route.location.pathname === '/chat' && 'hidden'} block sm:hidden fixed bottom-16 right-5 bg-blue p-2 rounded-full`}>
           <IoChatbubbleEllipsesOutline className={`text-2xl text-white`} />

@@ -6,14 +6,18 @@ import { useState, useEffect } from "react";
 import CartContainer from 'components/CartContainer';
 import animateScrollTo from "animated-scroll-to";
 import { useWindowDimensions } from 'hooks/ScreenWidth';
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { axiosInstance } from '../../axios';
 
 const CategoryContainer = () => {
 
+    const category = useParams().category
     const { width } = useWindowDimensions()
     const [showFilter, setShowFilter] = useState(false)
     const [showFilter2, setShowFilter2] = useState(false)
     const [showFilter3, setShowFilter3] = useState(false)
     const [closeSidebar, setCloseSidebar] = useState(false)
+    // const [books, setBooks] = useState([])
     const filters = {
         types: [
             "Новинки",
@@ -57,7 +61,12 @@ const CategoryContainer = () => {
         animateScrollTo(0, 500)
     }, [])
 
-    console.log(filter);
+    useEffect(() => {
+        axiosInstance.get(`books/`)
+            .then(res => console.log(res.data))
+    }, [category])
+
+
 
     return (
         <div className="container mx-auto grid grid-cols-12">

@@ -1,4 +1,4 @@
-import book404 from "assets/images/book.gif"
+import book404 from "../../assets/images/book.gif"
 
 const NotFound = () => {
 

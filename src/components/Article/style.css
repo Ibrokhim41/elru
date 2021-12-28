@@ -1,2 +1,4 @@
-.article-img {
+.article a {
+    text-decoration: underline;
+    color: #01BEDE;
 }

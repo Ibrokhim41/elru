@@ -20,44 +20,65 @@ import Feedback from "./components/Feedback/index";
 import Oferta from "./components/Oferta/index";
 import Article from "./components/Article/index";
 import NotFound from "./components/404/index";
+import { useEffect } from "react";
 
 const pages = [
-  { component: Home, path: "/", exact: true },
-  { component: Tops, path: "/tops", exact: true },
-  { component: Top100, path: "/top100", exact: true },
-  { component: Discounts, path: "/discounts", exact: true },
-  { component: News, path: "/news", exact: true },
-  { component: Book, path: "/book", exact: true },
-  { component: CategoryContainer, path: "/category", exact: true },
-  { component: SearchResult, path: "/searchresults/:book", exact: true },
-  { component: UserProfile, path: "/user", exact: true },
-  { component: Basket, path: "/basket", exact: true },
-  { component: Order, path: "/order", exact: true },
-  { component: MyOrders, path: "/myorders", exact: true },
-  { component: Chat, path: "/chat", exact: true },
-  { component: Payment, path: "/payment", exact: true },
-  { component: Feedback, path: "/feedback", exact: true },
-  { component: Oferta, path: "/oferta", exact: true },
-  { component: Article, path: "/article", exact: true },
-  { component: Example, path: "/example", exact: true },
-  { component: NotFound, exact: true },
+    { component: Home, path: "/", exact: true },
+    { component: Tops, path: "/tops", exact: true },
+    { component: Top100, path: "/top100", exact: true },
+    { component: Discounts, path: "/discounts", exact: true },
+    { component: News, path: "/news", exact: true },
+    { component: Book, path: "/book", exact: true },
+    { component: CategoryContainer, path: "/category/:category", exact: true },
+    { component: SearchResult, path: "/searchresults/:book", exact: true },
+    { component: UserProfile, path: "/user", exact: true },
+    { component: Basket, path: "/basket", exact: true },
+    { component: Order, path: "/order", exact: true },
+    { component: MyOrders, path: "/myorders", exact: true },
+    { component: Chat, path: "/chat", exact: true },
+    { component: Payment, path: "/payment", exact: true },
+    { component: Feedback, path: "/feedback", exact: true },
+    { component: Oferta, path: "/oferta", exact: true },
+    { component: Article, path: "/article/:id", exact: true },
+    { component: Example, path: "/example", exact: true },
+    { component: NotFound, exact: true },
 ];
 
 function App() {
-  return (
-    <Router>
-      <div className="App mb-20 sm:mb-0">
-        <Header />
-        <Switch>
-          {pages.map((v,i) => (
-            <Route
-              key={i}
-              exact={v.exact}
-              path={v?.path}
-              component={v.component}
-            />
-          ))}
-          {/* <Route exact path="/" component={Home} />
+    useEffect(() => {
+        document.addEventListener("contextmenu", (event) =>
+            event.preventDefault()
+        );
+        document.onkeydown = function (e) {
+            if (e.keyCode === 123) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode === "I".charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && e.keyCode === "J".charCodeAt(0)) {
+                return false;
+            }
+            if (e.ctrlKey && e.keyCode === "U".charCodeAt(0)) {
+                return false;
+            }
+        };
+    }, []);
+    
+    return (
+        <Router>
+            <div className="App mb-20 sm:mb-0">
+                <Header />
+                <Switch>
+                    {pages.map((v, i) => (
+                        <Route
+                            key={i}
+                            exact={v.exact}
+                            path={v?.path}
+                            component={v.component}
+                        />
+                    ))}
+                    {/* <Route exact path="/" component={Home} />
           <Route exact path="/tops" component={Tops} />
           <Route exact path="/top100" component={Top100} />
           <Route exact path="/discounts" component={Discounts} />
@@ -76,11 +97,11 @@ function App() {
           <Route exact path="/article" component={Article} />
           <Route exact path="/example" component={Example} />
           <Route exact component={NotFound} /> */}
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
-  );
+                </Switch>
+                <Footer />
+            </div>
+        </Router>
+    );
 }
 
 export default App;

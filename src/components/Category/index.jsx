@@ -4,12 +4,14 @@ import icon_search from "assets/images/icon-search.svg";
 import icon_arrow from "assets/images/arrow.svg";
 import mob_icon_user from "assets/images/mob-icon-user.svg";
 import arrow_black from "assets/images/arrow-black.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { IoCloseOutline } from "react-icons/io5";
 import { setAuth } from "redux/modals";
 import { useDispatch } from 'react-redux';
+import { axiosInstance } from '../../axios';
+// import { useParams } from "react-router-dom";
 
 
 
@@ -17,6 +19,13 @@ const Category = ({ catalog, setCatalog }) => {
   const dispatch = useDispatch();
   const route = useHistory();
   const [showCatalog, setShowCatalog] = useState(false);
+  // const catalogTitile = useParams().catalog
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    axiosInstance.get('category/')
+      .then(res => setData(res.data))
+  }, [])
 
   const {t} = useTranslation()
 
@@ -135,9 +144,24 @@ const Category = ({ catalog, setCatalog }) => {
             showCatalog
               ? "trlanslate-x-0"
               : "-translate-x-full lg:translate-x-0"
-          } flex lg:flex-row flex-wrap bg-grey-light lg:bg-white overflow-y-scroll sm:overflow-y-auto`}
+          } flex flex-col lg:flex-row flex-wrap bg-grey-light lg:bg-white overflow-y-scroll sm:overflow-y-auto`}
         >
-          <div
+          {data.map(category => {
+            return(
+              <div
+                onClick={() => {
+                  route.push(`/category/${category.title_en}`);
+                  setCatalog(false);
+                }}
+                className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
+              >
+                <div className="inline-block border-b-2 border-grey-light lg:border-white hover:border-blue hover:text-blue cursor-pointer">
+                  {category.title_ru}
+                </div>
+              </div>
+            )
+          })}
+          {/* <div
             onClick={() => {
               route.push("/category");
               setCatalog(false);
@@ -268,7 +292,7 @@ const Category = ({ catalog, setCatalog }) => {
             <div className="inline-block border-b-2 border-grey-light lg:border-white hover:border-blue hover:text-blue cursor-pointer">
               Семейные
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

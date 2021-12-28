@@ -12,6 +12,7 @@ const initialState = {
     newName: false,
     newPhoneNumber: false,
     deliveryTo: null,
+    getLanguage: localStorage.getItem("i18nextLng")
 };
 
 export const counterSlice = createSlice({
@@ -50,7 +51,7 @@ export const counterSlice = createSlice({
         },
         setNewPhoneNumber: (state, action) => {
             state.newPhoneNumber = action.payload;
-        },
+        }
         // increment: (state) => {
         //     // Redux Toolkit allows us to write "mutating" logic in reducers. It
         //     // doesn't actually mutate the state because it uses the Immer library,
