@@ -22,7 +22,7 @@ const BookGallery = () => {
     useEffect(() => {
         id && axiosInstance.get('user/books/')
             .then(async res => {
-                const book = res.data.filter(book => book.id == id)
+                const book = res.data.filter(book => book.id.toString() === id.toString())
                 setData(book[0])
             })
     }, [id])

@@ -1,4 +1,3 @@
-import axios from "axios";
 import Cart from "components/Cart";
 // import SpecialOffers from "components/SpecialOffers";
 import { useEffect, useState } from "react";
