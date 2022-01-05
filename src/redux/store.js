@@ -1,10 +1,19 @@
-import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "./counter";
+import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import booksReducer from "./books";
+import createSagaMiddleware from "redux-saga";
+import saga from "./saga/sagas";
 import modalsReducer from "./modals";
 
-export const store = configureStore({
+let sagaMiddleware = createSagaMiddleware();
+const middleware = [...getDefaultMiddleware({thunk: false}), sagaMiddleware];
+const store = configureStore({
     reducer: {
-        counter: counterReducer,
         modals: modalsReducer,
+        books: booksReducer,
     },
+    middleware
 });
+
+sagaMiddleware.run(saga);
+
+export default store;

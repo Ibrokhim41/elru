@@ -28,7 +28,7 @@ const pages = [
     { component: Top100, path: "/top100", exact: true },
     { component: Discounts, path: "/discounts", exact: true },
     { component: News, path: "/news", exact: true },
-    { component: Book, path: "/book", exact: true },
+    { component: Book, path: "/book/:id", exact: true },
     { component: CategoryContainer, path: "/category/:category", exact: true },
     { component: SearchResult, path: "/searchresults/:book", exact: true },
     { component: UserProfile, path: "/user", exact: true },

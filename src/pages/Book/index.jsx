@@ -6,12 +6,25 @@ import BookSmillar from "components/BookSmillar";
 import LeaveComment from "components/Modals/LeaveComment";
 import animateScrollTo from "animated-scroll-to";
 import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { sagaActions } from "redux/saga/sagaActions";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const Book = () => {
 
+    const {id} = useParams()
+    const dispatch = useDispatch()
+    const book = useSelector(state => state.books.book)
+
+    console.log('book',  book);
+    
     useEffect(() => {
         animateScrollTo(0)
-    }, [])
+        dispatch({ type: sagaActions.FETCH_BOOK_SAGA, payload: id })
+    }, [id])
+
+
 
     return (
         <>

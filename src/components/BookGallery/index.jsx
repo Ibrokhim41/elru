@@ -5,56 +5,27 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useState } from 'react';
 import { useWindowDimensions } from 'hooks/ScreenWidth';
+import { useEffect } from 'react';
+import { axiosInstance } from '../../axios';
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const BookGallery = () => {
 
     const {width} = useWindowDimensions()
 
     const [mainImage, setMainImage] = useState('https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-thriller-book-cover-design-template-3675ae3e3ac7ee095fc793ab61b812cc_screen.jpg?ts=1588152105')
-    const mockImage = ["https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-thriller-book-cover-design-template-3675ae3e3ac7ee095fc793ab61b812cc_screen.jpg?ts=1588152105", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHxG94GriGy7XUjtU1kNwh-mTqakdiGC4JVw&usqp=CAU", "https://i.pinimg.com/736x/8b/e3/82/8be382fd93104a0b8bd1cb525c9c37fc.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsfxrcUtlaLqSTTpA7N9cWKIopvRNtXngM2A&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO4yGwkz128dpVHBztwERbm6Z6kIXwQ03V0A&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm_hNzg7tAu4Jo1--XxevtVfGyD-kk4T76uw&usqp=CAU"]
-    // const mockImage = ["https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-thriller-book-cover-design-template-3675ae3e3ac7ee095fc793ab61b812cc_screen.jpg?ts=1588152105", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHxG94GriGy7XUjtU1kNwh-mTqakdiGC4JVw&usqp=CAU",]
+    const [mockImage, setMockImage] = useState(["https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-thriller-book-cover-design-template-3675ae3e3ac7ee095fc793ab61b812cc_screen.jpg?ts=1588152105", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHxG94GriGy7XUjtU1kNwh-mTqakdiGC4JVw&usqp=CAU", "https://i.pinimg.com/736x/8b/e3/82/8be382fd93104a0b8bd1cb525c9c37fc.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsfxrcUtlaLqSTTpA7N9cWKIopvRNtXngM2A&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO4yGwkz128dpVHBztwERbm6Z6kIXwQ03V0A&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm_hNzg7tAu4Jo1--XxevtVfGyD-kk4T76uw&usqp=CAU"])
+    
+    const id = useParams().id
+    const [data, setData] = useState(null)
 
-    // const SampleNextArrow = (props) => {
-    //     const { className, style, onClick } = props;
-    //     return (
-    //         <div
-    //             className={className}
-    //             style={{
-    //                 ...style,
-    //                 display: width > 769 ? "flex" : "none",
-    //                 width: "100%",
-    //                 justifyContent: "center",
-    //                 zIndex: "5",
-    //                 right: "0",
-    //                 top: "100%",
-    //                 marginTop: "10px"
-    //             }}
-    //             onClick={onClick}
-    //         >
-    //             <BiChevronDownCircle className="text-lg text-blue" />
-    //         </div>
-    //     )
-    // }
-    // const SamplePrevArrow = (props) => {
-    //     const { className, style, onClick } = props;
-    //     return (
-    //         <div
-    //             className={className}
-    //             style={{
-    //                 ...style,
-    //                 display: width > 769 ? "flex" : "none",
-    //                 width: "100%",
-    //                 justifyContent: "center",
-    //                 zIndex: "5",
-    //                 left: "0",
-    //                 top: "-14px",
-    //             }}
-    //             onClick={onClick}
-    //         >
-    //             <BiChevronUpCircle className="text-lg text-blue" />
-    //         </div>
-    //     )
-    // }
+    useEffect(() => {
+        id && axiosInstance.get('user/books/')
+            .then(async res => {
+                const book = res.data.filter(book => book.id == id)
+                setData(book[0])
+            })
+    }, [id])
 
     const settings = {
         dots: width > 769 ? false : true,
@@ -65,8 +36,13 @@ const BookGallery = () => {
         speed: 500,
         arrows: false,
     };
-    // nextArrow: <SampleNextArrow />,
-    // prevArrow: <SamplePrevArrow />
+
+    useEffect(() => {
+        axiosInstance.get('user/books/')
+            .then(res => {
+                                
+            })
+    },[])
 
 
     return (
@@ -90,7 +66,7 @@ const BookGallery = () => {
                 </Slider>
             </div>
             <div
-                style={{ background: `url('${mainImage}')` }}
+                style={{ background: `url('${data && data.image}')` }}
                 className="book-gallery-main mx-auto"></div>
         </div>
     )

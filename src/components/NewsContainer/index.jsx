@@ -33,7 +33,7 @@ const CartSliderContainer = () => {
     </div>
 
     const fetchNews = () => {
-        axiosInstance.get('/news/')
+        axiosInstance.get('news/')
             .then(res => {
                 setNews(res.data)
             })

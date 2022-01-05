@@ -16,20 +16,22 @@ import { Squash as Hamburger } from "hamburger-react";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setAuth, setStartChat } from "redux/modals";
+import { setAuth, setLanguage, setStartChat } from "redux/modals";
 import { useTranslation } from "react-i18next";
 import { useDetectClickOutside } from 'react-detect-click-outside';
 import { useWindowDimensions } from 'hooks/ScreenWidth';
 import { useCallback } from "react";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
+import axios from 'axios';
 
 const Header = () => {
   const dispatch = useDispatch();
   const auth = useSelector(state => state.modals.auth)
   const { t, i18n } = useTranslation();
-  const changeLanguage = (language) => {
-    i18n.changeLanguage(language);
-    setCheckLanguage(language);
+  const changeLanguage = async (language) => {
+    await i18n.changeLanguage(language);
+    await setCheckLanguage(language);
+    await dispatch(setLanguage(i18n.language))
   };
   const route = useHistory();
   const [catalog, setCatalog] = useState(false);
@@ -59,7 +61,8 @@ const Header = () => {
     auth ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto")
   }, [auth])
 
-  const [count] = useState(4)
+  // const [count] = useState(4)
+  const count = useSelector(state => state.books.cart)
 
   const [y, setY] = useState(0);
   const [isUp, setIsUp] = useState(true);
@@ -80,6 +83,25 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll);
     }
   }, [handleScroll])
+
+  // delete
+  const test = () => {
+    axios.post('https://data.elru.uz/ru/accounts/login/', {
+      "login": "elruadmin",
+      "password": "elruadmin2021"
+    }).then(res => {
+      console.log(res);
+    })
+  }
+  const test_get = () => {
+    axios.get('https://data.elru.uz/ru/accounts/profile/', {
+      headers: {
+        Authorization: 'Bearer .eJxVjEEOwiAQRe_C2pAOI7S4dO8ZCDAzUjU0Ke3KeHfbpAvd_vfef6sQ16WEtfEcRlIXBer0u6WYn1x3QI9Y75POU13mMeld0Qdt-jYRv66H-3dQYitb7TE5EcuuS2cyaJwbiElg8CzkYvYUoWeDuBnsc-pMj4CQLSZhAas-X_mHOGY:1n4c5T:6U9ofh5Z7NMaPPFcWUME2qpCt81fapaIVtrwmuiRHTA'
+      }
+    }).then(res => {
+      console.log(res);
+    })
+  }
 
   return (
     <>
@@ -164,14 +186,14 @@ const Header = () => {
                 setShow={setAuth}
               />
             </div>
-            <div
+            <button
               ref={ref}
               onClick={handleCatalog}
               className="burger flex justify-center items-center h-full text-white bg-blue font-bold ctext-base focus:outline-none cursor-pointer"
             >
               <Hamburger toggled={catalog} size={20} />
               <span className="hidden lg:block">{t("header.categories")}</span>
-            </div>
+            </button>
             {/* search */}
             <form onSubmit={submitSearch} className="header-search hidden md:flex">
               <input
@@ -191,25 +213,25 @@ const Header = () => {
             </form>
             {/* user-route */}
             <div className="flex header-user font-medium ctext-sm">
-              <div
+              <button
                 onClick={() => {
                   dispatch(setStartChat(true));
                   dispatch(setAuth(true));
                   route.push("/chat");
                 }}
-                className="flex flex-col cursor-pointer text-grey-dark hover:text-blue"
+                className="flex flex-col items-center cursor-pointer text-grey-dark hover:text-blue"
               >
                 <img src={icon_chat} alt="chat-icon" />
                 {t("header.chat")}
-              </div>
-              <div
+              </button>
+              <button
                 onClick={() => route.push("/myorders")}
-                className="flex flex-col cursor-pointer text-grey-dark hover:text-blue mx-10"
+                className="flex flex-col items-center cursor-pointer text-grey-dark hover:text-blue mx-10"
               >
                 <img src={icon_order} alt="order-icon" />
                 {t("header.orders")}
-              </div>
-              <div
+              </button>
+              <button
                 onClick={() => route.push("/basket")}
                 className="basket relative flex flex-col justify-between items-center cursor-pointer text-grey-dark hover:text-blue"
               >
@@ -224,11 +246,11 @@ const Header = () => {
                   <span
                     className="order-count absolute text-blue font-bold"
                     style={{
-                      left: `${count > 9 ? '41%' : '47%'}`
-                    }}>{count}</span>
+                      left: `${count.length > 9 ? '41%' : '47%'}`
+                    }}>{count.length}</span>
                 </div>
                 {t("header.basket")}
-              </div>
+              </button>
             </div>
             {/* user-info */}
             {/* <div
@@ -316,7 +338,7 @@ const Header = () => {
           >
             <img src={mob_icon_basket} alt="basket-icon" />
             <span>Корзина</span>
-            <div className={`${!count && 'hidden'} absolute top-0 right-0 bg-blue text-white font-bold rounded-full w-5 h-5 flex justify-center items-center`}>{count}</div>
+            <div className={`${!count && 'hidden'} absolute top-0 right-0 bg-blue text-white font-bold rounded-full w-5 h-5 flex justify-center items-center`}>{count.length}</div>
           </div>
           <div
             onClick={() => {

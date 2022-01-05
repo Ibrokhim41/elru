@@ -8,10 +8,9 @@ import { useWindowDimensions } from "../../hooks/ScreenWidth";
 import { useHistory } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-// import { axiosInstance } from '../../axios';
+import { axiosInstance } from '../../axios';
 import moment from 'moment';
 import cliTruncate from 'cli-truncate';
-import axios from 'axios';
 
 const NewsContainer = () => {
     const { t } = useTranslation()
@@ -20,9 +19,8 @@ const NewsContainer = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        axios.get('https://elru.cf/ru/news/')
+        axiosInstance.get('news/')
             .then(res => {
-                console.log(res.data)
                 setData(res.data)
             })
     }, [])

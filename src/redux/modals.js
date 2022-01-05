@@ -51,6 +51,9 @@ export const counterSlice = createSlice({
         },
         setNewPhoneNumber: (state, action) => {
             state.newPhoneNumber = action.payload;
+        },
+        setLanguage: (state, action) => {
+            state.getLanguage = action.payload
         }
         // increment: (state) => {
         //     // Redux Toolkit allows us to write "mutating" logic in reducers. It
@@ -80,7 +83,8 @@ export const {
     setDeliveryTo,
     setThanks,
     setNewName,
-    setNewPhoneNumber
+    setNewPhoneNumber,
+    setLanguage,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;

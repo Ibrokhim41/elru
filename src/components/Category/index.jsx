@@ -12,6 +12,7 @@ import { setAuth } from "redux/modals";
 import { useDispatch } from 'react-redux';
 import { axiosInstance } from '../../axios';
 // import { useParams } from "react-router-dom";
+import i18n from '../../i18n';
 
 
 
@@ -149,6 +150,7 @@ const Category = ({ catalog, setCatalog }) => {
           {data.map(category => {
             return(
               <div
+                key={category.id}
                 onClick={() => {
                   route.push(`/category/${category.title_en}`);
                   setCatalog(false);
@@ -156,7 +158,7 @@ const Category = ({ catalog, setCatalog }) => {
                 className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
               >
                 <div className="inline-block border-b-2 border-grey-light lg:border-white hover:border-blue hover:text-blue cursor-pointer">
-                  {category.title_ru}
+                  {eval(`category.title_${i18n.language}`)}
                 </div>
               </div>
             )

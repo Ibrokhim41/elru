@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-    baseURL: "http://elru.cf/ru/",
+    baseURL: "https://data.elru.uz/ru/",
 });

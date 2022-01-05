@@ -23,7 +23,6 @@ const CategoryContainer = () => {
             "Новинки",
             "Бестселлеры",
             "Рекомендуемое",
-            "Со скидкой"
         ],
         languages: [
             "Английский",
@@ -61,10 +60,10 @@ const CategoryContainer = () => {
         animateScrollTo(0, 500)
     }, [])
 
-    useEffect(() => {
-        axiosInstance.get(`books/`)
-            .then(res => console.log(res.data))
-    }, [category])
+    // useEffect(() => {
+    //     axiosInstance.get(`user/books/`)
+    //         .then(res => console.log(res.data))
+    // }, [category])
 
 
 
@@ -93,9 +92,9 @@ const CategoryContainer = () => {
                 {/* lang-filter */}
                 {/* filter-title */}
                 <div className="flex items-center mt-4">
-                    <div
+                    <button
                         onClick={() => setShowFilter(!showFilter)}
-                        className="text-black-dark ctext-lg font-medium cursor-pointer">Язык</div>
+                        className="text-black-dark ctext-lg font-medium cursor-pointer">Язык</button>
                     <BiChevronDown className={`text-blue text-2xl transition-all transhtmlForm ${showFilter ? 'rotate-180' : 'rotate-0'}`} />
                 </div>
                 {/* filter-body */}
@@ -119,9 +118,9 @@ const CategoryContainer = () => {
                 {/* publisher-filter */}
                 {/* filter-title */}
                 <div className="flex items-center mt-4">
-                    <div
+                    <button
                         onClick={() => setShowFilter2(!showFilter2)}
-                        className="text-black-dark ctext-lg font-medium cursor-pointer">Издательство</div>
+                        className="text-black-dark ctext-lg font-medium cursor-pointer">Издательство</button>
                     <BiChevronDown className={`text-blue text-2xl transition-all transhtmlForm ${showFilter2 ? 'rotate-180' : 'rotate-0'}`} />
                 </div>
                 {/* filter-body */}
@@ -145,9 +144,9 @@ const CategoryContainer = () => {
                 {/* author-filter */}
                 {/* filter-title */}
                 <div className="flex items-center mt-4">
-                    <div
+                    <button
                         onClick={() => setShowFilter3(!showFilter3)}
-                        className="text-black-dark ctext-lg font-medium cursor-pointer">Автор</div>
+                        className="text-black-dark ctext-lg font-medium cursor-pointer">Автор</button>
                     <BiChevronDown className={`text-blue text-2xl transition-all transhtmlForm ${showFilter3 ? 'rotate-180' : 'rotate-0'}`} />
                 </div>
                 {/* filter-body */}

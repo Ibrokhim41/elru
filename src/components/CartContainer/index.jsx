@@ -1,16 +1,23 @@
 import "./style.css"
 import Cart from '../Cart/index';
 import ReactPaginate from "react-paginate";
-import JsonData from "MOCK_DATA.json"
 import { useState, useEffect } from 'react';
 import icon_chevron from 'assets/images/chevron.svg';
 import animateScrollTo from "animated-scroll-to";
 import { useWindowDimensions } from "hooks/ScreenWidth"
+// import { axiosInstance } from '../../axios';
+import Loading from "components/Loading";
+import { useDispatch } from 'react-redux';
+import { sagaActions } from "redux/saga/sagaActions";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useSelector } from "react-redux";
 
-const CartSliderContainer = ({ grid = "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6", rows={xl: 24, lg: 20, md: 15, sm: 12}}) => {
+const CartSliderContainer = ({ grid = "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6", rows = { xl: 24, lg: 20, md: 15, sm: 12 } }) => {
     const { width } = useWindowDimensions()
-
-    const [books, setBooks] = useState(JsonData)
+    const dispatch = useDispatch();
+    const books = useSelector(state => state.books.books);
+    const { category } = useParams();
+    // const [books, setBooks] = useState([])
     const [pageNumber, setPageNumber] = useState(0)
 
     const booksPerPage = width > 1440 ? rows.xl : width > 769 ? rows.lg : width > 576 ? rows.md : rows.sm
@@ -18,9 +25,9 @@ const CartSliderContainer = ({ grid = "grid-cols-2 sm:grid-cols-3 md:grid-cols-4
 
     const displayBooks = books
         .slice(pagesVisited, pagesVisited + booksPerPage)
-        .map(book => {
+        .map((book) => {
             return (
-                <Cart key={book.name} author={book.name} />
+                <Cart data={book} />
             )
         })
 
@@ -38,24 +45,32 @@ const CartSliderContainer = ({ grid = "grid-cols-2 sm:grid-cols-3 md:grid-cols-4
     </div>
 
     useEffect(() => {
-        setBooks(JsonData)
-    },[])
+        dispatch({ type: sagaActions.FETCH_DATA_SAGA, payload: category })
+    }, [category])
 
     return (
         <>
-            <div>
-                <div className={`container mx-auto grid ${grid}`}>
-                    {displayBooks}
-                </div>
-                <ReactPaginate
-                    previousLabel={prev}
-                    nextLabel={next}
-                    pageCount={pageCount}
-                    onPageChange={changePage}
-                    containerClassName="pagination w-full flex justify-center text-grey-dark font-medium px-2 my-10"
-                    activeClassName="text-white bg-blue"
-                />
-            </div>
+            {
+                books.length ?
+                    <div>
+                        <div className={`container mx-auto grid ${grid}`}>
+                            {displayBooks}
+                        </div>
+                        {
+                            books.length > 16 ?
+                                <ReactPaginate
+                                    previousLabel={prev}
+                                    nextLabel={next}
+                                    pageCount={pageCount}
+                                    onPageChange={changePage}
+                                    containerClassName="pagination w-full flex justify-center text-grey-dark font-medium px-2 my-10"
+                                    activeClassName="text-white bg-blue"
+                                />
+                                : ''
+                        }
+                    </div>
+                    : "NO Data"
+            }
         </>
     )
 }
