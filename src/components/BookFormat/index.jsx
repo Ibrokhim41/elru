@@ -45,7 +45,7 @@ const BookFormat = () => {
             <div className="flex flex-col sm:flex-row justify-between xl:block">
                 {data && data.form.map(data => {
                     if (data === 'paper') {
-                        return (
+                    return (
                             <div
                                 onClick={() => setFormat(format.paper ? { ...format, paper: false } : { ...format, paper: true })}
                                 className={`${format.paper ? 'bg-blue' : 'bg-white'} w-full sm:w-1/3 xl:w-full flex flex-row sm:flex-col md:flex-row justify-between items-center cursor-pointer border border-grey rounded-md p-2 mt-5 hover:border-blue`}>

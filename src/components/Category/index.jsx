@@ -158,7 +158,7 @@ const Category = ({ catalog, setCatalog }) => {
                 className="w-full lg:w-1/4 cursor-pointer mt-6 p-3"
               >
                 <div className="inline-block border-b-2 border-grey-light lg:border-white hover:border-blue hover:text-blue cursor-pointer">
-                  {eval(`category.title_${i18n.language}`)}
+                  {/* {eval(`category.title_${i18n.language}`)} */}
                 </div>
               </div>
             )

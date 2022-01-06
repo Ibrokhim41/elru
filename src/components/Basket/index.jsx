@@ -58,9 +58,9 @@ const Basket = () => {
                                                 style={{ background: `url('${book.image}')` }}
                                                 className="book-smillar cursor-pointer"></div>
                                             <div className="ml-2">
-                                                <div 
+                                                {/* <div 
                                                     onClick={() => route.push(`/book/${book.id}`)}
-                                                    className="text-black-dark text-base font-medium flex-initial cursor-pointer">{cliTruncate(eval(`book.title_${language}`), 50)}</div>
+                                                    // className="text-black-dark text-base font-medium flex-initial cursor-pointer">{cliTruncate(eval(`book.title_${language}`), 50)}</div> */}
                                                 <div className="text-black-dark ctext-base mt-2 flex items-center">
                                                     Формат:
                                                     {book.form.map((item, i) => {
