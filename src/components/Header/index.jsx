@@ -22,7 +22,7 @@ import { useDetectClickOutside } from 'react-detect-click-outside';
 import { useWindowDimensions } from 'hooks/ScreenWidth';
 import { useCallback } from "react";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
-import axios from 'axios';
+// import axios from 'axios';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -85,23 +85,23 @@ const Header = () => {
   }, [handleScroll])
 
   // delete
-  const test = () => {
-    axios.post('https://data.elru.uz/ru/accounts/login/', {
-      "login": "elruadmin",
-      "password": "elruadmin2021"
-    }).then(res => {
-      console.log(res);
-    })
-  }
-  const test_get = () => {
-    axios.get('https://data.elru.uz/ru/accounts/profile/', {
-      headers: {
-        Authorization: 'Bearer .eJxVjEEOwiAQRe_C2pAOI7S4dO8ZCDAzUjU0Ke3KeHfbpAvd_vfef6sQ16WEtfEcRlIXBer0u6WYn1x3QI9Y75POU13mMeld0Qdt-jYRv66H-3dQYitb7TE5EcuuS2cyaJwbiElg8CzkYvYUoWeDuBnsc-pMj4CQLSZhAas-X_mHOGY:1n4c5T:6U9ofh5Z7NMaPPFcWUME2qpCt81fapaIVtrwmuiRHTA'
-      }
-    }).then(res => {
-      console.log(res);
-    })
-  }
+  // const test = () => {
+  //   axios.post('https://data.elru.uz/ru/accounts/login/', {
+  //     "login": "elruadmin",
+  //     "password": "elruadmin2021"
+  //   }).then(res => {
+  //     console.log(res);
+  //   })
+  // }
+  // const test_get = () => {
+  //   axios.get('https://data.elru.uz/ru/accounts/profile/', {
+  //     headers: {
+  //       Authorization: 'Bearer .eJxVjEEOwiAQRe_C2pAOI7S4dO8ZCDAzUjU0Ke3KeHfbpAvd_vfef6sQ16WEtfEcRlIXBer0u6WYn1x3QI9Y75POU13mMeld0Qdt-jYRv66H-3dQYitb7TE5EcuuS2cyaJwbiElg8CzkYvYUoWeDuBnsc-pMj4CQLSZhAas-X_mHOGY:1n4c5T:6U9ofh5Z7NMaPPFcWUME2qpCt81fapaIVtrwmuiRHTA'
+  //     }
+  //   }).then(res => {
+  //     console.log(res);
+  //   })
+  // }
 
   return (
     <>

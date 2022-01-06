@@ -11,11 +11,12 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 const BookGallery = () => {
 
-    const {width} = useWindowDimensions()
-
+    const { width } = useWindowDimensions()
+    // eslint-disable-next-line
     const [mainImage, setMainImage] = useState('https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-thriller-book-cover-design-template-3675ae3e3ac7ee095fc793ab61b812cc_screen.jpg?ts=1588152105')
+    // eslint-disable-next-line
     const [mockImage, setMockImage] = useState(["https://d1csarkz8obe9u.cloudfront.net/posterpreviews/action-thriller-book-cover-design-template-3675ae3e3ac7ee095fc793ab61b812cc_screen.jpg?ts=1588152105", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHxG94GriGy7XUjtU1kNwh-mTqakdiGC4JVw&usqp=CAU", "https://i.pinimg.com/736x/8b/e3/82/8be382fd93104a0b8bd1cb525c9c37fc.jpg", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsfxrcUtlaLqSTTpA7N9cWKIopvRNtXngM2A&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO4yGwkz128dpVHBztwERbm6Z6kIXwQ03V0A&usqp=CAU", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm_hNzg7tAu4Jo1--XxevtVfGyD-kk4T76uw&usqp=CAU"])
-    
+
     const id = useParams().id
     const [data, setData] = useState(null)
 
@@ -40,19 +41,19 @@ const BookGallery = () => {
     useEffect(() => {
         axiosInstance.get('user/books/')
             .then(res => {
-                                
+
             })
-    },[])
+    }, [])
 
 
     return (
         <div className="flex justify-between book-gallery">
             <div className={`w-full md:w-1/5 book-slider ${mockImage.length > 5 && 'mt-0'}`}>
                 <Slider {...settings}>
-                    {mockImage.map((image,i) => {
+                    {mockImage.map((image, i) => {
                         return (
                             <span key={i}>
-                                <div 
+                                <div
                                     onClick={() => setMainImage(image)}
                                     className="w-full flex justify-center">
                                     <div

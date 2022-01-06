@@ -6,7 +6,6 @@ import icon_chevron from 'assets/images/chevron.svg';
 import animateScrollTo from "animated-scroll-to";
 import { useWindowDimensions } from "hooks/ScreenWidth"
 // import { axiosInstance } from '../../axios';
-import Loading from "components/Loading";
 import { useDispatch } from 'react-redux';
 import { sagaActions } from "redux/saga/sagaActions";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
@@ -46,6 +45,7 @@ const CartSliderContainer = ({ grid = "grid-cols-2 sm:grid-cols-3 md:grid-cols-4
 
     useEffect(() => {
         dispatch({ type: sagaActions.FETCH_DATA_SAGA, payload: category })
+    // eslint-disable-next-line
     }, [category])
 
     return (

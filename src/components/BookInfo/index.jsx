@@ -36,7 +36,8 @@ const BookInfo = () => {
             {data ?
                 <div className={`w-full`}>
                     {/* titile */}
-                    {/* <div className="text-blue-dark ctext-xl font-bold">{data.title_ru && eval(`data.title_${language}`)}</div> */}
+                    {/* eslint-disable-next-line */}
+                    <div className="text-blue-dark ctext-xl font-bold">{data.title_ru && eval(`data.title_${language}`)}</div>
                     {/* discount */}
                     <div className="flex mt-4">
                         <div className="py-1 px-2 mx-1 text-white rounded-md font-bold ctext-base bg-red-dark">Бестселлер</div>
@@ -45,7 +46,8 @@ const BookInfo = () => {
                     </div>
                     {/* category author */}
                     <div className="text-grey-dark ctext-base font-medium mt-2 mb-4">{data.year && data.year}</div>
-                    {/* <div className="text-grey-dark ctext-base font-medium mb-4">Автор: <span className="text-blue border-b-2  cursor-pointer">{data.author && eval(`data.author.name_${language}`)}</span></div> */}
+                    {/* eslint-disable-next-line */}
+                    <div className="text-grey-dark ctext-base font-medium mb-4">Автор: <span className="text-blue border-b-2  cursor-pointer">{data.author && eval(`data.author.name_${language}`)}</span></div>
                     <div className="text-grey-dark ctext-base font-medium mb-4">{data.category.title_ru && data.category.title_ru}</div>
                     {/* formats */}
                     <div className="text-black-dark ctext-base font-bold mb-4">Доступные форматы:</div>
@@ -92,7 +94,8 @@ const BookInfo = () => {
                     {data.description_ru &&
                         <>
                             <div className={`text-grey-dark ctext-base font-medium ${!readMore && 'text-doted'}`}>
-                            {/* {readMore ? eval(`data.description_${language}`) : cliTruncate(eval(`data.description_${language}`), 200)} */}
+                            {/* eslint-disable-next-line */}
+                            {readMore ? eval(`data.description_${language}`) : cliTruncate(eval(`data.description_${language}`), 200)}
                             </div>
                             <div
                                 onClick={() => setReadMore(!readMore)}

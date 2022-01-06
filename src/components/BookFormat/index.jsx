@@ -43,6 +43,7 @@ const BookFormat = () => {
             <div className="text-black ctext-lg font-bold sm:text-center text-left xl:text-left">Выберите формат:</div>
             {/* book formats */}
             <div className="flex flex-col sm:flex-row justify-between xl:block">
+                {/* eslint-disable-next-line */}
                 {data && data.form.map(data => {
                     if (data === 'paper') {
                     return (

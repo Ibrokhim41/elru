@@ -22,6 +22,7 @@ const Book = () => {
     useEffect(() => {
         animateScrollTo(0)
         dispatch({ type: sagaActions.FETCH_BOOK_SAGA, payload: id })
+        // eslint-disable-next-line
     }, [id])
 
 

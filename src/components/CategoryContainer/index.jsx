@@ -6,12 +6,9 @@ import { useState, useEffect } from "react";
 import CartContainer from 'components/CartContainer';
 import animateScrollTo from "animated-scroll-to";
 import { useWindowDimensions } from 'hooks/ScreenWidth';
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import { axiosInstance } from '../../axios';
 
 const CategoryContainer = () => {
 
-    const category = useParams().category
     const { width } = useWindowDimensions()
     const [showFilter, setShowFilter] = useState(false)
     const [showFilter2, setShowFilter2] = useState(false)
