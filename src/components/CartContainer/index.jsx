@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { sagaActions } from "redux/saga/sagaActions";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useSelector } from "react-redux";
+import SkleetonCartContainer from "components/Skeletons/CartContainer";
 
 const CartSliderContainer = ({ grid = "grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6", rows = { xl: 24, lg: 20, md: 15, sm: 12 } }) => {
     const { width } = useWindowDimensions()
@@ -69,7 +70,7 @@ const CartSliderContainer = ({ grid = "grid-cols-2 sm:grid-cols-3 md:grid-cols-4
                                 : ''
                         }
                     </div>
-                    : "NO Data"
+                    : "NO DATA"
             }
         </>
     )

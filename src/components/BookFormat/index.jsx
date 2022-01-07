@@ -46,14 +46,14 @@ const BookFormat = () => {
                 {/* eslint-disable-next-line */}
                 {data && data.form.map(data => {
                     if (data === 'paper') {
-                    return (
+                        return (
                             <div
                                 onClick={() => setFormat(format.paper ? { ...format, paper: false } : { ...format, paper: true })}
-                                className={`${format.paper ? 'bg-blue' : 'bg-white'} w-full sm:w-1/3 xl:w-full flex flex-row sm:flex-col md:flex-row justify-between items-center cursor-pointer border border-grey rounded-md p-2 mt-5 hover:border-blue`}>
-                                <div className={`${format.paper ? 'text-white' : 'text-grey-dark'} flex ctext-base font-medium my-2 md:my-0`}>Бумажная <img src={icon_book} alt="icon-book" className="ml-1" /></div>
+                                className={`${format.paper || currentCart.length ? 'bg-blue' : 'bg-white'} w-full sm:w-1/3 xl:w-full flex flex-row sm:flex-col md:flex-row justify-between items-center cursor-pointer border border-grey rounded-md p-2 mt-5 hover:border-blue`}>
+                                <div className={`${format.paper || currentCart.length ? 'text-white' : 'text-grey-dark'} flex ctext-base font-medium my-2 md:my-0`}>Бумажная <img src={icon_book} alt="icon-book" className="ml-1" /></div>
                                 <div className="flex flex-col">
-                                    <div className={`${format.paper ? 'text-white' : 'text-black-dark'} ctext-base font-bold`}>190 000 сум</div>
-                                    <div className={`${format.paper ? 'text-white' : 'text-grey'} discount-line relative flex items-center ctext-xs`}>200 000 сум</div>
+                                    <div className={`${format.paper || currentCart.length ? 'text-white' : 'text-black-dark'} ctext-base font-bold`}>190 000 сум</div>
+                                    <div className={`${format.paper || currentCart.length ? 'text-white' : 'text-grey'} discount-line relative flex items-center ctext-xs`}>200 000 сум</div>
                                 </div>
                             </div>
                         )
