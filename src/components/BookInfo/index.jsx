@@ -95,7 +95,7 @@ const BookInfo = () => {
                         <>
                             <div className={`text-grey-dark ctext-base font-medium ${!readMore && 'text-doted'}`}>
                             {/* eslint-disable-next-line */}
-                            {readMore ? eval(`data.description_${language}`) : cliTruncate(eval(`data.description_${language}`), 200)}
+                            {readMore && data.description_language ? eval(`data.description_${language}`) : cliTruncate(eval(`data.description_${language}`), 200)}
                             </div>
                             <div
                                 onClick={() => setReadMore(!readMore)}
